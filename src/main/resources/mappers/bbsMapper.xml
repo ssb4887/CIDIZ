@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.bbs.mappers.bbs">
+<!-- SQL문 작성 공간 -->
+
+		<!-- 유저 아이디 중복체크 SQL -->
+		<!-- id : 함수이름, resultType : 반환타입 -->
+		<select id = "idCheck" resultType = "string">
+				SELECT	user_id
+				FROM 	USERS
+				WHERE	user_id = #{user_id}
+		</select>
+
+		<!-- 이메일 인증번호 불러오기 SQL -->
+		<select id = "getAuthnum" resultType = "int">
+				SELECT	auth_num
+				FROM	AUTHMAIL
+				WHERE	user_mail = #{user_mail}
+		</select>
+		<!--
+				_int 	: 우리가 알고 있는 데이터타입 int
+				 int 	: Integer (null 값이 올 수 있는 것은 Integer로 받아온다.)
+		-->
+		
+		<!-- 이메일 인증번호 수정하기 SQL -->
+		<update id = "resetAuthnum">
+				UPDATE AUTHMAIL
+				SET 		auth_num	= #{auth_num}
+				WHERE	user_mail 	= #{user_mail}
+		</update>
+		
+		<!-- 이메일 인증번호 저장 SQL -->
+		<insert id = "setAuthnum">
+				INSERT INTO AUTHMAIL
+				VALUES (#{user_mail}, #{auth_num})
+		</insert>
+		
+		<!-- 이메일 인증번호 삭제 SQL -->
+		<delete id = "deleteAuthmail">
+				DELETE FROM AUTHMAIL
+				WHERE user_mail = #{user_mail}
+		</delete>
+		
+		<!-- 회원가입 SQL -->
+		<insert id = "join">
+				INSERT INTO USERS
+				VALUES(
+							#{user_id}, #{user_pw}, #{user_name}, 
+							#{user_gender}, #{user_email}, #{user_addr}
+							)
+		</insert>
+
+		<!-- 로그인 처리 SQL -->
+		<select id = "login" resultType = "Users">
+		<!-- 반환 타입은 관리하고 있는 bean 객체의 bean class의 절대경로를 적어줘야 한다. -->
+				SELECT	*
+				FROM 	USERS
+				WHERE	user_id = #{user_id}
+				AND 		user_pw = #{user_pw}
+		</select>
+		
+		<!-- 게시물 쓰기 -->
+		<insert id="write">
+				INSERT INTO BOARDER (writer, title, contents, reg_date, likey, Available)
+				VALUES(#{writer}, #{title}, #{contents}, now(), 0, 0)
+				<!-- ### AUTO_INCREMENT 사용시 PRIMARY KEY를 받아올때 사용 ###
+						<selectKey>	: select해오고 primary key를 가져 온다.
+						keyProperty 	: bean에 속성 중 어떠한 값으로 지정할건지 작성
+						resultType		: 가져오는 데이터 타입
+						order : 순서 [언제 실행 할 건지 작성] -->
+				<selectKey keyProperty="boarder_id" resultType="_int" order="AFTER">
+						SELECT LAST_INSERT_ID()
+				</selectKey>
+		</insert><!-- 현재 날짜와 시간 => oracle 	: SYSDATE / MySQL 	: now()-->
+		
+		
+		<!-- 파일 업로드 SQL -->
+		<insert id="fileUpload">
+				INSERT INTO UPLOADFILE (boarder_id, file_name, file_realName, count)
+				VALUES(#{boarder_id}, #{file_name}, #{file_realName}, 0)
+		</insert>
+		
+		
+		<!-- 게시물 불러오기 SQL -->
+		<select id="getBoarder" parameterType = "int" resultType = "Boarder">
+				SELECT	*
+				FROM 		BOARDER
+				WHERE		boarder_id 	= #{boarder_id}
+				AND 		available 		= 0
+		</select>
+		
+		
+		<!-- 첨부파일 불러오기 SQL -->
+		<select id="getUploadFile"  resultType = "UploadFile">
+				SELECT	*
+				FROM 		UPLOADFILE
+				WHERE 	boarder_id	= #{boarder_id}
+		</select>
+		
+		
+		<!-- 첨부파일 불러오기 SQL -->
+		<select id="getUploadFileReal" resultType = "UploadFile">
+				SELECT	*
+				FROM 		UPLOADFILE
+				WHERE 	file_realName	= #{file_realName}
+		</select>
+		
+		
+		<!-- 게시물 수정하기 SQL -->
+		<update id="updateBoarder">
+				UPDATE	 BOARDER
+				SET		 title = #{title}, contents = #{contents}
+				WHERE	 boarder_id = #{boarder_id}
+		</update>
+		
+		
+		<!-- 업로드 파일 수정 SQL -->
+		<update id="updateFile">
+				UPDATE	 UPLOADFILE
+				SET		 file_name 	= #{file_name}, file_realName = #{file_realName}
+				WHERE	 boarder_id 	= #{boarder_id}
+		</update>
+		
+		
+		<!-- 게시글에 최대값 검색 SQL -->
+		<select id="getMaxBoarder_id" resultType="_int">
+				SELECT	 IFNULL(MAX(boarder_id), 0)
+				FROM 	 BOARDER
+		</select>
+		
+		
+		<!-- 게시글 리스트 10개 검색 SQL -->
+		<select id="getBbsList" resultType="Boarder">
+				SELECT	 * 
+				FROM 	 BOARDER
+				<!-- <![CDATA[이 안에 부등호를 넣어야 부등호가 인식이 된다. 쿼리문 전체가 와도 상관없음]]> -->
+				WHERE	 boarder_id <![CDATA[<=]]> #{boarder_id}
+				AND 		 available = 0 
+				ORDER BY boarder_id DESC
+				LIMIT	 10	<!-- LIMIT 제한을 건다. 10개 이하만 뽑아라. -->
+		</select>
+		
+		
+		<!--  게시물 삭제 SQL -->
+		<update id="deleteBoarder">
+				UPDATE BOARDER
+				SET		 available = 1
+				WHERE	 boarder_id = #{boarder_id}
+		</update>
+
+
+		<!-- 다운로드 카운트 SQL -->
+		<update id = "addDownloadCnt">
+				UPDATE 	UPLOADFILE
+				SET			count = count + 1
+				WHERE 	file_id	= #{file_id}
+		</update>
+		
+		<!-- 게시물 카운트 SQL -->
+		<update id ="addBoarderCnt">
+				UPDATE	BOARDER
+				SET			count = count + 1
+				WHERE		boarder_id	=	#{boarder_id}
+		</update>
+		
+		<!-- 공감 증가 처리 SQL -->
+		<update id = "likeyUp">
+				UPDATE 	BOARDER
+				SET			likey = likey + 1
+				WHERE		boarder_id = #{boarder_id}
+		</update>
+		
+		<!-- 공감 감소 처리 SQL -->
+		<update id = "likeyDown">
+				UPDATE 	BOARDER
+				SET			likey = likey - 1
+				WHERE		boarder_id = #{boarder_id}
+		</update>
+		
+		<!-- 공감 선택 여부 SQL -->
+		<select id = "checkLikey"  resultType = "Likey_R">
+				SELECT	*
+				FROM		LIKEY_R
+				WHERE		boarder_id	= #{boarder_id}
+				AND			user_id		= #{user_id}
+		</select>
+		
+		<!-- 공감 처리 SQL -->
+		<insert id = "insertLikey">
+				INSERT 	INTO LIKEY_R
+				VALUES	(#{boarder_id}, #{user_id})
+		</insert>
+		
+		<!-- 공감 해제 처리 SQL -->
+		<delete id = "deleteLikey">
+				DELETE 	FROM LIKEY_R
+				WHERE		boarder_id	= #{boarder_id}
+				AND			user_id		= #{user_id}
+		</delete>
+		
+		<!-- 댓글 리스트 불러오기 SQL -->
+		<select id = "getReplyList" resultType = "Reply">
+				SELECT 	*
+				FROM 		REPLY
+				WHERE 	boarder_id = #{boarder_id}
+		</select>
+		
+		<!-- 댓글 달기 SQL -->
+		<insert id = "insertReply">
+				INSERT INTO REPLY (boarder_id, writer, contents, reg_date)
+				VALUES (#{boarder_id}, #{writer}, #{contents}, now())
+		</insert>				
+		
+		
+</mapper>
