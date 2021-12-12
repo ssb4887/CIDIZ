@@ -9,11 +9,11 @@ public interface UsersDAO {
 		// select 문은 반환타입이 존재하고 = 반환하는 데이터타입
 		// 그 외 insert, delete, update는 반환타입이 없다. = void
 		// mapper에서 받아온 #{값} 과 아래 메서드에서 받아오는 (데이터 타입, "값")이 같아야 한다.
-		public String		idCheck(String user_id) 				throws Exception;
+		public String		idCheck(String user_id) 					throws Exception;
 		public Integer 	getAuthnum(String user_mail) 		throws Exception;
-		public void 		setAuthnum(Authmail authmail) 	throws Exception;
-		public void		resetAuthnum(Authmail authmail)	throws Exception;
-		public void 		deleteAuthmail(String user_mail) 	throws Exception;
-		public void		join(Users users) 							throws Exception;
-		public Users		login(Users users)							throws Exception;														
+		public void 			setAuthnum(Authmail authmail) 	throws Exception;
+		public void			resetAuthnum(Authmail authmail)	throws Exception;
+		public void 			deleteAuthmail(String user_mail) 	throws Exception;
+		public void			join(Users users) 								throws Exception;
+		public Users		login(Users users)								throws Exception;														
 }

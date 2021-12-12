@@ -122,5 +122,10 @@ public class BbsDAOImpl implements BbsDAO {
 	public List<Reply> getReplyList(int boarder_id) throws Exception {
 		return sqlSession.selectList(SESSION + ".getReplyList", boarder_id);
 	}
+
+	@Override
+	public void deleteReply(int reply_id) throws Exception {
+		sqlSession.delete(SESSION + ".deleteReply", reply_id);
+	}
 	
 }

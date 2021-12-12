@@ -191,4 +191,18 @@ public class BbsController {
 			
 		}
 		
+		// -- url 패턴이 'path/bbs/deleteReply' 일 경우
+		@RequestMapping(value = "deleteReply", method = RequestMethod.GET)
+		@ResponseBody
+		public List<Reply> deleteReply(Reply reply, HttpSession session) throws Exception {
+			
+			String user_id 	= (String) session.getAttribute("user_id");
+			if(user_id == null) return null;
+			
+			reply.setWriter(user_id);
+			List<Reply> list 	= bbsService.deleteReply(reply);
+			
+			return list;
+			
+		}
 }

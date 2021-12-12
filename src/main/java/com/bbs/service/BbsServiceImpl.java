@@ -194,5 +194,13 @@ public class BbsServiceImpl implements BbsService {
 		
 		return dao.getReplyList(reply.getBoarder_id());
 	}
+
+	@Override
+	public List<Reply> deleteReply(Reply reply) throws Exception {
+		
+		dao.deleteReply(reply.getReply_id());
+		
+		return dao.getReplyList(reply.getBoarder_id());
+	}
 	
 }

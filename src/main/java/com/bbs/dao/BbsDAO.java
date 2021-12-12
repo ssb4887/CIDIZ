@@ -28,6 +28,6 @@ public interface BbsDAO {
 	public void				deleteLikey(Likey_R likey_R)				throws Exception;
 	public List<Reply>	getReplyList(int boarder_id)				throws Exception;
 	public void				insertReply(Reply reply)						throws Exception;
-	
+	public void				deleteReply(int reply_id)						throws Exception;
 			
 }

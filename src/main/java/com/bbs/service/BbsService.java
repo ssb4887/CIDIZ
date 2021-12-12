@@ -31,5 +31,5 @@ public interface BbsService {
 	public void addcount(int boarder_id) throws Exception;
 	public int likeyAction(Likey_R likey_R) throws Exception;
 	public List<Reply> insertReply(Reply reply) throws Exception;
-	
+	public List<Reply> deleteReply(Reply reply) throws Exception;
 }

@@ -213,5 +213,10 @@
 				VALUES (#{boarder_id}, #{writer}, #{contents}, now())
 		</insert>				
 		
+		<!-- 댓글 삭제 SQL -->
+		<delete id = "deleteReply">
+				DELETE 	FROM REPLY
+				WHERE		reply_id = #{reply_id}
+		</delete>
 		
 </mapper>

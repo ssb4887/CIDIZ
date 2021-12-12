@@ -37,6 +37,7 @@ $(document).ready(function(){
 		});
 		
 	});
+	<%-- 댓글 추가 기능 --%>
 	$('#replyBtn').click(function(){
 		var boarder_id = '${map.boarder.boarder_id}';
 		var contents = $('#r_contents').val();
@@ -72,6 +73,44 @@ $(document).ready(function(){
 		});
 	});
 });
+</script>
+
+<%-- 댓글 삭제 기능 --%>
+<script>
+		function deleteReply(reply_id) {
+			var boarder_id = '${map.boarder.boarder_id}';
+			$.ajax({
+					type	: 'GET',
+					url		: './deleteReply',
+					data		: {
+								reply_id 		: reply_id,
+								boarder_id : boarder_id,
+					},
+					dataType	: 'JSON',
+					success		: function(data) {
+								if(data == null) {
+										alret('로그인이 필요합니다.');
+										return;
+								}
+								$('#replyBody').empty();
+								for(var i = 0; i < data.length; i++) {
+										var str = ' ';
+										str += '<tr>';
+											str += '<td width = "50%">' + data[i].contents + '</td>';
+											str += '<td width = "20%">' + data[i].writer + '</td>';
+											str += '<td width = "20%">' + data[i].reg_date + '</td>';
+											str += '<td width = "10%">';
+											if('${user_id}' == data[i].writer) {
+												str += '<button class = "btn btn-danger btn-block" onclick="deleteReply(' + data[i].reply_id + ')">삭제</button>';
+												}
+											
+											str += '</td>';
+										str += '</tr>';
+										$('#replyBody').append(str);
+								}
+					}
+			});
+		}
 </script>
 
 </head>
@@ -136,7 +175,11 @@ $(document).ready(function(){
 												<td width = "50%">${reply.contents}</td>
 												<td width = "20%">${reply.writer}</td>
 												<td width = "20%">${reply.reg_date}</td>
-												<td width = "10%"><button class = "btn btn-danger btn-block">삭제</button></td>
+												<td width = "10%">
+													<c:if test="${user_id == reply.writer }">
+													<button class = "btn btn-danger btn-block" onclick="deleteReply(${reply.reply_id})">삭제</button>
+													</c:if>
+												</td>
 										</tr>
 										</c:forEach>
 								</tbody>
@@ -170,5 +213,6 @@ $(document).ready(function(){
 });
 
 </script>
+
 </body>
 </html>
