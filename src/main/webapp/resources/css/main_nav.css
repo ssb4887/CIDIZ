@@ -1,0 +1,291 @@
+@charset "utf-8";
+
+#wrap {
+  width: 100%;
+}
+
+/* 상단(header) 부분----------------------------------------------------------------------------------------------------100 */
+/* 상단(header) 부분 */
+#header {
+  float: left;
+  width: 100%;
+  height: 100px;
+}
+/* -------------------------------------------------- */
+/* 상단 : 탑 부분 */
+#h_top {
+  margin: 0 auto;
+  margin-top: 35px;
+  width: 1680px;
+  height: 35px;
+}
+#h_top .logo {
+  float: left;
+}
+#h_top .logo a {
+}
+#h_top .logo img {
+  width: 140px;
+  height: 35px;
+}
+.exit_btn {
+  float: right;
+}
+
+.exit_btn img {
+  width: 50px;
+  height: 50px;
+}
+/* --------------------------------- */
+/* --------------------------------- */
+/* --------------------------------- */
+#header_icon .nav-viewer {
+  position: fixed;
+  top: 78.5px;
+  right: 5.2%;
+  z-index: 1001;
+  width: 30px;
+  height: 28px;
+  -webkit-transition: top 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -khtml-transition: top 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -moz-transition: top 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -ms-transition: top 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -o-transition: top 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: top 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+#header_icon .nav-viewer i {
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #000;
+  height: 4px;
+  -webkit-transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  -khtml-transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  -ms-transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 1px 1px 1px #000;
+}
+#header_icon .nav-viewer i:nth-child(1) {
+  top: 0;
+  width: 100%;
+}
+#header_icon .nav-viewer i:nth-child(2) {
+  top: 50%;
+  margin-top: -2px;
+  width: 18px;
+}
+#header_icon .nav-viewer i:nth-child(3) {
+  bottom: 0;
+  width: 100%;
+}
+#header_icon .nav-viewer:hover i:nth-child(1),
+#header_icon .nav-viewer:hover i:nth-child(3) {
+  width: 23px;
+}
+#header_icon .nav-viewer:hover i:nth-child(2) {
+  width: 100%;
+}
+#header_icon .nav-viewer.is-close i:nth-child(2) {
+  width: 100%;
+  opacity: 0;
+}
+#header_icon .nav-viewer.is-close i:nth-child(1),
+#header_icon .nav-viewer.is-close i:nth-child(3) {
+  width: 36px;
+  left: 50%;
+  margin-left: -18px;
+}
+#header_icon .nav-viewer.is-close i:nth-child(1) {
+  -webkit-transform: rotate(-45deg);
+  -khtml-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 50%;
+  margin-top: -2px;
+}
+#header_icon .nav-viewer.is-close i:nth-child(3) {
+  -webkit-transform: rotate(45deg);
+  -khtml-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: 50%;
+  margin-bottom: -2px;
+}
+#header_icon .nav-viewer.is-active {
+  top: 38.5px;
+}
+/* --------------------------------- */
+/* --------------------------------- */
+/* 네비--------------------------------- */
+#main_mn {
+  position: relative;
+  width: 100%;
+  height: 860px;
+  top: 100px;
+  left: 0;
+  z-index: 1;
+}
+
+#side_mn {
+  position: absolute;
+  float: left;
+  width: 200px;
+  height: 300px;
+  top: 120px;
+  left: 120px;
+}
+
+#side_mn ul li {
+  margin-bottom: 10px;
+}
+#side_mn ul li a {
+  font-size: 14px;
+  color: black;
+  font-weight: 900;
+}
+#side_mn ul li a img {
+  vertical-align: middle;
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+}
+
+#menu {
+  margin: 0 auto;
+  width: 1300px;
+  height: 850px;
+}
+#menu > ul {
+  float: left;
+  margin: 0 0 0 150px;
+}
+#menu > ul > li {
+  position: relative;
+  font-size: 80px;
+  margin-bottom: 150px;
+  font-weight: 900;
+}
+
+#menu > ul > li > h4 {
+  cursor: pointer;
+}
+#menu > ul > li > a {
+  cursor: pointer;
+}
+
+.contents {
+  position: absolute;
+  display: none;
+  width: 1300px;
+  height: auto;
+  top: 0px;
+  left: -410px;
+}
+
+/* ------ ABOUT SIDIZ ------ */
+.contents #first {
+  margin: 115px 0 0 250px;
+}
+.contents #first > li {
+  float: left;
+  margin-right: 280px;
+  font-size: 50px;
+}
+.contents #first > li:last-child {
+  float: left;
+  margin-right: 0px;
+  font-size: 50px;
+}
+.contents #first > li > a {
+  color: #444;
+  font-weight: 900;
+}
+.contents #first > li > a > img {
+  display: block;
+  margin: 60px 0 0 15px;
+  width: 120px;
+  height: 160px;
+}
+
+.contents #first > li > a #brand_img {
+  margin: 50px 0 0 40px;
+  width: 250px;
+  height: 190px;
+}
+
+/* ------ PRODUCTS ------ */
+
+.contents #second {
+  margin: 115px 0 0 25px;
+}
+.contents #second > li {
+  float: left;
+  margin-right: 100px;
+  font-size: 50px;
+}
+.contents #second > li:last-child {
+  float: left;
+  margin-right: 0;
+  font-size: 50px;
+}
+.contents #second > li > a {
+  color: #444;
+  font-weight: 900;
+}
+.contents #second > li > a > img {
+  display: block;
+  margin: 60px 0 0 15px;
+  width: 120px;
+  height: 160px;
+}
+
+#interior_img {
+  padding: 0 0 0 25px;
+  box-sizing: border-box;
+}
+
+#all_img {
+  padding: 0 0 0 25px;
+  box-sizing: border-box;
+}
+
+/* ------ SUPPORT ------ */
+
+.contents #third {
+  margin: 115px 0 0 160px;
+}
+.contents #third > li {
+  float: left;
+  margin-right: 200px;
+  font-size: 50px;
+}
+.contents #third > li:last-child {
+  float: left;
+  margin-right: 0;
+  font-size: 50px;
+}
+.contents #third > li > a {
+  color: #444;
+  font-weight: 900;
+}
+.contents #third > li > a > img {
+  display: block;
+  margin: 60px 0 0 15px;
+  width: 120px;
+  height: 160px;
+}
+#counsel_img {
+  padding: 0 0 0 25px;
+  box-sizing: border-box;
+}
+
+#map_img {
+  padding: 0 0 0 30px;
+  box-sizing: border-box;
+}
