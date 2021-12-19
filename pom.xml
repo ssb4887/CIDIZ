@@ -125,7 +125,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.27</version>
+			<version>8.0.23</version>
 		</dependency>
 
 		<!-- org.mybatis/mybatis -->
@@ -168,6 +168,31 @@
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 			<version>1.6.2</version>
+		</dependency>
+		
+		<!-- mac에서 이메일 전송 안될때 사용 -->
+		<dependency>
+		  <groupId>javax.mail</groupId>
+		  <artifactId>mailapi</artifactId>
+		  <version>1.4.3</version>
+		</dependency>
+		
+		 <dependency>
+		  <groupId>javax.mail</groupId>
+		  <artifactId>javax.mail-api</artifactId>
+		  <version>1.5.5</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>javax.mail</groupId>
+		  <artifactId>mail</artifactId>
+		  <version>1.5.0-b01</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.sun.mail</groupId>
+		  <artifactId>javax.mail</artifactId>
+		  <version>1.5.0</version>
 		</dependency>
 
 

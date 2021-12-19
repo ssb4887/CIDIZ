@@ -40,8 +40,118 @@ public class MainController {
 		
 		// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. --> main/main
 	}
+////////////////////////////////////////////////////////////////////////////////////////////////
+	// 브랜드 스토리 찾아가기
+		@RequestMapping(value = "/brand_story", method = RequestMethod.GET)
+		public String brand_story(Model model) throws Exception {
+			
+			// 메세지를 띄울 수도 있다.
+			// model.addAttribute("msg", "반갑습니다.");
+			
+			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+			return "sub/brand_story";
+			
+			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
+		}
+
+	// 이벤트 찾아가기
+		@RequestMapping(value = "/event", method = RequestMethod.GET)
+		public String event(Model model) throws Exception {
+			
+			// 메세지를 띄울 수도 있다.
+			// model.addAttribute("msg", "반갑습니다.");
+			
+			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+			return "sub/event";
+			
+			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
+		}
+
+
+	// 뉴스 찾아가기
+		@RequestMapping(value = "/news", method = RequestMethod.GET)
+		public String news(Model model) throws Exception {
+			
+			// 메세지를 띄울 수도 있다.
+			// model.addAttribute("msg", "반갑습니다.");
+			
+			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+			return "sub/news";
+			
+			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
+		}
+
+	// product 찾아가기
+		@RequestMapping(value = "/product", method = RequestMethod.GET)
+		public String product(Model model) throws Exception {
+			
+			// 메세지를 띄울 수도 있다.
+			// model.addAttribute("msg", "반갑습니다.");
+			
+			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+			return "sub/product";
+			
+			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
+		}
+
+
+	// productMenu 찾아가기
+		@RequestMapping(value = "/productMenu", method = RequestMethod.GET)
+		public String productMenu(Model model) throws Exception {
+			
+			// 메세지를 띄울 수도 있다.
+			// model.addAttribute("msg", "반갑습니다.");
+			
+			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+			return "sub/productMenu";
+			
+			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
+		}
+
+
+
+	// review 찾아가기
+		@RequestMapping(value = "/review", method = RequestMethod.GET)
+		public String review(Model model) throws Exception {
+			
+			// 메세지를 띄울 수도 있다.
+			// model.addAttribute("msg", "반갑습니다.");
+			
+			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+			return "sub/review";
+			
+			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
+		}
+
+
+	// search_store 찾아가기
+		@RequestMapping(value = "/search_store", method = RequestMethod.GET)
+		public String search_store(Model model) throws Exception {
+			
+			// 메세지를 띄울 수도 있다.
+			// model.addAttribute("msg", "반갑습니다.");
+			
+			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+			return "sub/search_store";
+			
+			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
+		}
+
+
+	// tip 찾아가기
+		@RequestMapping(value = "/tip", method = RequestMethod.GET)
+		public String tip(Model model) throws Exception {
+			
+			// 메세지를 띄울 수도 있다.
+			// model.addAttribute("msg", "반갑습니다.");
+			
+			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+			return "sub/tip";
+			
+			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
+		}
 	
-	
+	//////////////////////////////////////////////////////////////////////////////
 	//--- url 패턴이 'path/join' 일 경우
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join(Model model) throws Exception {

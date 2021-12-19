@@ -1,33 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import = "java.io.PrintWriter" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <title>SIDIZ</title>
-<meta http-equiv="Conetent-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width" initial-scale="1">
-<link rel="stylesheet" href="${path}/resources/css/bootstrap.css">
-<link rel="stylesheet" href="${path}/resources/css/custom.css">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="${path}/resources/js/bootstrap.js"></script>
-
-	<!-- sidiz -->
   <link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
-  <link rel="stylesheet" type="text/css" href="${path}/resources/css/main.css"><!-- 컨텐츠 css -->
+  <link rel="stylesheet" type="text/css" href="${path}/resources/css/search_store.css"><!-- 컨텐츠 css -->
   <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
   <script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
    <script src="${path}/resources/js/vendor.js"></script><!-- vendor js -->
   <!-- <script src="/js/common.js"></script> --><!-- 공통 js_body밑에 -->
   <script src="${path}/resources/js/script.js"></script><!-- 제이쿼리 --> 
   <script src="${path}/resources/js/nav_jquery.js"></script><!-- 네비 js --> 
+  <script src="${path}/resources/js/search_store.js"></script><!-- 매장찾기 js --> 
+  <!-- font --------------------------------------------->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
 </head>
 <body>
-
-<%-- 네비게이션 --%>
- <!-- [상단(header)] -->
+<body>
+  <body>
+  <div class="wrapper">
+    <!-- [상단(header)] -->
     <header id="header">
       <!-- 상단 : 로고 -->
       <h1 class="logo"><a href="#">SIDIZ</a></h1>
@@ -36,7 +36,7 @@
     <div id="header_icon">
       <ul class="nav-group">
         <li>
-            <a href="login"><img src="${path}/resources/images/main_images/nav_my.png" alt="" /></a>
+            <img src="${path}/resources/images/main_images/nav_my.png" alt="" />
         </li>
         <li>
             <img src="${path}/resources/images/main_images/nav_write.png" alt="" class="write"/>
@@ -77,7 +77,7 @@
             </li>
             <li class="has-sp sp-3">
               <p>
-                <a href="review">
+                <a href="review ">
                   <img src="${path}/resources/images/nav_images/nav_Review.png" alt="" />Review
                 </a>
               </p>
@@ -91,7 +91,7 @@
             </li>
             <li class="has-sp sp-5">
               <p>
-                <a href="event">
+                <a href="event ">
                   <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />Event
                 </a>
               </p>
@@ -128,31 +128,31 @@
               <div class="contents">
                 <ul id="second">
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       사무용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_1.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       학생용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_2.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       유아용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_3.jpg" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       인테리어
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_4.png" alt="" id="interior_img"/>
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       모든제품
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_5.png" alt="" id="all_img"/>
                     </a>
@@ -179,7 +179,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="search_store">
+                    <a href="search_store ">
                       매장찾기
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_3(1).png" alt="" id="map_img"/>
                     </a>
@@ -191,42 +191,131 @@
         </article>
       </div>
     </nav>
+<!-- [내용(contents)] 부분  -->
+<!-- 매장 검색 -->
+    <section id = "search_store">
+        <div id="select_menu">
+          <ul>
+            <li><span>SUPPORT</span></li>
+            <li><i class="fas fa-chevron-right"></i></li>
+            <li>매장찾기</li>
+          </ul>
+        </div>
+        <div class="e_contents">
+          <div class ="ss_main">
+              <ul>
+                  <li><h4>Sidiz Store</h4></li>
+                  <li>
+                      <img src="${path}/resources/images/sidiz_img/ss_img1.jpg" alt=""/>
+                      <div class="ssi_text">
+                          <h5>신세계백화점 강남점</h5>
+                          <p>전화번호 : 0507-1388-3243</p>
+                          <p>주소 : 서울시 서초구 신반포로 176신반포로 176</p>
+                          <a href="#">자세히 보기</a>
+                          <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                      </div>
+                  </li>
+                  <li>
+                      <img src="${path}/resources/images/sidiz_img/ss_img2.jpg" alt=""/>
+                      <div class="ssi_text">
+                          <h5>현대아울렛 김포점</h5>
+                          <p>전화번호 : 031-8048-2868</p>
+                          <p>주소 : 아라육로 152번길 100, 타워동 4층</p>
+                          <a href="#">자세히 보기</a>
+                          <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                      </div>
+                  </li>
+                  <li>
+                      <img src="${path}/resources/images/sidiz_img/ss_img3.jpg" alt=""/>
+                      <div class="ssi_text">
+                          <h5>롯데아울렛 광교점</h5>
+                          <p>전화번호 : 031-8064-2318</p>
+                          <p>주소 : 경기 수원시 영통구 도청로 10</p>
+                          <a href="#">자세히 보기</a>
+                          <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                      </div>
+                  </li>
+                  <li>
+                      <img src="${path}/resources/images/sidiz_img/ss_img4.jpg" alt=""/>
+                      <div class="ssi_text">
+                          <h5>리빙파워센터</h5>
+                          <p>전화번호 : 031-282-5244</p>
+                          <p>주소 : 경기 용인시 기흥구 신고매로 59, 2층</p>
+                          <a href="#">자세히 보기</a>
+                          <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                      </div>
+                  </li>
+                  <li>
+                      <img src="${path}/resources/images/sidiz_img/ss_img5.jpg" alt=""/>
+                      <div class="ssi_text">
+                          <h5>서울 방배점</h5>
+                          <p>전화번호 : 02-598-3243</p>
+                          <p>주소 : 서울시 서초구 방배로42길 18</p>
+                          <a href="#">자세히 보기</a>
+                          <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                      </div>
+                  </li>
+                  <!-------------- more 버튼 클릭시 추가로 보여줌 ------------------->
+                  <li class="hideList" >
+                    <img src="${path}/resources/images/sidiz_img/ss_img1.jpg" alt=""/>
+                    <div class="ssi_text">
+                        <h5>신세계백화점 강남점</h5>
+                        <p>전화번호 : 0507-1388-3243</p>
+                        <p>주소 : 서울시 서초구 신반포로 176신반포로 176</p>
+                        <a href="#">자세히 보기</a>
+                        <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                    </div>
+                </li>
+                <li class="hideList">
+                    <img src="${path}/resources/images/sidiz_img/ss_img2.jpg" alt=""/>
+                    <div class="ssi_text">
+                        <h5>현대아울렛 김포점</h5>
+                        <p>전화번호 : 031-8048-2868</p>
+                        <p>주소 : 아라육로 152번길 100, 타워동 4층</p>
+                        <a href="#">자세히 보기</a>
+                        <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                    </div>
+                </li>
+                <li class="hideList">
+                    <img src="${path}/resources/images/sidiz_img/ss_img3.jpg" alt=""/>
+                    <div class="ssi_text">
+                        <h5>롯데아울렛 광교점</h5>
+                        <p>전화번호 : 031-8064-2318</p>
+                        <p>주소 : 경기 수원시 영통구 도청로 10</p>
+                        <a href="#">자세히 보기</a>
+                        <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                    </div>
+                </li>
+                <li class="hideList">
+                    <img src="${path}/resources/images/sidiz_img/ss_img4.jpg" alt=""/>
+                    <div class="ssi_text">
+                        <h5>리빙파워센터</h5>
+                        <p>전화번호 : 031-282-5244</p>
+                        <p>주소 : 경기 용인시 기흥구 신고매로 59, 2층</p>
+                        <a href="#">자세히 보기</a>
+                        <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                    </div>
+                </li>
+                <li class="hideList">
+                    <img src="${path}/resources/images/sidiz_img/ss_img5.jpg" alt=""/>
+                    <div class="ssi_text">
+                        <h5>서울 방배점</h5>
+                        <p>전화번호 : 02-598-3243</p>
+                        <p>주소 : 서울시 서초구 방배로42길 18</p>
+                        <a href="#">자세히 보기</a>
+                        <p><img src="${path}/resources/images/sidiz_img/paking_img.png" alt=""/></p>
+                    </div>
+                </li>
+              </ul>
+          </div>
+          <!------------- 버튼 ---------------->
+          <div id = "more_btn"><p>more</p></div>
+          <div id = "close_btn"><p>close</p></div> 
+      </section>
 
-<%-- 메인 컨텐츠 --%>
-<div class = "container" style = "margin-top: 10%; margin-bottom: 5%">
-		<div class = "col-lg-4"></div>
-		
-		<div class = "col-lg-4">
-				<div class = "jumbotron" >
-						<form method = "POST" action = "./loginAction">  
-								<!-- 상단 : 로고 -->
-      							<h2 class="logo" style = "text-align: center;"><a href="/">SIDIZ</a></h2>
-								<h3 style = "text-align : center; margin-top: 7%; margin-bottom: 3%">로그인</h3>	
-								<!-- 아이디 입력 -->
-								<div class ="form-group">
-									<input type = "text" class = "form-control" autocomplete = "off" name = "user_id" placeholder = "아이디">
-								</div>
-								
-								<!-- 비밀번호 입력 -->
-								<div class ="form-group">
-									<input type = "password" class = "form-control" name = "user_pw" placeholder = "비밀번호">
-								</div>		
-								
-								<!-- 제출 버튼 -->
-								<div class ="form-group">
-									<input type = "submit" class = "btn btn-primary form-control" value = "로그인">
-								</div>			
-								
-								<!-- 회원가입 버튼 -->
-								<div class ="form-group">
-									<a href ="./join" class = "btn btn-success form-control">회원가입</a>
-								</div>				
-						</form>
-				</div>
-		</div>
-		<div class = "col-lg-4"></div>
-</div>
-<%-- 메인 컨텐츠 종료 --%>
+      <button onclick="location.href='search_store '" class="shop_btn">매장찾기</button><!-- 매장찾기 버튼 -->
+      <button onclick="window.open('https://bizmessage.kakao.com/chat/open/%40sidiz_official?bot=true&amp;event=WEB_WELCOME')" class="chat_btn">챗봇문의</button><!-- 챗본문의 버튼 -->
+  
       <!-- [하단(footer)] 부분 -->
       <footer id="footer">
           <!--하단 : 탑 부분-->

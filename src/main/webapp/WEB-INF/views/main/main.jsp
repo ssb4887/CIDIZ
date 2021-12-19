@@ -1,22 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import = "java.io.PrintWriter" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 
 <title>SIDIZ</title>
-  <link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
-  <link rel="stylesheet" type="text/css" href="${path}/resources/css/main.css"><!-- 컨텐츠 css -->
-  <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
-  <script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
-   <script src="${path}/resources/js/vendor.js"></script><!-- vendor js -->
-  <!-- <script src="/js/common.js"></script> --><!-- 공통 js_body밑에 -->
-  <script src="${path}/resources/js/script.js"></script><!-- 제이쿼리 --> 
-  <script src="${path}/resources/js/nav_jquery.js"></script><!-- 네비 js --> 
+<link rel="stylesheet" href="${path}/resources/css/bootstrap.css"><!-- 부트스트랩 -->
+<link rel="stylesheet" href="${path}/resources/css/custom.css"><!-- 부트스트랩 -->
+
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/main.css"><!-- 컨텐츠 css -->
+
+<script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
+<script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
+<script src="${path}/resources/js/vendor.js"></script><!-- vendor js -->
+<!-- <script src="/js/common.js"></script> --><!-- 공통 js_body밑에 -->
+<script src="${path}/resources/js/script.js"></script><!-- 제이쿼리 --> 
+<script src="${path}/resources/js/nav_jquery.js"></script><!-- 네비 js --> 
 </head>
-<body>
 
 <body>
   <div class="wrapper">
@@ -27,9 +31,11 @@
     </header>
     <!-- 상단-네비 : 우측 아이콘 -->
     <div id="header_icon">
+    			
       <ul class="nav-group">
+
         <li>
-            <img src="${path}/resources/images/main_images/nav_my.png" alt="" />
+            <a href="#"><img src="${path}/resources/images/main_images/nav_my.png" alt="" /></a>
         </li>
         <li>
             <img src="${path}/resources/images/main_images/nav_write.png" alt="" class="write"/>
@@ -46,6 +52,7 @@
         <i></i>
         <i></i>
         <i></i>
+        
       </a>
     </div>
 
@@ -54,6 +61,24 @@
       <div class="nav-inner">
         <article id="side_mn">  
           <ul>
+          <li>
+	         <p>
+		         	<!-- 로그인 안했을 때 표시  -->
+		         	<c:if test = "${empty user_id}" >
+		         		<a href = "${path}/login">
+		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Login
+		         		</a>
+		         	</c:if>
+		         	
+		         	<!-- 로그인 했을 때 표시  -->
+		         	<c:if test = "${not empty user_id}" >
+		         		<a href = "${path}/logout">
+		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Logout
+		         		</a>
+		         	</c:if>
+		         
+	         </p>
+          </li>
             <li class="has-sp sp-1">
               <p>
                 <a href="#">
@@ -70,7 +95,7 @@
             </li>
             <li class="has-sp sp-3">
               <p>
-                <a href="review.html">
+                <a href="review">
                   <img src="${path}/resources/images/nav_images/nav_Review.png" alt="" />Review
                 </a>
               </p>
@@ -84,11 +109,12 @@
             </li>
             <li class="has-sp sp-5">
               <p>
-                <a href="event.html">
+                <a href="event">
                   <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />Event
                 </a>
               </p>
             </li>
+		
           </ul>
         </article>
 
@@ -100,56 +126,57 @@
               </h4>
               <div class="contents">
                 <ul id="first">
-                  <li>
-                    <a href="brand_story.html">
+                  <li class="nav_title">
+                    <a href="brand_story">
                       BRAND STORY
                       <img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_1.png" alt="" id="brand_img"/>
                     </a>
                   </li>
-                  <li>
-                    <a href="news.html">
+                  <li class="nav_title">
+                    <a href="news ">
                       NEWS<img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_2.png" alt="" />
                     </a>
                   </li>
                 </ul>
               </div>
             </li>
-            <li id="products">
-              <h4 class="has-sp sp-7">
+            <li id="products"  class="nav_title">
+              <h4 class="has-sp sp-7" style="font-size:80px">
                 <p> <b>PRODUCTS</b> </p>
               </h4>
               <div class="contents">
                 <ul id="second">
                   <li>
-                    <a href="productMenu.html">
+                    <a href="productMenu">
                       사무용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_1.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu.html">
+                    <a href="productMenu">
                       학생용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_2.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu.html">
+                    <a href="productMenu">
                       유아용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_3.jpg" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu.html">
+                    <a href="productMenu">
                       인테리어
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_4.png" alt="" id="interior_img"/>
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu.html">
+                    <a href="productMenu">
                       모든제품
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_5.png" alt="" id="all_img"/>
                     </a>
                   </li>
+                  
                 </ul>
               </div>
             </li>
@@ -172,7 +199,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="search_store.html">
+                    <a href="search_store">
                       매장찾기
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_3(1).png" alt="" id="map_img"/>
                     </a>
@@ -254,7 +281,7 @@
                   </div>
                 </div>
                 <div class="bot-lk basic-tx-ani">
-                  <div class="has-line"><p><a href="productMenu.html">제품 보기</a></p></div>
+                  <div class="has-line"><p><a href="productMenu ">제품 보기</a></p></div>
                 </div>
               </div>
             </div>
@@ -277,7 +304,7 @@
                   </div>
                 </div>
                 <div class="bot-lk basic-tx-ani">
-                  <div class="has-line"><p><a href="productMenu.html">제품 보기</a></p></div>
+                  <div class="has-line"><p><a href="productMenu ">제품 보기</a></p></div>
                 </div>
               </div>
             </div>
@@ -300,7 +327,7 @@
                   </div>
                 </div>
                 <div class="bot-lk basic-tx-ani">
-                  <div class="has-line"><p><a href="${path}/resources/productMenu.html">제품 보기</a></p></div>
+                  <div class="has-line"><p><a href="${path}/resources/productMenu ">제품 보기</a></p></div>
                 </div>
               </div>
             </div>
@@ -328,7 +355,7 @@
                 </div>
                 <!-- bg-hover에는 css로 백그라운드 이미지 줌 -->
                 <div class="bg-hover">
-                  <a href="productMenu.html" target="_self">
+                  <a href="productMenu " target="_self">
                     <!-- 안 css 백그라운드 이미지 옆에 텍스트 이미지 -->
                     <img src="${path}/resources/images/main_images/contents1_1_front_text.png" alt="">
                   </a>
@@ -344,7 +371,7 @@
                   <img src="${path}/resources/images/main_images/contents1_hak2.png" alt="학생용" class="txt-hover">
                 </div>
                 <div class="bg-hover">
-                  <a href="productMenu.html" target="_self">
+                  <a href="productMenu" target="_self">
                     <img src="${path}/resources/images/main_images/contents1_2_front_text.png" alt="">
                   </a>
                 </div>
@@ -359,7 +386,7 @@
                   <img src="${path}/resources/images/main_images/contents1_young2.png" alt="유아용" class="txt-hover">
                 </div>
                 <div class="bg-hover">
-                  <a href="productMenu.html" target="_self">
+                  <a href="productMenu " target="_self">
                     <img src="${path}/resources/images/main_images/contents1_3_front_text.png" alt="">
                   </a>
                 </div>
@@ -374,7 +401,7 @@
                   <img src="${path}/resources/images/main_images/contents1_inte2.png" alt="인테리어" class="txt-hover">
                 </div>
                 <div class="bg-hover">
-                  <a href="productMenu.html" target="_self">
+                  <a href="productMenu " target="_self">
                     <img src="${path}/resources/images/main_images/contents1_4_front_text.png" alt="">
                   </a>
                 </div>
@@ -409,7 +436,7 @@
               </div>
               <!-- //0은 버리는 부분 -->
               <div class="text1">
-                <h4><a href="product.html">T800HLDAS 좌판가죽</a></h4>
+                <h4><a href="product ">T800HLDAS 좌판가죽</a></h4>
                 <p>재택근무시 좋은 의자<br>
                   프리미엄 기능들은 다 갖춤<br>                  
                   장시간 앉아 있어도 너무 편함</p>
@@ -423,7 +450,7 @@
                 <span class="c_id">by. 엠오티님</span>
               </div>
               <div class="text2">
-                <h4><a href="product.html">ible 화이트쉘</a></h4>
+                <h4><a href="product ">ible 화이트쉘</a></h4>
                 <p>아이들 공부 의자로 최고<br>
                   바퀴는 빼고 집중력은 더하다.<br>                      
                   서울대 도서관에서 사용하는 의자</p>
@@ -437,7 +464,7 @@
                 <span class="c_id">by. 알사탕님</span>
               </div>
               <div class="text3">
-                <h4><a href="product.html">몰티_하이체어</a></h4>
+                <h4><a href="product ">몰티_하이체어</a></h4>
                 <p>아기 몸에 딱 맞는 편한 의자<br>   
                   아이가 미끄러질까 하는 걱정이 쭘<br>                     
                   9개월 ~ 27개월 아이까지 모두 사용</p>
@@ -451,7 +478,7 @@
                 <span class="c_id">by. 임솔님</span>
               </div>
               <div class="text4">
-                <h4><a href="product.html">MN801EY 등좌판커버</a></h4>
+                <h4><a href="product ">MN801EY 등좌판커버</a></h4>
                 <p>유럽감성의 디자인<br>  
                   다양한 디자인으로 분위기를 자유롭게 연출<br>                
                   곡선형 디자인이 자세를 부드럽게 받쳐 편안함</p>
@@ -493,7 +520,7 @@
                 <li class="img5">
                   <!-- <img src="images/main_images/review1.jpg" alt="">
                   <div class="ani"><p>T800HLDAS 좌판가죽<br>L096X_블랙<br>&#92;882,000</p></div> -->
-                   <a href="review.html">+ Review more</a>
+                   <a href="review ">+ Review more</a>
                 </li>
               </ul>
               <div class="bg_box"></div>
@@ -512,7 +539,7 @@
           <article class="tip">
             <h3>CHAIR CHOICE TIP</h3>
             <p>나에게 꼭 맞는 퍼스널 체어 선택 tip 3</p>
-            <a href="tip.html">more</a>
+            <a href="tip ">more</a>
           </article>
         </div>
       </section>
@@ -527,7 +554,7 @@
         </div>
       </p>
       
-      <button onclick="location.href='search_store.html'" class="shop_btn">매장찾기</button><!-- 매장찾기 버튼 -->
+      <button onclick="location.href='search_store '" class="shop_btn">매장찾기</button><!-- 매장찾기 버튼 -->
       <button onclick="window.open('https://bizmessage.kakao.com/chat/open/%40sidiz_official?bot=true&amp;event=WEB_WELCOME')" class="chat_btn">챗봇문의</button><!-- 챗본문의 버튼 -->
   
       <!-- [하단(footer)] 부분 -->
@@ -535,7 +562,7 @@
           <!--하단 : 탑 부분-->
           <div id="f_top">
             <h2>
-              <a href="index.html">
+              <a href="index ">
                 <img src="${path}/resources/images/main_images/footer_logo.png" alt="">
               </a>
             </h2>
@@ -605,35 +632,35 @@
                     </li>
                   <li class="menuTitle">ABOUT SIDIZ
                     <ul class="subUl mgt20">
-                      <li><a href="brand_story.html">BRAND STORY</a></li>
-                      <li><a href="news.html">NEWS</a></li>
+                      <li><a href="brand_story ">BRAND STORY</a></li>
+                      <li><a href="news ">NEWS</a></li>
                     </ul>
                   </li>
                   <li class="menuTitle">제품
                     <ul class="subUl mgt20">
-                      <li><a href="productMenu.html">마블x시디즈 태스크</a></li>
-                      <li><a href="productMenu.html">디즈니x시디즈 키즈</a></li>
-                      <li><a href="productMenu.html">사무용의자</a></li>
-                      <li><a href="productMenu.html">학생용의자</a></li>
-                      <li><a href="productMenu.html">유아용의자</a></li>
-                      <li><a href="productMenu.html">중역용의자</a></li>
-                      <li><a href="productMenu.html">회의실/컨퍼런스의자</a></li>
-                      <li><a href="productMenu.html">인테리어의자</a></li>
-                      <li><a href="productMenu.html">스툴/좌식의자</a></li>
-                      <li><a href="productMenu.html">액세서리</a></li>
+                      <li><a href="productMenu ">마블x시디즈 태스크</a></li>
+                      <li><a href="productMenu ">디즈니x시디즈 키즈</a></li>
+                      <li><a href="productMenu ">사무용의자</a></li>
+                      <li><a href="productMenu ">학생용의자</a></li>
+                      <li><a href="productMenu ">유아용의자</a></li>
+                      <li><a href="productMenu ">중역용의자</a></li>
+                      <li><a href="productMenu ">회의실/컨퍼런스의자</a></li>
+                      <li><a href="productMenu ">인테리어의자</a></li>
+                      <li><a href="productMenu ">스툴/좌식의자</a></li>
+                      <li><a href="productMenu ">액세서리</a></li>
                     </ul>
                   </li>
                   <li class="menuTitle">고객센터
                     <ul class="subUl mgt20">
-                      <li><a href="productMenu.html">FAQ</a></li>
-                      <li><a href="productMenu.html">친절상담</a></li>
-                      <li><a href="productMenu.html">A/S신청</a></li>
+                      <li><a href="productMenu ">FAQ</a></li>
+                      <li><a href="productMenu ">친절상담</a></li>
+                      <li><a href="productMenu ">A/S신청</a></li>
                       <li><a href="#">A/S안내</a></li>
-                      <li><a href="search_store.html">매장 찾기</a></li>
-                      <li><a href="productMenu.html">품질 보증 서비스</a></li>
-                      <li><a href="productMenu.html">제품설명서 다운로드</a></li>
-                      <li><a href="productMenu.html">카탈로그 다운로드</a></li>
-                      <li><a href="productMenu.html">시디즈 서비스</a></li>
+                      <li><a href="search_store ">매장 찾기</a></li>
+                      <li><a href="productMenu ">품질 보증 서비스</a></li>
+                      <li><a href="productMenu ">제품설명서 다운로드</a></li>
+                      <li><a href="productMenu ">카탈로그 다운로드</a></li>
+                      <li><a href="productMenu ">시디즈 서비스</a></li>
                     </ul>
                   </li>
                   <li class="mgr34 menuTitle">문의사항

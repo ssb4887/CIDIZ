@@ -1,33 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import = "java.io.PrintWriter" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <title>SIDIZ</title>
-<meta http-equiv="Conetent-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width" initial-scale="1">
-<link rel="stylesheet" href="${path}/resources/css/bootstrap.css">
-<link rel="stylesheet" href="${path}/resources/css/custom.css">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="${path}/resources/js/bootstrap.js"></script>
-
-	<!-- sidiz -->
   <link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
-  <link rel="stylesheet" type="text/css" href="${path}/resources/css/main.css"><!-- 컨텐츠 css -->
+  <link rel="stylesheet" type="text/css" href="${path}/resources/css/brand_story.css"><!-- 컨텐츠 css -->
   <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
   <script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
    <script src="${path}/resources/js/vendor.js"></script><!-- vendor js -->
   <!-- <script src="/js/common.js"></script> --><!-- 공통 js_body밑에 -->
   <script src="${path}/resources/js/script.js"></script><!-- 제이쿼리 --> 
-  <script src="${path}/resources/js/nav_jquery.js"></script><!-- 네비 js --> 
+  <script src="${path}/resources/js/nav_jquery.js"></script><!-- 네비 js -->
+  <!-- font --------------------------------------------->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    /> 
 </head>
 <body>
-
-<%-- 네비게이션 --%>
- <!-- [상단(header)] -->
+<body>
+  <body>
+  <div class="wrapper">
+    <!-- [상단(header)] -->
     <header id="header">
       <!-- 상단 : 로고 -->
       <h1 class="logo"><a href="#">SIDIZ</a></h1>
@@ -36,7 +35,7 @@
     <div id="header_icon">
       <ul class="nav-group">
         <li>
-            <a href="login"><img src="${path}/resources/images/main_images/nav_my.png" alt="" /></a>
+            <img src="${path}/resources/images/main_images/nav_my.png" alt="" />
         </li>
         <li>
             <img src="${path}/resources/images/main_images/nav_write.png" alt="" class="write"/>
@@ -77,7 +76,7 @@
             </li>
             <li class="has-sp sp-3">
               <p>
-                <a href="review">
+                <a href="review ">
                   <img src="${path}/resources/images/nav_images/nav_Review.png" alt="" />Review
                 </a>
               </p>
@@ -91,7 +90,7 @@
             </li>
             <li class="has-sp sp-5">
               <p>
-                <a href="event">
+                <a href="event ">
                   <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />Event
                 </a>
               </p>
@@ -128,31 +127,31 @@
               <div class="contents">
                 <ul id="second">
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       사무용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_1.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       학생용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_2.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       유아용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_3.jpg" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       인테리어
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_4.png" alt="" id="interior_img"/>
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu">
+                    <a href="productMenu ">
                       모든제품
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_5.png" alt="" id="all_img"/>
                     </a>
@@ -179,7 +178,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="search_store">
+                    <a href="search_store ">
                       매장찾기
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_3(1).png" alt="" id="map_img"/>
                     </a>
@@ -192,41 +191,114 @@
       </div>
     </nav>
 
-<%-- 메인 컨텐츠 --%>
-<div class = "container" style = "margin-top: 10%; margin-bottom: 5%">
-		<div class = "col-lg-4"></div>
-		
-		<div class = "col-lg-4">
-				<div class = "jumbotron" >
-						<form method = "POST" action = "./loginAction">  
-								<!-- 상단 : 로고 -->
-      							<h2 class="logo" style = "text-align: center;"><a href="/">SIDIZ</a></h2>
-								<h3 style = "text-align : center; margin-top: 7%; margin-bottom: 3%">로그인</h3>	
-								<!-- 아이디 입력 -->
-								<div class ="form-group">
-									<input type = "text" class = "form-control" autocomplete = "off" name = "user_id" placeholder = "아이디">
-								</div>
-								
-								<!-- 비밀번호 입력 -->
-								<div class ="form-group">
-									<input type = "password" class = "form-control" name = "user_pw" placeholder = "비밀번호">
-								</div>		
-								
-								<!-- 제출 버튼 -->
-								<div class ="form-group">
-									<input type = "submit" class = "btn btn-primary form-control" value = "로그인">
-								</div>			
-								
-								<!-- 회원가입 버튼 -->
-								<div class ="form-group">
-									<a href ="./join" class = "btn btn-success form-control">회원가입</a>
-								</div>				
-						</form>
-				</div>
-		</div>
-		<div class = "col-lg-4"></div>
-</div>
-<%-- 메인 컨텐츠 종료 --%>
+      <!--내용(contents) 부분-->
+      <section id="contents">
+        <div id="contents_box">
+          <article id="play">
+            <h1>BRAND STROY</h1>
+            <iframe
+              width="1000"
+              height="600"
+              src="https://www.youtube.com/embed/D4fW7eLXlD8"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <p>
+              인생의 많은 순간,<br />
+              우리는 의자와 함께합니다.<br /><br />
+              우리는 믿습니다<br />
+              의자 위의 모든 순간들이<br />
+              결국 당신을 만든다는 것을<br /><br />
+              그래서 시디즈는 앉음(Sitting Experience)을,<br />
+              의자 위 사람과 그 움직임을 연구합니다<br /><br />의자 위 당신의
+              모든 경험을 위해<br />그 경험이 바꿀 당신의 인생을 위해
+            </p>
+            <span>의자가 인생을 바꾼다</span>
+          </article>
+          <article id="mission">
+            <h2>OUR MISSION</h2>
+            <div>
+              <div>
+                <p>
+                  앉음(Sitting experience)을 통해<br />
+                  충만하고 더 나은 삶을 지지합니다.
+                </p>
+              </div>
+            </div>
+          </article>
+          <article id="values">
+            <h2>OUR VALUES</h2>
+            <div>
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+          </article>
+          <article id="history">
+            <h2>HISTORY</h2>
+            <div>
+              <img src="${path}/resources/images/history_1.PNG" alt="" />
+              <a href="#"
+                ><img src="${path}/resources/images/history_2.PNG" alt=""
+              /></a>
+            </div>
+          </article>
+          <article id="awards">
+            <header><h2>AWARD</h2></header>
+            <section>
+              <ul>
+                <li>
+                  <img src="${path}/resources/images/award_1.PNG" alt="" />
+                  <p>REDDOT AWARD</p>
+                </li>
+                <li>
+                  <img src="${path}/resources/images/award_2.PNG" alt="" />
+                  <p>IDEA</p>
+                </li>
+                <li>
+                  <img src="${path}/resources/images/award_3.PNG" alt="" />
+                  <p>iF DESIGN AWARD</p>
+                </li>
+                <li>
+                  <img src="${path}/resources/images/award_4.PNG" alt="" />
+                  <p>
+                    ERGONOMIC<br />
+                    DESIGN AWARD
+                  </p>
+                </li>
+                <li>
+                  <img src="${path}/resources/images/award_5.PNG" alt="" />
+                  <p>GOOD DESIGN JAPAN</p>
+                </li>
+                <li>
+                  <img src="${path}/resources/images/award_6.PNG" alt="" />
+                  <p>GOOD DESIGN KOREA</p>
+                </li>
+                <li>
+                  <img src="${path}/resources/images/award_7.PNG" alt="" />
+                  <p>PIN UP DESIGN AWARD</p>
+                </li>
+              </ul>
+            </section>
+          </article>
+        </div>
+      </section>
+
+      <button onclick="location.href='search_store '" class="shop_btn">
+        매장찾기</button
+      ><!-- 매장찾기 버튼 -->
+      <button
+        onclick="window.open('https://bizmessage.kakao.com/chat/open/%40sidiz_official?bot=true&amp;event=WEB_WELCOME')"
+        class="chat_btn"
+      >
+        챗봇문의</button
+      ><!-- 챗본문의 버튼 -->
+ 
       <!-- [하단(footer)] 부분 -->
       <footer id="footer">
           <!--하단 : 탑 부분-->
