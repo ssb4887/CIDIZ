@@ -29,7 +29,7 @@
     <!-- [상단(header)] -->
     <header id="header">
       <!-- 상단 : 로고 -->
-      <h1 class="logo"><a href="#">SIDIZ</a></h1>
+      <h1 class="logo"><a href="${path }/">SIDIZ</a></h1>
     </header>
     <!-- 상단-네비 : 우측 아이콘 -->
     <div id="header_icon">

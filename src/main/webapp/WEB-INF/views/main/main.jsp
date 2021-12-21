@@ -27,7 +27,7 @@
     <!-- [상단(header)] -->
     <header id="header">
       <!-- 상단 : 로고 -->
-      <h1 class="logo"><a href="#">SIDIZ</a></h1>
+      <h1 class="logo"><a href="${path }/">SIDIZ</a></h1>
     </header>
     <!-- 상단-네비 : 우측 아이콘 -->
     <div id="header_icon">
@@ -187,7 +187,7 @@
               <div class="contents">
                 <ul id="third">
                   <li>
-                    <a href="#">
+                    <a href="bbs">
                       Q&A
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_1.png" alt="" />
                     </a>
