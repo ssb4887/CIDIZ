@@ -22,8 +22,7 @@
       crossorigin="anonymous"
     />
 </head>
-<body>
-<body>
+
   <body>
   <div class="wrapper">
     <!-- [상단(header)] -->
@@ -356,7 +355,7 @@
           </div>
       </footer>
     </div>
-  
+</div>  
   
     <script src="${path}/resources/js/common.js"></script><!-- 메인-공통 js -->
 

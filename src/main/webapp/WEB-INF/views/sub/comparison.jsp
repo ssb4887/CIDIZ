@@ -7,7 +7,7 @@
 <head>
 <title>SIDIZ</title>
   <link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
-  <link rel="stylesheet" type="text/css" href="${path}/resources/css/news.css"><!-- 컨텐츠 css -->
+  <link rel="stylesheet" type="text/css" href="${path}/resources/css/comparison.css"><!-- 컨텐츠 css -->
   <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
   <script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
    <script src="${path}/resources/js/vendor.js"></script><!-- vendor js -->
@@ -191,78 +191,191 @@
     </nav>
 <!-- [내용(contents)] 부분  -->
 
-    <!-- 뉴스 -->
-    <div id="news">
-      <div id="select_menu">
-        <ul>
-          <li><span>ABOUT SIDIZ</span></li>
-          <li>BRAND STORY</li>
-          <li>NEWS</li>
-        </ul>
-      </div>
-      <!-- 주 제목 -->
-      <div class="n_contents">
-        <header class="nc_header">
-          <h4>NEWS</h4>
-        </header>
 
-        <!-- 부 제목 -->
-        <!-- 제목 위 보더 스타일 -->
-        <div id="boarder">
-          <div class="b_box"></div>
-          <div class="b_box bb_t"></div>
-          <!-- 제목 위 보더 스타일 끝 -->
-          <div class="b_title">
-            <h5>News</h5>
-          </div>
-        </div>
 
-        <div class="nc_center">
+      <div id="comparison">
+        <div id="select_menu">
           <ul>
-            <li class="nccb_image">
-              <div class="img_box img1"></div>
-              <h4>시디즈 이용약관 및 개인정보 처리방침 개정 사전안내</h4>
-              <p>2021-03-23</p>
-            </li>
-            <li class="nccb_image">
-              <div class="img_box img2"></div>
-              <h4>시디즈 이용약관 및 개인정보 처리방침 개정 사전안내</h4>
-              <p>2020-11-05</p>
-            </li>
-            <li class="nccb_image last_img">
-              <div class="img_box img3"></div>
-              <h4>
-                시디즈 몰티 '글라이드' 품질 개선을 위한 일부 품목 한시적 판매
-                중지 안내
-              </h4>
-              <p id="tab">2020-11-05</p>
-            </li>
-            <li class="nccb_image">
-              <div class="img_box img4"></div>
-              <h4>영업 양도양수에 따른 개인정보 이전 안내 (18.04.01 일자)</h4>
-              <p>2018-04-09</p>
-            </li>
-            <li class="nccb_image">
-              <div class="img_box img5"></div>
-              <h4>시디즈 ATTI, 2018 Red Dot Design Award 수상</h4>
-              <p>2018-03-30</p>
-            </li>
-            <li class="nccb_image last_img">
-              <div class="img_box img6"></div>
-              <h4>영업 양도양수에 따른 개인정보 이전 안내</h4>
-              <p>2018-02-23</p>
-            </li>
+            <li><span>HOME</span></li>
+            <li>장바구니</li>
+            <li>비교하기</li>
           </ul>
         </div>
+        <div class="e_contents">
+          <!-- 주 제목 -->
+          <header class="ec_header">
+            <h4>비교하기</h4>
+          </header>
+
+          <!-- 부 제목 -->
+          <!-- 제목 위 보더 스타일 -->
+          <div id="boarder">
+            <div class="b_box"></div>
+            <div class="b_box bb_t"></div>
+            <!-- 제목 위 보더 스타일 끝 -->
+            <div class="b_title">
+              <h5>제품 비교하기</h5>
+            </div>
+          </div>
+
+          <!-- 제품 비교 시작 -->
+          <div id="table_box">
+            <ul>
+              <li>
+                <table id="tb" border="1">
+                  <tr>
+                    <td style="height: 335px; text-align: center">
+                      <h1>Product</h1>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">
+                      <h1>H</h1>
+                      <h2>목 받침대</h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">
+                      <h1>L</h1>
+                      <h2>요추 지지대</h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">
+                      <h1>D</h1>
+                      <h2>좌판</h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">
+                      <h1>A</h1>
+                      <h2>팔걸이</h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">
+                      <h1>Tilt</h1>
+                      <h2>틸트</h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 425px; text-align: center">
+                      <h1>Feature</h1>
+                      <h2>특징</h2>
+                    </td>
+                  </tr>
+                </table>
+              </li>
+              <li>
+                <table id="tb" border="1">
+                  <tr>
+                    <td style="height: 335px; text-align: center">1</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">12</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">2</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">12</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">1</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">23</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 425px; text-align: center">12</td>
+                  </tr>
+                </table>
+              </li>
+              <li>
+                <table id="tb" border="1">
+                  <tr>
+                    <td style="height: 335px; text-align: center">1</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">12</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">2</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">12</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">31</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">23</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 425px; text-align: center">12</td>
+                  </tr>
+                </table>
+              </li>
+              <li>
+                <table id="tb" border="1">
+                  <tr>
+                    <td style="height: 335px; text-align: center">1</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">12</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">2</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">12</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">31</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">23</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 425px; text-align: center">12</td>
+                  </tr>
+                </table>
+              </li>
+              <li>
+                <table id="tb" border="1">
+                  <tr>
+                    <td style="height: 335px; text-align: center">1</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">12</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">2</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">12</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">31</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 150px; text-align: center">23</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 425px; text-align: center">12</td>
+                  </tr>
+                </table>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-    
-      
+
+
+
       <button onclick="location.href='search_store '" class="shop_btn">매장찾기</button><!-- 매장찾기 버튼 -->
       <button onclick="window.open('https://bizmessage.kakao.com/chat/open/%40sidiz_official?bot=true&amp;event=WEB_WELCOME')" class="chat_btn">챗봇문의</button><!-- 챗본문의 버튼 -->
   
-
-
       <!-- [하단(footer)] 부분 -->
       <footer id="footer">
           <!--하단 : 탑 부분-->

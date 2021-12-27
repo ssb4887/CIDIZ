@@ -7,7 +7,7 @@
 <head>
 <title>SIDIZ</title>
   <link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
-  <link rel="stylesheet" type="text/css" href="${path}/resources/css/news.css"><!-- 컨텐츠 css -->
+  <link rel="stylesheet" type="text/css" href="${path}/resources/css/order.css"><!-- 컨텐츠 css -->
   <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
   <script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
    <script src="${path}/resources/js/vendor.js"></script><!-- vendor js -->
@@ -191,78 +191,236 @@
     </nav>
 <!-- [내용(contents)] 부분  -->
 
-    <!-- 뉴스 -->
-    <div id="news">
-      <div id="select_menu">
-        <ul>
-          <li><span>ABOUT SIDIZ</span></li>
-          <li>BRAND STORY</li>
-          <li>NEWS</li>
-        </ul>
-      </div>
-      <!-- 주 제목 -->
-      <div class="n_contents">
-        <header class="nc_header">
-          <h4>NEWS</h4>
-        </header>
-
-        <!-- 부 제목 -->
-        <!-- 제목 위 보더 스타일 -->
-        <div id="boarder">
-          <div class="b_box"></div>
-          <div class="b_box bb_t"></div>
-          <!-- 제목 위 보더 스타일 끝 -->
-          <div class="b_title">
-            <h5>News</h5>
-          </div>
-        </div>
-
-        <div class="nc_center">
+      <div id="order">
+        <div id="select_menu">
           <ul>
-            <li class="nccb_image">
-              <div class="img_box img1"></div>
-              <h4>시디즈 이용약관 및 개인정보 처리방침 개정 사전안내</h4>
-              <p>2021-03-23</p>
-            </li>
-            <li class="nccb_image">
-              <div class="img_box img2"></div>
-              <h4>시디즈 이용약관 및 개인정보 처리방침 개정 사전안내</h4>
-              <p>2020-11-05</p>
-            </li>
-            <li class="nccb_image last_img">
-              <div class="img_box img3"></div>
-              <h4>
-                시디즈 몰티 '글라이드' 품질 개선을 위한 일부 품목 한시적 판매
-                중지 안내
-              </h4>
-              <p id="tab">2020-11-05</p>
-            </li>
-            <li class="nccb_image">
-              <div class="img_box img4"></div>
-              <h4>영업 양도양수에 따른 개인정보 이전 안내 (18.04.01 일자)</h4>
-              <p>2018-04-09</p>
-            </li>
-            <li class="nccb_image">
-              <div class="img_box img5"></div>
-              <h4>시디즈 ATTI, 2018 Red Dot Design Award 수상</h4>
-              <p>2018-03-30</p>
-            </li>
-            <li class="nccb_image last_img">
-              <div class="img_box img6"></div>
-              <h4>영업 양도양수에 따른 개인정보 이전 안내</h4>
-              <p>2018-02-23</p>
-            </li>
+            <li><span>HOME</span></li>
+            <li>주문결제</li>
           </ul>
         </div>
+        <div class="e_contents">
+          <!-- 주 제목 -->
+          <header class="ec_header">
+            <h4>주문결제</h4>
+          </header>
+
+          <!-- 부 제목 -->
+          <!-- 제목 위 보더 스타일 -->
+          <div id="boarder">
+            <div class="b_box"></div>
+            <div class="b_box bb_t"></div>
+            <!-- 제목 위 보더 스타일 끝 -->
+            <div class="b_title">
+              <h5>주문결제</h5>
+            </div>
+          </div>
+
+          <!-- 주문 결제 시작 -->
+          <div id="img_box">
+            <img src="${path}/resources/images/order.png" alt="" />
+          </div>
+          <div id="order_box">
+            <table id="tb">
+              <tr style="background-color: #e7e7e7">
+                <td style="width: 7%; height: 45px; text-align: center">
+                  <input type="checkbox" id="check_all" onclick="toggle()" />
+                  <label for="check_all"></label>
+                </td>
+                <td
+                  colspan="2"
+                  style="width: 33.8%; height: 45px; text-align: center"
+                >
+                  제품정보
+                </td>
+                <td style="width: 12.8%; height: 45px; text-align: center">
+                  색상/소재
+                </td>
+                <td style="width: 11.8%; height: 45px; text-align: center">
+                  판매가격
+                </td>
+                <td style="width: 10.8%; height: 45px; text-align: center">
+                  수량
+                </td>
+                <td style="width: 11.8%; height: 45px; text-align: center">
+                  주문금액
+                </td>
+                <td style="width: 12%; height: 45px; text-align: center"></td>
+              </tr>
+              <tr>
+                <td colspan="8" style="height: 127px; text-align: center">
+                  장바구니에 담긴 품목이 없습니다.
+                </td>
+              </tr>
+              <tr style="background-color: #e7e7e7">
+                <td colspan="6" style="height: 67px; text-align: center"></td>
+                <td style="height: 67px; text-align: center">총 결제금액</td>
+                <td style="height: 67px; text-align: center">0 원</td>
+              </tr>
+            </table>
+          </div>
+          <div id="order_detail">
+            <div id="provision">
+              <div id="provision_left">
+                <div id="useText">
+                	<!-- 이용약관 페이지 불러오기 -->
+					<jsp:include page="../termsofUse_txt.jsp"/>
+                </div>
+	                <input type="checkbox" name="nonUser" />
+	                <label for="nonUser">
+	                  비회원 쇼핑을 이용약관에 동의합니다.
+	                </label>
+              </div>
+              <div id="provision_right">
+                <div id="collectText">
+                	<!--개인정보 수집 동의 불러오기 -->
+ 					<jsp:include page="../termsofUse_txt.jsp"/>
+                </div>
+                <p id="first">
+                  <input type="checkbox" name="collect" />
+                  <label for="collect">
+                    개인정보 수집 및 이용에 동의합니다.
+                  </label>
+                </p>
+                <p id="second">
+                  <input type="checkbox" name="collect_third" />
+                  <label for="collect_third">
+                    개인정보 제 3자 제공 동의 (필수)
+                  </label>
+                </p>
+                <p id="third">
+                  *미동의시 홈페이지 이용 및 제품 구매/배송에 제한이 될 수
+                  있습니다.
+                </p>
+              </div>
+            </div>
+            <div id="order_info">
+              <div id="info_left">
+                <div id="user_table">
+                  <table width="400" height="245">
+                    <tr>
+                      <td colspan="2" id="table_header">
+                        <h2>주문고객 정보</h2>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 30%">이름</td>
+                      <td style="width: 70%">
+                        <input type="text" id="UserTable_name" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 30%">이메일</td>
+                      <td style="width: 70%">
+                        <input type="text" id="UserTable_email" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 30%">휴대전화</td>
+                      <td style="width: 70%">
+                        <input type="text" id="UserTable_phone" /> 예&#41;
+                        010-1234-5678
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div id="info_right">
+                <div id="delivery_table">
+                  <table width="490" height="535">
+                    <tr>
+                      <td colspan="2" id="delTable_header">
+                        <h2>배송지 정보</h2>
+                      </td>
+                    </tr>
+                    <tr id="userCheck">
+                      <td colspan="2">
+                        <input type="checkbox" name="check_UserInfo" />
+                        <label for="check_UserInfo">
+                          주문 고객 정보와 동일
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 30%">받는 사람</td>
+                      <td style="width: 70%">
+                        <input type="text" id="delTable_name" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 30%">주소</td>
+                      <td style="width: 70%">
+                        <p>
+                          <input type="text" id="postcode" readonly />
+                          <input
+                            type="button"
+                            value="우편번호 찾기"
+                            id="search"
+                          />
+                        </p>
+                        <p><input type="text" id="addr1" readonly /></p>
+                        <p><input type="text" id="addr2" /></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 30%">휴대전화</td>
+                      <td style="width: 70%">
+                        <input type="text" id="delTable_phone" /> 예&#41;
+                        010-1234-5678
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 30%">전화번호</td>
+                      <td style="width: 70%">
+                        <input type="text" id="delTable_tel" /> 예&#41;
+                        02-1234-5678
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 30%">배송 요청사항</td>
+                      <td style="width: 70%">
+                        <input type="text" id="delTable_require" />
+                      </td>
+                    </tr>
+                    <tr id="delPrice">
+                      <td colspan="2">총 결제금액 원</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div id="buy_way">
+              <div id="select">
+                <h2>결제수단 선택</h2>
+                <div>
+                  <input type="radio" id="credit" name="sel" value="credit" />
+                  <label for="credit">신용카드</label>
+                  <input type="radio" id="credit" name="sel" value="credit" />
+                  <label for="credit">계좌이체</label>
+                  <input type="radio" id="credit" name="sel" value="credit" />
+                  <label for="credit">가상계좌(무통장)</label>
+                </div>
+              </div>
+              <div id="confirm">
+                <img src="${path}/resources/images/confirm.png" alt="" />
+                <div id="error">결제오류센터 &#62;</div>
+              </div>
+            </div>
+            <div id="btns">
+              <div>
+                <img src="${path}/resources/images/orderBtn.png" alt="" />
+              </div>
+              <div>
+                <img src="${path}/resources/images/backBtn.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    
-      
+
+
       <button onclick="location.href='search_store '" class="shop_btn">매장찾기</button><!-- 매장찾기 버튼 -->
       <button onclick="window.open('https://bizmessage.kakao.com/chat/open/%40sidiz_official?bot=true&amp;event=WEB_WELCOME')" class="chat_btn">챗봇문의</button><!-- 챗본문의 버튼 -->
   
-
-
       <!-- [하단(footer)] 부분 -->
       <footer id="footer">
           <!--하단 : 탑 부분-->

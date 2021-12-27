@@ -114,13 +114,8 @@ public class MainController {
 		@RequestMapping(value = "/review", method = RequestMethod.GET)
 		public String review(Model model) throws Exception {
 			
-			// 메세지를 띄울 수도 있다.
-			// model.addAttribute("msg", "반갑습니다.");
-			
-			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
 			return "sub/review";
 			
-			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
 		}
 
 
@@ -128,13 +123,8 @@ public class MainController {
 		@RequestMapping(value = "/search_store", method = RequestMethod.GET)
 		public String search_store(Model model) throws Exception {
 			
-			// 메세지를 띄울 수도 있다.
-			// model.addAttribute("msg", "반갑습니다.");
-			
-			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
 			return "sub/search_store";
 			
-			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
 		}
 
 
@@ -142,13 +132,35 @@ public class MainController {
 		@RequestMapping(value = "/tip", method = RequestMethod.GET)
 		public String tip(Model model) throws Exception {
 			
-			// 메세지를 띄울 수도 있다.
-			// model.addAttribute("msg", "반갑습니다.");
-			
-			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
 			return "sub/tip";
 			
-			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
+		}
+		
+		
+		// basket 찾아가기
+		@RequestMapping(value = "/basket", method = RequestMethod.GET)
+		public String basket(Model model) throws Exception {
+			
+			return "sub/basket";
+			
+		}
+		
+		
+		// order 찾아가기
+		@RequestMapping(value = "/order", method = RequestMethod.GET)
+		public String order(Model model) throws Exception {
+			
+			return "sub/order";
+			
+		}
+		
+		
+		// comparison 찾아가기
+		@RequestMapping(value = "/comparison", method = RequestMethod.GET)
+		public String comparison(Model model) throws Exception {
+			
+			return "sub/comparison";
+			
 		}
 	
 	//////////////////////////////////////////////////////////////////////////////

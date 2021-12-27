@@ -88,7 +88,7 @@
             </li>
             <li class="has-sp sp-2">
               <p>
-                <a href="#">
+                <a href="basket">
                   <img src="${path}/resources/images/nav_images/nav_ShoppingBasket.png" alt="" />Shopping Basket
                 </a>
               </p>
@@ -114,7 +114,13 @@
                 </a>
               </p>
             </li>
-		
+            <li class="has-sp sp-6">
+              <p>
+                <a href="comparison">
+                  <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />comparison
+                </a>
+              </p>
+            </li>
           </ul>
         </article>
 
@@ -298,7 +304,7 @@
                     <br>
                     <p>
                       <div class="play">
-                        <img src="${path}/resources/images/video-recorder-gc4117309d_1280.png" alt="">
+                        <img src="${path}/resources/images/main_images/video-recorder-gc4117309d_1280.png" alt="">
                       </div>
                     </p>
                   </div>
@@ -351,7 +357,7 @@
                   <!-- 밖 텍스트(가로글자) -->
                   <span class="text">사무용</span>
                   <!-- 안 텍스트(세로글자) -->
-                  <img src="${path}/resources/images/main_images/samu2.png" alt="" class="txt-hover">
+                  <img src="${path}/resources/images/main_images/contents1_samu2.png" alt="" class="txt-hover">
                 </div>
                 <!-- bg-hover에는 css로 백그라운드 이미지 줌 -->
                 <div class="bg-hover">
