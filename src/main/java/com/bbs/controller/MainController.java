@@ -154,6 +154,14 @@ public class MainController {
 			
 		}
 		
+		// order 찾아가기
+		@RequestMapping(value = "/completion", method = RequestMethod.GET)
+		public String completion(Model model) throws Exception {
+					
+			return "sub/completion";
+					
+		}
+		
 		
 		// comparison 찾아가기
 		@RequestMapping(value = "/comparison", method = RequestMethod.GET)
