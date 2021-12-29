@@ -1,6 +1,6 @@
-# SIDIZ Query
-	
-	CREATE DATABASE SIDIZ;
+# SIDIZ Database CREATE Table
+
+CREATE DATABASE SIDIZ;
 
 -- 사용자
 CREATE TABLE USERS (
@@ -24,7 +24,7 @@ CREATE TABLE BOARDER (
     reg_date    DATE,
     likey       INT DEFAULT 0,
     available   INT DEFAULT 0,
-    count		INT DEFAULT 0
+    count	INT DEFAULT 0
 );
 
 
@@ -51,7 +51,7 @@ CREATE TABLE UPLOADFILE (
 
 -- 공감 횟수 카운트 테이블
 CREATE TABLE LIKEY_R (
-	boarder_id INT,
+    boarder_id INT,
     user_id	VARCHAR(20)
 );
 
@@ -75,6 +75,15 @@ CREATE TABLE PRODUCT (
     tilt          INT,
     feature       INT
 );
+DROP TABLE PRODUCT;
+
+-- -- -- 비교하기 기준(이미지 매칭)
+-- head 	= 0 : 없음, 	1 :목 받침대 높이 조절, 목 받침대 각도 조절
+-- lumber 	= 0 : 없음, 	1 : 요추 지지대 높이 조절, 	       2 : 오토매틱 요추 지지대
+-- seat 	= 0 : 없음, 	1 : 좌판 깊이조절, 			2 : 좌판 깊이 조절, 좌판 기울기 조절
+-- armrest 	= 0 : 없음, 	1 : 팔 걸이 높이 조절, 팔걸이 너비 조절    2 : 팔걸이 높이/전후 조절, 팔걸이 각도 조절
+-- tilt 	= 0 : 없음, 	1 : Ultimate Sync, 		   2 : 4000G
+-- feature 	= 0 : 없음, 	1 : T-80 특징, 			  2 : T-55 특징
 
 
 
@@ -82,21 +91,36 @@ CREATE TABLE PRODUCT (
 CREATE TABLE BASKET(
     user_id 		VARCHAR(100) 	PRIMARY KEY,
     product_name 	VARCHAR(100) 	NOT NULL,
-    color 			VARCHAR(50) 	NOT NULL,
-    product_price 	INT 			NOT NULL,
-    product_count 	INT 			NOT NULL,
-    order_price 	INT 			NOT NULL
+    color 		VARCHAR(50) 	NOT NULL,
+    product_price 	INT 		NOT NULL,
+    product_count 	INT 		NOT NULL,
+    order_price 	INT 		NOT NULL
     
 );
 
-
 -- 주문 테이블
 CREATE TABLE ORDERS(
-	user_id 		VARCHAR(100) 	PRIMARY KEY,
-    order_addr		TEXT			NOT NULL,
+    user_id 		VARCHAR(100) 	PRIMARY KEY,
+    order_addr		TEXT		NOT NULL,
     product_name 	VARCHAR(100) 	NOT NULL,
-    color 			VARCHAR(50) 	NOT NULL,
-    product_price 	INT 			NOT NULL,
-    product_count 	INT 			NOT NULL,
-    order_price 	INT 			NOT NULL
+    color 		VARCHAR(50) 	NOT NULL,
+    product_price 	INT 		NOT NULL,
+    product_count 	INT 		NOT NULL,
+    order_price 	INT 		NOT NULL
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
