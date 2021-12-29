@@ -709,12 +709,7 @@
   border: 1px solid #d1d1d1;
 }
 #check_all {
-  -webkit-appearance: unset;
-  -khtml-appearance: unset;
-  -moz-appearance: unset;
-  -ms-appearance: unset;
-  -o-appearance: unset;
-  appearance: unset;
+
   width: 13px;
   height: 13px;
 }
