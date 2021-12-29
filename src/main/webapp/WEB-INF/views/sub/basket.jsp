@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>SIDIZ</title>
-  <link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
+  <link rel="stylesheet" type="text/css" href="${path}/resources/css/default_basket.css"><!-- 공통 css -->
   <link rel="stylesheet" type="text/css" href="${path}/resources/css/basket.css"><!-- 컨텐츠 css -->
   <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
   <script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
@@ -225,8 +225,7 @@
             <table id="tb">
               <tr style="background-color: #e7e7e7">
                 <td style="width: 7%; height: 45px; text-align: center">
-                  <input type="checkbox" id="check_all" onclick="toggle()" />
-                  <label for="check_all"></label>
+                  <input type="checkbox"/>
                 </td>
                
                <!-- 장바구니 항목 -->
@@ -253,7 +252,7 @@
               
               
               <!-- 장바구니에 담긴 목록 -->
-              <c:if test = "${empty list}">
+              <c:if test = "${empty basket_list}">
               <tr>
                 <td colspan="8" style="height: 127px; text-align: center">
                   장바구니에 담긴 품목이 없습니다.
@@ -261,11 +260,11 @@
               </tr>
               </c:if>
               
-              <c:if test = "${not empty list}">
+              <c:if test="${not empty basket_list}"> 
               <c:forEach var= "basket" items ="${basket_list}">
 					<tr>
 		                <td style="width: 7%; height: 45px; text-align: center">
-		                  <input type="checkbox" id="check_all" onclick="toggle()" />
+		                  <input type="checkbox" id="check_all"/>
 		                  <label for="check_all"></label>
 		                </td>
 		               
@@ -290,8 +289,8 @@
 		                  ${basket.order_price}
 		                </td>
 		                <td style="width: 12%; height: 45px; text-align: center">
-		                	<a href="" class ="btn"><img src="${path}/resources/images/orederBtn"></a>
-		                	<a href="" class ="btn"><img src="${path}/resources/images/deleteBtn"></a>
+		                	<a href="" class ="form-control"><img src="${path}/resources/images/orderBtn.png"></a>
+		                	<a href="" class ="form-control"><img src="${path}/resources/images/deleteBtn.png"></a>
 		                </td>
 		            </tr>
               </c:forEach>
