@@ -26,17 +26,20 @@
 </head>
 <body>
 
-<%-- 네비게이션 --%>
- <!-- [상단(header)] -->
+<body>
+  <div class="wrapper">
+    <!-- [상단(header)] -->
     <header id="header">
       <!-- 상단 : 로고 -->
       <h1 class="logo"><a href="${path }/">SIDIZ</a></h1>
     </header>
     <!-- 상단-네비 : 우측 아이콘 -->
     <div id="header_icon">
+    			
       <ul class="nav-group">
+
         <li>
-            <a href="login"><img src="${path}/resources/images/main_images/nav_my.png" alt="" /></a>
+            <a href="#"><img src="${path}/resources/images/main_images/nav_my.png" alt="" /></a>
         </li>
         <li>
             <img src="${path}/resources/images/main_images/nav_write.png" alt="" class="write"/>
@@ -53,6 +56,7 @@
         <i></i>
         <i></i>
         <i></i>
+        
       </a>
     </div>
 
@@ -61,6 +65,24 @@
       <div class="nav-inner">
         <article id="side_mn">  
           <ul>
+          <li>
+	         <p>
+		         	<!-- 로그인 안했을 때 표시  -->
+		         	<c:if test = "${empty user_id}" >
+		         		<a href = "${path}/login">
+		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Login
+		         		</a>
+		         	</c:if>
+		         	
+		         	<!-- 로그인 했을 때 표시  -->
+		         	<c:if test = "${not empty user_id}" >
+		         		<a href = "${path}/logout">
+		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Logout
+		         		</a>
+		         	</c:if>
+		         
+	         </p>
+          </li>
             <li class="has-sp sp-1">
               <p>
                 <a href="#">
@@ -70,7 +92,7 @@
             </li>
             <li class="has-sp sp-2">
               <p>
-                <a href="#">
+                <a href="basket">
                   <img src="${path}/resources/images/nav_images/nav_ShoppingBasket.png" alt="" />Shopping Basket
                 </a>
               </p>
@@ -96,6 +118,13 @@
                 </a>
               </p>
             </li>
+            <li class="has-sp sp-6">
+              <p>
+                <a href="comparison">
+                  <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />comparison
+                </a>
+              </p>
+            </li>
           </ul>
         </article>
 
@@ -107,13 +136,13 @@
               </h4>
               <div class="contents">
                 <ul id="first">
-                  <li>
+                  <li class="nav_title">
                     <a href="brand_story">
                       BRAND STORY
                       <img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_1.png" alt="" id="brand_img"/>
                     </a>
                   </li>
-                  <li>
+                  <li class="nav_title">
                     <a href="news ">
                       NEWS<img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_2.png" alt="" />
                     </a>
@@ -121,8 +150,8 @@
                 </ul>
               </div>
             </li>
-            <li id="products">
-              <h4 class="has-sp sp-7">
+            <li id="products"  class="nav_title">
+              <h4 class="has-sp sp-7" style="font-size:80px">
                 <p> <b>PRODUCTS</b> </p>
               </h4>
               <div class="contents">
@@ -157,6 +186,7 @@
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_5.png" alt="" id="all_img"/>
                     </a>
                   </li>
+                  
                 </ul>
               </div>
             </li>
@@ -167,7 +197,7 @@
               <div class="contents">
                 <ul id="third">
                   <li>
-                    <a href="#">
+                    <a href="bbs">
                       Q&A
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_1.png" alt="" />
                     </a>
@@ -191,6 +221,7 @@
         </article>
       </div>
     </nav>
+	<!-- [네비 끝 ] -->
 
 <%-- 메인 컨텐츠 --%>
 <div class = "container" style = "margin-top: 10%; margin-bottom: 5%">
@@ -344,7 +375,6 @@
           </div>
       </footer>
     </div>
-  
   
     <script src="${path}/resources/js/common.js"></script><!-- 메인-공통 js -->
 

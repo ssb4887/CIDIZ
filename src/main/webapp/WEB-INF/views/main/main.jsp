@@ -66,14 +66,14 @@
 		         	<!-- 로그인 안했을 때 표시  -->
 		         	<c:if test = "${empty user_id}" >
 		         		<a href = "${path}/login">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Login
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Login
 		         		</a>
 		         	</c:if>
 		         	
 		         	<!-- 로그인 했을 때 표시  -->
 		         	<c:if test = "${not empty user_id}" >
 		         		<a href = "${path}/logout">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Logout
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Logout
 		         		</a>
 		         	</c:if>
 		         
@@ -111,13 +111,6 @@
               <p>
                 <a href="event">
                   <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />Event
-                </a>
-              </p>
-            </li>
-            <li class="has-sp sp-6">
-              <p>
-                <a href="comparison">
-                  <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />comparison
                 </a>
               </p>
             </li>
@@ -217,7 +210,8 @@
         </article>
       </div>
     </nav>
-
+	<!-- [네비 끝 ] -->
+	
     <!-- [메인] -->
     <section id="main">
 
