@@ -26,8 +26,8 @@
 		
 		<!-- 이메일 인증번호 수정하기 SQL -->
 		<update id = "resetAuthnum">
-				UPDATE AUTHMAIL
-				SET 		auth_num	= #{auth_num}
+				UPDATE 	AUTHMAIL
+				SET 			auth_num	= #{auth_num}
 				WHERE	user_mail 	= #{user_mail}
 		</update>
 		
@@ -47,8 +47,8 @@
 		<insert id = "join">
 				INSERT INTO USERS
 				VALUES(
-							#{user_id}, #{user_pw}, #{user_name}, 
-							#{user_gender}, #{user_email}, #{user_addr}
+							#{user_id}, SHA2(#{user_pw}, 256), #{user_name}, 
+							#{user_gender}, #{user_email}, #{user_tel}, #{user_addr}
 							)
 		</insert>
 
@@ -58,7 +58,7 @@
 				SELECT	*
 				FROM 	USERS
 				WHERE	user_id = #{user_id}
-				AND 		user_pw = #{user_pw}
+				AND 		user_pw = SHA2(#{user_pw}, 256)
 		</select>
 		
 		<!-- 게시물 쓰기 -->

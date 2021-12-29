@@ -7,17 +7,19 @@ public class Users {
 	private String user_name;
 	private String user_gender;
 	private String user_email;
+	private String user_tel;
 	private String user_addr;
 	
 	public Users() {}
 	
 	public Users(String user_id, String user_pw, String user_name, String user_gender, String user_email,
-			String user_addr) {
+			String user_tel, String user_addr) {
 		this.user_id = user_id;
 		this.user_pw = user_pw;
 		this.user_name = user_name;
 		this.user_gender = user_gender;
 		this.user_email = user_email;
+		this.user_tel = user_tel;
 		this.user_addr = user_addr;
 	}
 
@@ -59,6 +61,14 @@ public class Users {
 
 	public void setUser_email(String user_email) {
 		this.user_email = user_email;
+	}
+	
+	public String getUser_tel() {
+		return user_tel;
+	}
+	
+	public void setUser_tel(String user_tel) {
+		this.user_tel = user_tel;
 	}
 
 	public String getUser_addr() {

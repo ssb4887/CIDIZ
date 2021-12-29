@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${path}/resources/css/custom.css"><!-- 부트스트랩 -->
 
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/main.css"><!-- 컨텐츠 css -->
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/main_view.css"><!-- 컨텐츠 css -->
 
 <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
 <script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
@@ -315,221 +315,98 @@ $(document).ready(function(){
         </article>
       </div>
     </nav>
-
-    <!-- [메인] -->
-    <section id="main">
-
-      <!-- [메인] 이미지_슬라이드 부분 -->
-        <!-- 메인 : 왼쪽 배너 -->
-        <div class="main-top-banner">
-          <ul class="">
-            <li class="tx-line"><a href="#main_slide1" class="on">sidiz</a></li>
-            <li class="tx-line"><a href="#main_slide2">ible</a></li>
-            <li class="tx-line"><a href="#main_slide3">molti</a></li>
-          </ul>
-        </div>
-  
-        <!-- 메인 : 왼쪽 첫번째 상단 글귀, 오른쪽 이미지 -->
-        <div class="main-top">
-          <!-- 메인 : 왼쪽 첫번째 상단 글귀 -->
-          <div class="top-p">
-            <div class="tx-line"><p>인생의 많은 순간,  </p></div>
-            <div class="tx-line"><p>우리는 의자와 함께합니다. </p></div>
-            <div class="tx-line"><p>시디즈는 앉음과 움직임을 연구합니다.</p></div>
-          </div>    
-          <!-- 메인 : 오른쪽 이미지 -->
-          <div class="slide-inner-bg-w">
-            <div class="r-cts">
-              <div class="mid-pt">
-                <div class="inner">
-                  <img src="${path}/resources/images/main_images/main_1.png" alt=""> 
-                </div>
-              </div>
-              <div class="mid-pt">
-                <div class="inner">
-                  <img src="${path}/resources/images/main_images/main_2.png" alt="">
-                  <div class="caption">
-                    학생용 의자<br>
-                    ible
-                </div>  
-                </div>
-              </div>
-              <div class="mid-pt">
-                  <div class="inner">
-                    <img src="${path}/resources/images/main_images/main_3.png" alt="">
-                      <div class="caption">
-                        유아용 의자<br>
-                        molti
-                      </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <!-- 메인 : 왼쪽 글귀 -->
-          <div class="slide-inner-w">
-            <!-- 메인 : 왼쪽 글귀_1 -->
-            <div class="slide-inner" id="main_slide1">
-              <div class="l-cts">
-                <h3 class="mid-p1">
-                  <div class="tx-line"><p>의자 위 인생은</p></div>
-                  <div class="tx-line"><p>진행중</p></div>
-                </h3>
-                <div class="bot-p-ani">
-                  <div class="p">
-                    sidiz
-                    <p>
-                      <div class="play">
-                        <img src="${path}/resources/images/main_images/video-recorder-gc4117309d_1280.png" alt="">
-                      </div>
-                    </p>
-                  </div>
-                </div>
-                <div class="bot-lk basic-tx-ani">
-                  <div class="has-line"><p><a href="productMenu ">제품 보기</a></p></div>
-                </div>
-              </div>
-            </div>
-            <!-- 메인 : 왼쪽 글귀_2 -->
-            <div class="slide-inner" id="main_slide2">
-              <div class="l-cts">
-                <h3 class="mid-p1">
-                  <div class="tx-line"><p>바퀴는 빼고</p></div>
-                  <div class="tx-line"><p>집중력은 더하다</p></div>
-                </h3>
-                <div class="bot-p-ani">
-                  <div class="p">
-                    ible
-                    <br>
-                    <p>
-                      <div class="play">
-                        <img src="${path}/resources/images/video-recorder-gc4117309d_1280.png" alt="">
-                      </div>
-                    </p>
-                  </div>
-                </div>
-                <div class="bot-lk basic-tx-ani">
-                  <div class="has-line"><p><a href="productMenu ">제품 보기</a></p></div>
-                </div>
-              </div>
-            </div>
-            <!-- 메인 : 왼쪽 글귀_3 -->
-            <div class="slide-inner" id="main_slide3">
-              <div class="l-cts">
-                <h3 class="mid-p1">
-                  <div class="tx-line"><p>앉음마부터 </p></div>                    
-                  <div class="tx-line"><p>좋은 자세로</p></div>
-                </h3>
-                <div class="bot-p-ani">
-                  <div class="p">
-                    molti
-                    <br>
-                    <p>
-                      <div class="play">
-                        <img src="${path}/resources/images/main_images/video-recorder-gc4117309d_1280.png" alt="">
-                      </div>
-                    </p>
-                  </div>
-                </div>
-                <div class="bot-lk basic-tx-ani">
-                  <div class="has-line"><p><a href="${path}/resources/productMenu ">제품 보기</a></p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <%-- 네비게이션 종료 --%>
-<%-- 글쓰기 양식 --%>
-<div class = "container">
-		<div class = "row">
-						<table class = "table table-striped" style = "text-align: center; border: 1px solid #bbb;">
-								<thead>
-										<tr>
-												<th colspan = "2" style = "background-color: #eeeeee; text-alifn: center;">게시물</th>
-										</tr>
-								</thead>
-								<tbody>
-										<tr>
-												<!-- 맨 처음 요소 스타일 지정시 따라간다. -->
-												<td style = "width: 20%;">제목</td>
-												<td>${map.boarder.title}</td>
-										</tr>
-										<tr>
-												<td>작성자</td>
-												<td>${map.boarder.writer}</td>
-										</tr>
-										<tr>
-												<td>조회 수</td>
-												<td>${map.boarder.count}</td>
-										</tr>
-										<tr>
-												<td>공감 수</td>
-												<td id = "likey_count">${map.boarder.likey}</td>
-										</tr>
-										<tr>
-												<td>작성일</td>
-												<td>${map.boarder.reg_date}</td>
-										</tr>
-										<tr>
-												<td>내용</td>
-												<td style= "min-height: 200px; text-align: left;">${map.boarder.contents}</td>
-										</tr>
-										<!-- JSTL 에서는 ${map.uploadFile == null}을 사용할 수 없다.-->
-										<c:if test = "${not empty map.uploadFile}">
-										<tr>
-												<td>첨부파일</td>
-												<td><a href = "./downloadAction?boarder_id=${map.uploadFile.boarder_id}&file_realName=${map.uploadFile.file_realName}">${map.uploadFile.file_name}</a>[ ${map.uploadFile.count} ]</td>
-										</tr>
-										</c:if>
-								</tbody>
-						</table>
-						<table class = "table table-striped" style = "text-align: center; border: 1px solid #bbb;">
-								<thead>
-										<tr>
-												<td colspan = "4">댓글</td>
-										</tr>
-								</thead>
-								<tbody id = "replyBody">
-										<c:forEach var = "reply"  items = "${map.replyList}">
-										<tr>
-												<td width = "50%">${reply.contents}</td>
-												<td width = "20%">${reply.writer}</td>
-												<td width = "20%">${reply.reg_date}</td>
-												<td width = "10%">
-													<c:if test="${user_id == reply.writer }">
-													<button class = "btn btn-danger btn-block" onclick="deleteReply(${reply.reply_id})">삭제</button>
-													</c:if>
-												</td>
-										</tr>
-										</c:forEach>
-								</tbody>
-								<tfoot>
-										<tr>
-												<td colspan="3">
-														<input type = "text" class = "form-control"  id = "r_contents" placeholder = "댓글 내용">
-												</td>
-												<td>
-														<button type = "button" class = "btn btn-default btn-block"  id = replyBtn>등록</button>
-												</td>
-										</tr>
-								</tfoot>
-						</table>
-						<a href = "../bbs" class="btn btn-default">목록</a>
-						<c:if test = "${user_id eq map.boarder.writer }">
-						<a href = "./update?boarder_id=${map.boarder.boarder_id}" class="btn btn-success">수정</a>			
-						<a onclick = "return confirm('정말 삭제하시겠습니까?')" href = "./deleteAction?boarder_id=${map.boarder.boarder_id}" class="btn btn-danger">삭제</a>			
-						<!-- ↑ onclick : a 태그를 클릭하면 -->
-						</c:if>
-						<button class = "btn btn-info" id = "likeyBtn">공감</button>
-					
-		</div>
-</div>
-<%-- 글쓰기 양식 종료 --%>
-
-  
+    <%-- 네비게이션 종료 --%>
+	    
+	<%-- 글쓰기 양식 --%>
+	<div class = "container" style="margin-top: 15%">
+			<div class = "row">
+							<table class = "table table-striped" style = "text-align: center; border: 1px solid #bbb;">
+									<thead>
+											<tr>
+													<th colspan = "2" style = "background-color: #eeeeee; text-alifn: center;">게시물</th>
+											</tr>
+									</thead>
+									<tbody>
+											<tr>
+													<!-- 맨 처음 요소 스타일 지정시 따라간다. -->
+													<td style = "width: 20%;">제목</td>
+													<td>${map.boarder.title}</td>
+											</tr>
+											<tr>
+													<td>작성자</td>
+													<td>${map.boarder.writer}</td>
+											</tr>
+											<tr>
+													<td>조회 수</td>
+													<td>${map.boarder.count}</td>
+											</tr>
+											<tr>
+													<td>공감 수</td>
+													<td id = "likey_count">${map.boarder.likey}</td>
+											</tr>
+											<tr>
+													<td>작성일</td>
+													<td>${map.boarder.reg_date}</td>
+											</tr>
+											<tr>
+													<td>내용</td>
+													<td style= "min-height: 200px; text-align: left;">${map.boarder.contents}</td>
+											</tr>
+											<!-- JSTL 에서는 ${map.uploadFile == null}을 사용할 수 없다.-->
+											<c:if test = "${not empty map.uploadFile}">
+											<tr>
+													<td>첨부파일</td>
+													<td><a href = "./downloadAction?boarder_id=${map.uploadFile.boarder_id}&file_realName=${map.uploadFile.file_realName}">${map.uploadFile.file_name}</a>[ ${map.uploadFile.count} ]</td>
+											</tr>
+											</c:if>
+									</tbody>
+							</table>
+							<table class = "table table-striped" style = "text-align: center; border: 1px solid #bbb;">
+									<thead>
+											<tr>
+													<td colspan = "4">댓글</td>
+											</tr>
+									</thead>
+									<tbody id = "replyBody">
+											<c:forEach var = "reply"  items = "${map.replyList}">
+											<tr>
+													<td width = "50%">${reply.contents}</td>
+													<td width = "20%">${reply.writer}</td>
+													<td width = "20%">${reply.reg_date}</td>
+													<td width = "10%">
+														<c:if test="${user_id == reply.writer }">
+														<button class = "btn btn-danger btn-block" onclick="deleteReply(${reply.reply_id})">삭제</button>
+														</c:if>
+													</td>
+											</tr>
+											</c:forEach>
+									</tbody>
+									<tfoot>
+											<tr>
+													<td colspan="3">
+															<input type = "text" class = "form-control"  id = "r_contents" placeholder = "댓글 내용">
+													</td>
+													<td>
+															<button type = "button" class = "btn btn-default btn-block"  id = replyBtn>등록</button>
+													</td>
+											</tr>
+									</tfoot>
+							</table>
+							<a href = "../bbs" class="btn btn-default">목록</a>
+							<c:if test = "${user_id eq map.boarder.writer }">
+							<a href = "./update?boarder_id=${map.boarder.boarder_id}" class="btn btn-success">수정</a>			
+							<a onclick = "return confirm('정말 삭제하시겠습니까?')" href = "./deleteAction?boarder_id=${map.boarder.boarder_id}" class="btn btn-danger">삭제</a>			
+							<!-- ↑ onclick : a 태그를 클릭하면 -->
+							</c:if>
+							<button class = "btn btn-info" id = "likeyBtn">공감</button>
+						
+			</div>
+	</div>
+	<%-- 글쓰기 양식 종료 --%>
+	
+	  
       <!-- [하단(footer)] 부분 -->
-      <footer id="footer">
+      <footer id="footer" style="margin-top: 15%">
           <!--하단 : 탑 부분-->
           <div id="f_top">
             <h2>

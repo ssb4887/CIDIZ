@@ -240,205 +240,81 @@ $(document).ready(function(){
         </article>
       </div>
     </nav>
+    <%-- 네비게이션 종료 --%>
 
-    <!-- [메인] -->
-    <section id="main">
-
-      <!-- [메인] 이미지_슬라이드 부분 -->
-        <!-- 메인 : 왼쪽 배너 -->
-        <div class="main-top-banner">
-          <ul class="">
-            <li class="tx-line"><a href="#main_slide1" class="on">sidiz</a></li>
-            <li class="tx-line"><a href="#main_slide2">ible</a></li>
-            <li class="tx-line"><a href="#main_slide3">molti</a></li>
-          </ul>
-        </div>
-  
-        <!-- 메인 : 왼쪽 첫번째 상단 글귀, 오른쪽 이미지 -->
-        <div class="main-top">
-          <!-- 메인 : 왼쪽 첫번째 상단 글귀 -->
-          <div class="top-p">
-            <div class="tx-line"><p>인생의 많은 순간,  </p></div>
-            <div class="tx-line"><p>우리는 의자와 함께합니다. </p></div>
-            <div class="tx-line"><p>시디즈는 앉음과 움직임을 연구합니다.</p></div>
-          </div>    
-          <!-- 메인 : 오른쪽 이미지 -->
-          <div class="slide-inner-bg-w">
-            <div class="r-cts">
-              <div class="mid-pt">
-                <div class="inner">
-                  <img src="${path}/resources/images/main_images/main_1.png" alt=""> 
-                </div>
-              </div>
-              <div class="mid-pt">
-                <div class="inner">
-                  <img src="${path}/resources/images/main_images/main_2.png" alt="">
-                  <div class="caption">
-                    학생용 의자<br>
-                    ible
-                </div>  
-                </div>
-              </div>
-              <div class="mid-pt">
-                  <div class="inner">
-                    <img src="${path}/resources/images/main_images/main_3.png" alt="">
-                      <div class="caption">
-                        유아용 의자<br>
-                        molti
-                      </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <!-- 메인 : 왼쪽 글귀 -->
-          <div class="slide-inner-w">
-            <!-- 메인 : 왼쪽 글귀_1 -->
-            <div class="slide-inner" id="main_slide1">
-              <div class="l-cts">
-                <h3 class="mid-p1">
-                  <div class="tx-line"><p>의자 위 인생은</p></div>
-                  <div class="tx-line"><p>진행중</p></div>
-                </h3>
-                <div class="bot-p-ani">
-                  <div class="p">
-                    sidiz
-                    <p>
-                      <div class="play">
-                        <img src="${path}/resources/images/main_images/video-recorder-gc4117309d_1280.png" alt="">
-                      </div>
-                    </p>
-                  </div>
-                </div>
-                <div class="bot-lk basic-tx-ani">
-                  <div class="has-line"><p><a href="productMenu ">제품 보기</a></p></div>
-                </div>
-              </div>
-            </div>
-            <!-- 메인 : 왼쪽 글귀_2 -->
-            <div class="slide-inner" id="main_slide2">
-              <div class="l-cts">
-                <h3 class="mid-p1">
-                  <div class="tx-line"><p>바퀴는 빼고</p></div>
-                  <div class="tx-line"><p>집중력은 더하다</p></div>
-                </h3>
-                <div class="bot-p-ani">
-                  <div class="p">
-                    ible
-                    <br>
-                    <p>
-                      <div class="play">
-                        <img src="${path}/resources/images/video-recorder-gc4117309d_1280.png" alt="">
-                      </div>
-                    </p>
-                  </div>
-                </div>
-                <div class="bot-lk basic-tx-ani">
-                  <div class="has-line"><p><a href="productMenu ">제품 보기</a></p></div>
-                </div>
-              </div>
-            </div>
-            <!-- 메인 : 왼쪽 글귀_3 -->
-            <div class="slide-inner" id="main_slide3">
-              <div class="l-cts">
-                <h3 class="mid-p1">
-                  <div class="tx-line"><p>앉음마부터 </p></div>                    
-                  <div class="tx-line"><p>좋은 자세로</p></div>
-                </h3>
-                <div class="bot-p-ani">
-                  <div class="p">
-                    molti
-                    <br>
-                    <p>
-                      <div class="play">
-                        <img src="${path}/resources/images/main_images/video-recorder-gc4117309d_1280.png" alt="">
-                      </div>
-                    </p>
-                  </div>
-                </div>
-                <div class="bot-lk basic-tx-ani">
-                  <div class="has-line"><p><a href="${path}/resources/productMenu ">제품 보기</a></p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <%-- 네비게이션 종료 --%>
-
-
-<%-- 메인 게시판 --%>
-<div class = "container">
-		<div class = "row">
-		
-
-				<table class = "table table-striped" style = "text-align: center; border: 1px solid #bbbbbb">
-							<thead>
-									<tr>
-											<th style="background-color: #dddddd; text-align: center;">번호</th>
-											<th style="background-color: #dddddd; text-align: center;">제목</th>
-											<th style="background-color: #dddddd; text-align: center;">조회수</th>
-											<th style="background-color: #dddddd; text-align: center;">작성자</th>
-											<th style="background-color: #dddddd; text-align: center;">작성일</th>
-									</tr>
-							</thead>
-							<tbody>
-									<c:forEach var = "boarder" items = "${map.list}">
-									<tr>
-											<td>${boarder.boarder_id}</td>
-											<td><a href = "${path}/bbs/view?boarder_id=${boarder.boarder_id}">${boarder.title}</a></td>
-											<td>${boarder.count}</td>
-											<td>${boarder.writer}</td>
-											<td>${boarder.reg_date}</td>
-									</tr>
-									</c:forEach>
-							</tbody>
+	
+	<%-- 메인 게시판 --%>
+	<div class = "container" style="margin-top:15%">
+			<div class = "row">
+			
+	
+					<table class = "table table-striped" style = "text-align: center; border: 1px solid #bbbbbb">
+								<thead>
+										<tr>
+												<th style="background-color: #dddddd; text-align: center;">번호</th>
+												<th style="background-color: #dddddd; text-align: center;">제목</th>
+												<th style="background-color: #dddddd; text-align: center;">조회수</th>
+												<th style="background-color: #dddddd; text-align: center;">작성자</th>
+												<th style="background-color: #dddddd; text-align: center;">작성일</th>
+										</tr>
+								</thead>
+								<tbody>
+										<c:forEach var = "boarder" items = "${map.list}">
+										<tr>
+												<td>${boarder.boarder_id}</td>
+												<td><a href = "${path}/bbs/view?boarder_id=${boarder.boarder_id}">${boarder.title}</a></td>
+												<td>${boarder.count}</td>
+												<td>${boarder.writer}</td>
+												<td>${boarder.reg_date}</td>
+										</tr>
+										</c:forEach>
+								</tbody>
+								
+					</table>
+					<!-- GET 방식 전송 : URL에 ? 찍고, 파라미터 = 데이터 & 파라미터 = 데이터 -->
+					<ul class="pagination">
+					
+						<!-- 이전 section 버튼 -->
+						<c:if test = "${map.paging.pageNumber > 5}">
+					
+							<li><a href="./bbs?pageNumber=${map.paging.before}"><span class = "glyphicon glyphicon-triangle-left"></span></a></li>
+					
+						</c:if>
 							
-				</table>
-				<!-- GET 방식 전송 : URL에 ? 찍고, 파라미터 = 데이터 & 파라미터 = 데이터 -->
-				<ul class="pagination">
-				
-					<!-- 이전 section 버튼 -->
-					<c:if test = "${map.paging.pageNumber > 5}">
-				
-						<li><a href="./bbs?pageNumber=${map.paging.before}"><span class = "glyphicon glyphicon-triangle-left"></span></a></li>
-				
-					</c:if>
-						
-						<c:forEach var = "i" begin = "${map.paging.minPage}" end = "${map.paging.maxPage}">
+							<c:forEach var = "i" begin = "${map.paging.minPage}" end = "${map.paging.maxPage}">
+								
+								<c:if test = "${i == map.paging.pageNumber}">
+									<li class = "active">
+										<a>${i}</a>
+									</li>
+								</c:if>
+								
+								<c:if test = "${i != map.paging.pageNumber}">
+									<li>
+										<a href="./bbs?pageNumber=${i}">${i}</a>
+									</li>
+								</c:if>
+								
+							</c:forEach>						
+	
+						<!-- 다음 section 버튼 -->	
+						<c:if test = "${map.paging.next}">
 							
-							<c:if test = "${i == map.paging.pageNumber}">
-								<li class = "active">
-									<a>${i}</a>
-								</li>
-							</c:if>
+							<li><a href="./bbs?pageNumber=${map.paging.forward}"><span class = "glyphicon glyphicon-triangle-right"></span></a></li>
 							
-							<c:if test = "${i != map.paging.pageNumber}">
-								<li>
-									<a href="./bbs?pageNumber=${i}">${i}</a>
-								</li>
-							</c:if>
+						</c:if>	
 							
-						</c:forEach>						
-
-					<!-- 다음 section 버튼 -->	
-					<c:if test = "${map.paging.next}">
-						
-						<li><a href="./bbs?pageNumber=${map.paging.forward}"><span class = "glyphicon glyphicon-triangle-right"></span></a></li>
-						
-					</c:if>	
-						
-				</ul>		
-				
-				
-				<a href = "${path}/bbs/write" class = "btn btn-default pull-right">글쓰기</a>
-		</div>
-</div>
-<%-- 메인 게시판 종료 --%>
+					</ul>		
+					
+					
+					<a href = "${path}/bbs/write" class = "btn btn-default pull-right">글쓰기</a>
+			</div>
+	</div>
+	<%-- 메인 게시판 종료 --%>
 
   
       <!-- [하단(footer)] 부분 -->
-      <footer id="footer">
+      <footer id="footer" style="margin-top: 15%">
           <!--하단 : 탑 부분-->
           <div id="f_top">
             <h2>

@@ -8,7 +8,7 @@
 <html>
 <head>
 
-<title>JSP 게시판</title>
+<title>SIDIZ</title>
 <meta http-equiv="Conetent-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width" initial-scale="1">
 <link rel="stylesheet" href="${path}/resources/css/bootstrap.css">
@@ -319,7 +319,13 @@
 												<input type = "text" class = "form-control" id = "addr3" name = "addr3" placeholder = "상세 주소">
 										</div>
 								</div>
-						
+								
+								<!-- 전화 번호 -->
+								<div class="row">
+										<div class = "form-group cols-sm12 col-md-12 col-lg-12">
+												<input type = "text" class = "form-control" id = "user_tel" name = "user_tel" placeholder = "전화번호">
+										</div>
+								</div>						
 								<!-- 제출 버튼 -->
 								<div class ="form-group">
 									<input type = "submit" class = "btn btn-primary form-control" value = "회원가입">
