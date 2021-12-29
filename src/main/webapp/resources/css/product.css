@@ -655,6 +655,13 @@
   border: 5px solid rgb(127, 127, 129);
 }
 
+#bc_num{
+	width:20px;
+	border: none;
+	text-align:center;
+	background-color:transparent;
+}
+
 #product .txt_box > a {
   margin-left: 3%;
   text-decoration: none;

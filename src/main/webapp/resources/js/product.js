@@ -20,18 +20,18 @@ $(document).ready(function () {
   // 수량 버튼
   $("#bc_down").click(function (e) {
     e.preventDefault();
-    var stat = $("#bc_num").text();
+    var stat = $("#bc_num").val();
     var num = parseInt(stat, 10);
     num--;
     if (num <= 0) {
       alert("더 이상 줄일수 없습니다.");
       num = 1;
     }
-    $("#bc_num").text(num);
+    $("#bc_num").val(num);
   });
   $("#bc_up").click(function (e) {
     e.preventDefault();
-    var stat = $("#bc_num").text();
+    var stat = $("#bc_num").val();
     var num = parseInt(stat, 10);
     num++;
 
@@ -39,6 +39,6 @@ $(document).ready(function () {
       alert("단체 주문은 1899 - 3176로 문의 주세요.");
       num = 20;
     }
-    $("#bc_num").text(num);
+    $("#bc_num").val(num);
   });
 });

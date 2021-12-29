@@ -102,7 +102,7 @@
             </li>
             <li class="has-sp sp-4">
               <p>
-                <a href="#">
+                <a href="comparison">
                   <img src="${path}/resources/images/nav_images/nav_Compare.png" alt="" />Compare
                 </a>
               </p>
@@ -111,13 +111,6 @@
               <p>
                 <a href="event">
                   <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />Event
-                </a>
-              </p>
-            </li>
-            <li class="has-sp sp-6">
-              <p>
-                <a href="comparison">
-                  <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />comparison
                 </a>
               </p>
             </li>
@@ -539,7 +532,7 @@
           <article class="qna">
             <h3>Q&A</h3>
             <p>궁금증을 풀어드립니다.</p>
-            <a href="#">문의하기</a>
+            <a href="bbs">문의하기</a>
           </article>
           <article class="line"></article>
           <article class="tip">
