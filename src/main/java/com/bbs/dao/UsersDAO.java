@@ -23,5 +23,4 @@ public interface UsersDAO {
 		// 제품, 주문
 		
 		// 장바구니에 담은 리스트 전체 불러오기
-		public List<Basket> getBasketList(Basket basket) throws Exception;
 }

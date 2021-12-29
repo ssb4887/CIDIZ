@@ -263,32 +263,33 @@
               <c:if test="${not empty basket_list}"> 
               <c:forEach var= "basket" items ="${basket_list}">
 					<tr>
-		                <td style="width: 7%; height: 45px; text-align: center">
-		                  <input type="checkbox" id="check_all"/>
-		                  <label for="check_all"></label>
+		                <td style="width: 7%; height: 50px; text-align: center">
+		                  <input type="checkbox"/>
 		                </td>
 		               
 		               <!-- 장바구니 항목 -->
-		                <td
-		                  colspan="2"
-		                  style="width: 33.8%; height: 45px; text-align: center"
-		                >
+		               <td style="width: 13.8%; height: 50px; text-align: center">
+		                <img src="${path}/resources/images/${basket.product_img}">
+		                </td>
+		               
+		                <td style="width: 33.8%; height: 50px; text-align: center">
 		                <input type="hidden" id = "user_id" value = "${basket.user_id}">
 		                  ${basket.product_name}
 		                </td>
-		                <td style="width: 12.8%; height: 45px; text-align: center">
+		                
+		                <td style="width: 12.8%; height: 50px; text-align: center">
 		                  ${basket.color}
 		                </td>
-		                <td style="width: 11.8%; height: 45px; text-align: center">
+		                <td style="width: 11.8%; height: 50px; text-align: center">
 		                  ${basket.product_price}
 		                </td>
-		                <td style="width: 10.8%; height: 45px; text-align: center">
+		                <td style="width: 10.8%; height: 50px; text-align: center">
 		                  ${basket.product_count}
 		                </td>
-		                <td style="width: 11.8%; height: 45px; text-align: center">
+		                <td style="width: 11.8%; height: 50px; text-align: center">
 		                  ${basket.order_price}
 		                </td>
-		                <td style="width: 12%; height: 45px; text-align: center">
+		                <td style="width: 12%; height: 50px; text-align: center">
 		                	<a href="" class =""><img src="${path}/resources/images/orderBtn.png"></a>
 		                	<a href="" class =""><img src="${path}/resources/images/deleteBtn.png"></a>
 		                </td>
@@ -296,11 +297,20 @@
               </c:forEach>
               </c:if>
               
-              <!-- 결제 창 -->
+              <!-- 총 결제 금액 	-->
               <tr style="background-color: #e7e7e7">
                 <td colspan="6" style="height: 67px; text-align: center"></td>
                 <td style="height: 67px; text-align: center">총 결제금액</td>
-                <td style="height: 67px; text-align: center">0 원</td>
+           		<c:set var = "total" value = "0" />
+
+					<c:forEach var="basket" items="${basket_list}" varStatus="status">     
+				
+									
+					<c:set var= "total" value="${total + basket.order_price}"/>
+					
+					</c:forEach>
+				
+				<td style="text-align: center;"><c:out value="${total}"/> 원</td>
               </tr>
             </table>
           </div>

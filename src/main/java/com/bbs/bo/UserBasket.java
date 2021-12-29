@@ -1,22 +1,25 @@
-package com.bbs.vo;
+package com.bbs.bo;
 
-public class Product {
-	private String	product_id;
-	private String	product_name;
-	private int			product_price;
-    private String 	color;
-    private String	feature; 
-    private String 	basket_img;
-    
-    public Product() {}
+public class UserBasket {
+	private String product_id;
+	private String product_name;
+	private int 		 product_price;
+	private String color;
+	private String feature;
+	private String img;
+	private int 		 product_count;
+	
+	public UserBasket() {}
 
-	public Product(String product_id, String product_name, int product_price, String color, String feature, String basket_img) {
+	public UserBasket(String product_id, String product_name, int product_price, String color, String feature,
+			String img, int product_count) {
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.product_price = product_price;
 		this.color = color;
 		this.feature = feature;
-		this.basket_img = basket_img;
+		this.img = img;
+		this.product_count = product_count;
 	}
 
 	public String getProduct_id() {
@@ -59,12 +62,20 @@ public class Product {
 		this.feature = feature;
 	}
 
-	public String getBasket_img() {
-		return basket_img;
+	public String getImg() {
+		return img;
 	}
 
-	public void setBasket_img(String basket_img) {
-		this.basket_img = basket_img;
+	public void setImg(String img) {
+		this.img = img;
 	}
 
+	public int getProduct_count() {
+		return product_count;
+	}
+
+	public void setProduct_count(int product_count) {
+		this.product_count = product_count;
+	}
+	
 }

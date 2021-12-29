@@ -1,41 +1,16 @@
 package com.bbs.vo;
 
 public class Basket {
-	private int			basket_num;
-	private String	user_id;
 	private String	product_name;
-	private String	color;
-	private int			product_price;
+	private String	user_id;
 	private int			product_count;
-	private int			order_price;
 	
 	public Basket() {}
 
-	public Basket(int basket_num, String user_id, String product_name, String color, int product_price, int product_count,
-			int order_price) {
-		this.basket_num = basket_num;
-		this.user_id = user_id;
+	public Basket(String product_name, String user_id, int product_count) {
 		this.product_name = product_name;
-		this.color = color;
-		this.product_price = product_price;
-		this.product_count = product_count;
-		this.order_price = order_price;
-	}
-	
-	public int getBasket_num() {
-		return basket_num;
-	}
-	
-	public void setBasket_num(int basket_num) {
-		this.basket_num = basket_num;
-	}
-
-	public String getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(String user_id) {
 		this.user_id = user_id;
+		this.product_count = product_count;
 	}
 
 	public String getProduct_name() {
@@ -46,20 +21,12 @@ public class Basket {
 		this.product_name = product_name;
 	}
 
-	public String getColor() {
-		return color;
+	public String getUser_id() {
+		return user_id;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public int getProduct_price() {
-		return product_price;
-	}
-
-	public void setProduct_price(int product_price) {
-		this.product_price = product_price;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 	public int getProduct_count() {
@@ -68,14 +35,6 @@ public class Basket {
 
 	public void setProduct_count(int product_count) {
 		this.product_count = product_count;
-	}
-
-	public int getOrder_price() {
-		return order_price;
-	}
-
-	public void setOrder_price(int order_price) {
-		this.order_price = order_price;
 	}
 	
 }

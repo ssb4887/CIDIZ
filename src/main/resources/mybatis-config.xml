@@ -4,6 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<!-- VO -->
 		<typeAlias alias="USERS" type="com.bbs.vo.Users" />
 		<typeAlias alias="Authmail" type="com.bbs.vo.Authmail" />
 		<typeAlias alias="Boarder" type="com.bbs.vo.Boarder" />
@@ -13,5 +14,8 @@
 		<typeAlias alias="Basket" type="com.bbs.vo.Basket" />
 		<typeAlias alias="Product" type="com.bbs.vo.Product" />
 		<typeAlias alias="Orders" type="com.bbs.vo.Orders" />
+		
+		<!-- BO -->
+		<typeAlias alias="userBasket" type="com.bbs.bo.UserBasket" />
 	</typeAliases>
 </configuration>
