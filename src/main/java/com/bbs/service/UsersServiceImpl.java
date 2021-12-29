@@ -1,5 +1,6 @@
 package com.bbs.service;
 
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import com.bbs.dao.UsersDAO;
 import com.bbs.util.Mail;
 import com.bbs.vo.Authmail;
+import com.bbs.vo.Basket;
 import com.bbs.vo.Users;
 
 @Service
@@ -151,6 +153,11 @@ public class UsersServiceImpl implements UsersService {
 		// 위 코드를 아래 처럼 깔끔하게 쭐일 수 있다.
 		if(dao.login(users) == null) return 1;
 		return 0;
+	}
+
+	@Override
+	public List<Basket> getBasketList(Basket basket) throws Exception {
+		return dao.getBasketList(basket);
 	}
 
 }

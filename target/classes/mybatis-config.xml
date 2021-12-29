@@ -10,5 +10,8 @@
 		<typeAlias alias="Likey_R" type="com.bbs.vo.Likey_R" />
 		<typeAlias alias="Reply" type="com.bbs.vo.Reply" />
 		<typeAlias alias="UploadFile" type="com.bbs.vo.UploadFile" />
+		<typeAlias alias="Basket" type="com.bbs.vo.Basket" />
+		<typeAlias alias="Product" type="com.bbs.vo.Product" />
+		<typeAlias alias="Orders" type="com.bbs.vo.Orders" />
 	</typeAliases>
 </configuration>

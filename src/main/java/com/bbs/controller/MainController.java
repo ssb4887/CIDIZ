@@ -1,5 +1,7 @@
 package com.bbs.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.bbs.service.BbsService;
 import com.bbs.service.UsersService;
 import com.bbs.vo.Authmail;
+import com.bbs.vo.Basket;
 import com.bbs.vo.Users;
 
 @Controller
@@ -139,7 +142,10 @@ public class MainController {
 		
 		// basket 찾아가기
 		@RequestMapping(value = "/basket", method = RequestMethod.GET)
-		public String basket(Model model) throws Exception {
+		public String basket(Model model, Basket basket) throws Exception {
+			
+			List<Basket> basket_list = usersService.getBasketList(basket);
+			model.addAttribute("basket_list", basket_list);
 			
 			return "sub/basket";
 			

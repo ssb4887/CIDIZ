@@ -1,10 +1,14 @@
 package com.bbs.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.bbs.vo.Authmail;
+import com.bbs.vo.Basket;
 import com.bbs.vo.Users;
 
 @Repository // 저장소를 접근하는 역할을 인식하게 함.
@@ -59,6 +63,11 @@ public class UsersDAOImpl implements UsersDAO {
 		// 			└── 요구하는 것은 "하나"의 Object 값이다. 여러 개의 값을 들고 올 수 있는 방법은 ↓
 		// 					1. Bean 객체	--> 	하나의 객체로 만들어서 여러 개의 값을 들고 와야한다.	--> 간단함
 		//					2. Hashmap	--> 	{"이름" : "실제 데이터", "이름" : "실제 데이터"}	--> 방법이 복잡함.
+	}
+
+	@Override
+	public List<Basket> getBasketList(Basket basket) throws Exception {
+		return sqlSession.selectList(SESSION + ".getBasketList", basket);
 	}
 
 }

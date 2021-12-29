@@ -246,8 +246,12 @@ $(document).ready(function(){
 	<%-- 메인 게시판 --%>
 	<div class = "container" style="margin-top:15%">
 			<div class = "row">
-			
-	
+				<div class ="form-group col-sm-12 col-md-12 col-lg-12">
+					<h2>SIDIZ 공지사항</h2>
+				</div>
+			</div>
+
+			<div class = "row">
 					<table class = "table table-striped" style = "text-align: center; border: 1px solid #bbbbbb">
 								<thead>
 										<tr>

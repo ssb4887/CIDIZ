@@ -273,7 +273,7 @@
             <li><a href="${path}/resources/images/sidiz_img/p_main4.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn4.jpg" alt=""/></a></li>
             <li><a href="${path}/resources/images/sidiz_img/p_main5.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn5.jpg" alt=""/></a></li>
             <!-- youtube link -->
-            <li><a href="https://youtu.be/PMFjQkTA0ak"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn6.jpg" alt=""/></a></li>
+            <li><a href="https://youtu.be/PMFjQkTA0ak" target = "_blank"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn6.jpg" alt=""/></a></li>
             </ul>
         </article>
         <!-- 제품 정보 테이블 -->
