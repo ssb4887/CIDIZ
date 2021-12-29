@@ -1,0 +1,102 @@
+# SIDIZ Query
+	
+	CREATE DATABASE SIDIZ;
+
+-- 사용자
+CREATE TABLE USERS (
+    user_id     VARCHAR(20) PRIMARY KEY,
+    user_pw     VARCHAR(100),
+    user_name   VARCHAR(20),
+    user_gender VARCHAR(4),
+    user_email  VARCHAR(200),
+    user_tel	VARCHAR(30),
+    user_addr   TEXT
+);
+
+
+
+-- 게시판(Q&A)
+CREATE TABLE BOARDER (
+    boarder_id  INT PRIMARY KEY AUTO_INCREMENT,
+    writer      VARCHAR(20),
+    title       TEXT,
+    contents    TEXT,
+    reg_date    DATE,
+    likey       INT DEFAULT 0,
+    available   INT DEFAULT 0,
+    count		INT DEFAULT 0
+);
+
+
+-- 댓글 테이블
+CREATE TABLE REPLY (
+    reply_id    INT PRIMARY KEY AUTO_INCREMENT,
+    boarder_id  INT,
+    writer      VARCHAR(20),
+    parent_id   INT,
+    contents    TEXT,
+    reg_date    DATE
+);
+
+
+-- 파일 업로드 테이블
+CREATE TABLE UPLOADFILE (
+    file_id         INT PRIMARY KEY AUTO_INCREMENT,
+    boarder_id      INT,
+    file_name       TEXT,
+    file_realName   TEXT,
+    count           INT DEFAULT 0
+);
+
+
+-- 공감 횟수 카운트 테이블
+CREATE TABLE LIKEY_R (
+	boarder_id INT,
+    user_id	VARCHAR(20)
+);
+
+
+-- 이메일 인증 테이블
+CREATE TABLE AUTHMAIL (
+    user_mail VARCHAR(200) PRIMARY KEY,
+    auth_num INT
+);
+
+
+-- 제품 테이블
+CREATE TABLE PRODUCT (
+	product_name  VARCHAR(100)	PRIMARY KEY,
+    product_price INT           NOT NULL,
+    color         VARCHAR(50),
+	head          TEXT,
+	lumbar        TEXT,
+	seat          TEXT,
+    armrest       TEXT,
+    tilt          TEXT,
+    feature       TEXT
+);
+
+
+
+-- 장바구니 테이블
+CREATE TABLE BASKET(
+	user_id 		VARCHAR(100) 	PRIMARY KEY,
+    product_name 	VARCHAR(100) 	NOT NULL,
+    color 			VARCHAR(50) 	NOT NULL,
+    product_price 	INT 			NOT NULL,
+    product_count 	INT 			NOT NULL,
+    order_price 	INT 			NOT NULL
+    
+);
+
+
+-- 주문 테이블
+CREATE TABLE ORDERS(
+	user_id 		VARCHAR(100) 	PRIMARY KEY,
+    order_addr		TEXT			NOT NULL,
+    product_name 	VARCHAR(100) 	NOT NULL,
+    color 			VARCHAR(50) 	NOT NULL,
+    product_price 	INT 			NOT NULL,
+    product_count 	INT 			NOT NULL,
+    order_price 	INT 			NOT NULL
+);
