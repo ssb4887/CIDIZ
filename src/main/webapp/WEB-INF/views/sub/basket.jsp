@@ -289,8 +289,8 @@
 		                  ${basket.order_price}
 		                </td>
 		                <td style="width: 12%; height: 45px; text-align: center">
-		                	<a href="" class ="form-control"><img src="${path}/resources/images/orderBtn.png"></a>
-		                	<a href="" class ="form-control"><img src="${path}/resources/images/deleteBtn.png"></a>
+		                	<a href="" class =""><img src="${path}/resources/images/orderBtn.png"></a>
+		                	<a href="" class =""><img src="${path}/resources/images/deleteBtn.png"></a>
 		                </td>
 		            </tr>
               </c:forEach>

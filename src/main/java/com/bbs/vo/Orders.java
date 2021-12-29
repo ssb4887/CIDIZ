@@ -1,7 +1,7 @@
 package com.bbs.vo;
 
 public class Orders {
-	
+	private int			order_num;
 	private String	user_id;
 	private String	order_addr;
 	private String	product_name;
@@ -12,8 +12,9 @@ public class Orders {
 	
 	public Orders() {}
 
-	public Orders(String user_id, String order_addr, String product_name, String color, int product_price, int product_count,
+	public Orders(int order_num, String user_id, String order_addr, String product_name, String color, int product_price, int product_count,
 			int order_price) {
+		this.order_num = order_num;
 		this.user_id = user_id;
 		this.order_addr = order_addr;
 		this.product_name = product_name;
@@ -21,6 +22,14 @@ public class Orders {
 		this.product_price = product_price;
 		this.product_count = product_count;
 		this.order_price = order_price;
+	}
+
+	public int getOrder_num() {
+		return order_num;
+	}
+
+	public void setOrder_num(int order_num) {
+		this.order_num = order_num;
 	}
 
 	public String getUser_id() {
