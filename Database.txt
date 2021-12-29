@@ -22,7 +22,7 @@ CREATE TABLE BOARDER (
     reg_date    DATE,
     likey       INT DEFAULT 0,
     available   INT DEFAULT 0,
-    count		INT DEFAULT 0
+    count	INT DEFAULT 0
 );
 
 
@@ -63,58 +63,41 @@ CREATE TABLE AUTHMAIL (
 
 -- 제품 테이블
 CREATE TABLE PRODUCT (
-	product_name  VARCHAR(100)	PRIMARY KEY,
+	product_id	  VARCHAR(30)	PRIMARY KEY,
+	product_name  VARCHAR(100)	NOT NULL,
     product_price INT           NOT NULL,
     color         VARCHAR(50),
-    feature       INT
+    feature       VARCHAR(30),
+    basket_img	  VARCHAR(30)
 );
 
+-- 제품 등록
+INSERT INTO PRODUCT VALUES('T80-black', 'T800HLDAS 좌판가죽', 882000, '블랙', 'feature_T80.jpg', 'basket_T80.jpg');
+INSERT INTO PRODUCT VALUES('T55-black', 'T550HLDAS 천연가죽', 694000, '블랙', 'feature_T55.jpg', 'basket_T55.jpg');
 
--- -- -- 비교하기 기준(이미지 매칭)
--- feature 	= 0 : 오류,	 	1 : T-80 특징, 		2 : T-55 특징
 
-
-INSERT INTO PRODUCT VALUES('T800HLDAS 좌판가죽', 882000, '블랙', 1);
-INSERT INTO PRODUCT VALUES('T550HLDAS 천연가죽', 694000, '블랙', 2);
 
 -- 장바구니 테이블
 CREATE TABLE BASKET(
-	product_name 	VARCHAR(100) 	PRIMARY KEY,
-	user_id 		VARCHAR(100) 	NOT NULL,
-    color 			VARCHAR(50) 	NOT NULL,
-    product_price 	INT 			NOT NULL,
-    product_count 	INT 			NOT NULL,
-    order_price 	INT 			NOT NULL
+     product_name 	VARCHAR(100),
+     user_id 		VARCHAR(100),
+     product_count 	INT 		NOT NULL,
+     PRIMARY KEY(product_name, user_id) -- 복수 기본키 설정
 );
 
 
-INSERT INTO BASKET(product_name, user_id, color, product_price, product_count, order_price) VALUES('T550HLDAS 천연가죽','qwer', '블랙', 882000, 1, 882000); 
+INSERT INTO BASKET VALUES('T550HLDAS 천연가죽','qwer', 1); 
 
 
 -- 주문 테이블
 CREATE TABLE ORDERS(
-	order_num		INT				PRIMARY KEY AUTO_INCREMENT,
-	user_id 		VARCHAR(100) 	NOT NULL,
-    order_addr		TEXT			NOT NULL,
+    order_num		INT		PRIMARY KEY AUTO_INCREMENT,
+    user_id 		VARCHAR(100) 	NOT NULL,
+    order_addr		TEXT		NOT NULL,
     product_name 	VARCHAR(100) 	NOT NULL,
-    color 			VARCHAR(50) 	NOT NULL,
-    product_price 	INT 			NOT NULL,
-    product_count 	INT 			NOT NULL,
-    order_price 	INT 			NOT NULL
+    color 		VARCHAR(50) 	NOT NULL,
+    product_price 	INT 		NOT NULL,
+    product_count 	INT 		NOT NULL,
+    order_price 	INT 		NOT NULL
 );
 INSERT INTO ORDERS(user_id, order_addr, product_name, color, product_price, product_count, order_price) VALUES();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
