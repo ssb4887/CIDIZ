@@ -79,17 +79,16 @@ INSERT INTO PRODUCT VALUES('T550HLDAS 천연가죽', 694000, '블랙', 2);
 
 -- 장바구니 테이블
 CREATE TABLE BASKET(
-	basket_num		INT				PRIMARY KEY AUTO_INCREMENT,
+	product_name 	VARCHAR(100) 	PRIMARY KEY,
 	user_id 		VARCHAR(100) 	NOT NULL,
-    product_name 	VARCHAR(100) 	NOT NULL,
     color 			VARCHAR(50) 	NOT NULL,
     product_price 	INT 			NOT NULL,
     product_count 	INT 			NOT NULL,
     order_price 	INT 			NOT NULL
 );
 
--- BASKET INSERT SQL
-INSERT INTO BASKET(user_id, product_name, color, product_price, product_count, order_price) VALUES('qwer','T550HLDAS 천연가죽', '블랙', 882000, 1, 882000); 
+
+INSERT INTO BASKET(product_name, user_id, color, product_price, product_count, order_price) VALUES('T550HLDAS 천연가죽','qwer', '블랙', 882000, 1, 882000); 
 
 
 -- 주문 테이블
@@ -103,7 +102,19 @@ CREATE TABLE ORDERS(
     product_count 	INT 			NOT NULL,
     order_price 	INT 			NOT NULL
 );
-
--- ODERS INSERT SQL
 INSERT INTO ORDERS(user_id, order_addr, product_name, color, product_price, product_count, order_price) VALUES();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
