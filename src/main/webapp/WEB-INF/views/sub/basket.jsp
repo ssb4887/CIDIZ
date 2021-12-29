@@ -165,7 +165,7 @@
               <div class="contents">
                 <ul id="third">
                   <li>
-                    <a href="#">
+                    <a href="bbs">
                       Q&A
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_1.png" alt="" />
                     </a>

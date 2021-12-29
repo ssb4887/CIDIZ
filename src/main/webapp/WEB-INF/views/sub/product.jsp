@@ -242,7 +242,7 @@
                 <div id="btn_count">
                     <ul>
                     <li><a href="#" id="bc_up"><i class="fas fa-caret-up"></i></a></li>
-                    <li id = "bc_num">1</li>
+                    <li><input type="text" value="1" id="bc_num"></li>
                     <li><a href="#" id="bc_down"><i class="fas fa-caret-down"></i></a></li>
                     </ul>
                 </div>
@@ -250,10 +250,14 @@
                 <div>
                     <ul id="btn_box">
                     <li>
-                        <img src="${path}/resources/images/sidiz_img/p_btn1.png" alt=""/>
+                    	<a href="order">
+                        	<img src="${path}/resources/images/sidiz_img/p_btn1.png" alt=""/>
+                        </a>
                     </li>
                     <li>
-                        <img src="${path}/resources/images/sidiz_img/p_btn2.png" alt=""/>
+                    	<a href="basket">
+                        	<img src="${path}/resources/images/sidiz_img/p_btn2.png" alt=""/>
+                        </a>
                     </li>
                     </ul>
                 </div>

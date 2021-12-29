@@ -2,9 +2,10 @@ package com.bbs.vo;
 
 public class Product {
 	private String	product_name;
-	private int		 	product_price;
+	private int		product_price;
     private String 	color;
-    private int		 	feature; 
+    private int		feature; 
+
     
     public Product() {}
 

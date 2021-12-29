@@ -1,6 +1,6 @@
-# SIDIZ Query
-	
-	CREATE DATABASE SIDIZ;
+# SIDIZ Database CREATE Table
+
+CREATE DATABASE SIDIZ;
 
 -- 사용자
 CREATE TABLE USERS (
@@ -24,7 +24,7 @@ CREATE TABLE BOARDER (
     reg_date    DATE,
     likey       INT DEFAULT 0,
     available   INT DEFAULT 0,
-    count		INT DEFAULT 0
+    count	INT DEFAULT 0
 );
 
 
@@ -51,7 +51,7 @@ CREATE TABLE UPLOADFILE (
 
 -- 공감 횟수 카운트 테이블
 CREATE TABLE LIKEY_R (
-	boarder_id INT,
+    boarder_id INT,
     user_id	VARCHAR(20)
 );
 
@@ -65,38 +65,55 @@ CREATE TABLE AUTHMAIL (
 
 -- 제품 테이블
 CREATE TABLE PRODUCT (
-	product_name  VARCHAR(100)	PRIMARY KEY,
+    product_name  VARCHAR(100)	PRIMARY KEY,
     product_price INT           NOT NULL,
     color         VARCHAR(50),
-	head          TEXT,
-	lumbar        TEXT,
-	seat          TEXT,
-    armrest       TEXT,
-    tilt          TEXT,
-    feature       TEXT
+    feature       INT
 );
+
+-- -- -- 제품 비교하기 기준(이미지 매칭)
+-- feature 	= 0 : 오류, 	1 : T-80 특징,     2 : T-55 특징
+
+-- 제품 등록
+INSERT INTO PRODUCT VALUES('T800HLDAS 좌판가죽', 882000, '블랙', 1);
+INSERT INTO PRODUCT VALUES('T550HLDAS 천연가죽', 694000, '블랙', 2);
 
 
 
 -- 장바구니 테이블
 CREATE TABLE BASKET(
-	user_id 		VARCHAR(100) 	PRIMARY KEY,
+    user_id 		VARCHAR(100) 	PRIMARY KEY,
     product_name 	VARCHAR(100) 	NOT NULL,
-    color 			VARCHAR(50) 	NOT NULL,
-    product_price 	INT 			NOT NULL,
-    product_count 	INT 			NOT NULL,
-    order_price 	INT 			NOT NULL
+    color 		VARCHAR(50) 	NOT NULL,
+    product_price 	INT 		NOT NULL,
+    product_count 	INT 		NOT NULL,
+    order_price 	INT 		NOT NULL
     
 );
 
-
 -- 주문 테이블
 CREATE TABLE ORDERS(
-	user_id 		VARCHAR(100) 	PRIMARY KEY,
-    order_addr		TEXT			NOT NULL,
+    user_id 		VARCHAR(100) 	PRIMARY KEY,
+    order_addr		TEXT		NOT NULL,
     product_name 	VARCHAR(100) 	NOT NULL,
-    color 			VARCHAR(50) 	NOT NULL,
-    product_price 	INT 			NOT NULL,
-    product_count 	INT 			NOT NULL,
-    order_price 	INT 			NOT NULL
+    color 		VARCHAR(50) 	NOT NULL,
+    product_price 	INT 		NOT NULL,
+    product_count 	INT 		NOT NULL,
+    order_price 	INT 		NOT NULL
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
