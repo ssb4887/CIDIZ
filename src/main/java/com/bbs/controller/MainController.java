@@ -48,72 +48,42 @@ public class MainController {
 		@RequestMapping(value = "/brand_story", method = RequestMethod.GET)
 		public String brand_story(Model model) throws Exception {
 			
-			// 메세지를 띄울 수도 있다.
-			// model.addAttribute("msg", "반갑습니다.");
-			
-			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
 			return "sub/brand_story";
-			
-			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
 		}
 
-	// 이벤트 찾아가기
+		// 이벤트 찾아가기
 		@RequestMapping(value = "/event", method = RequestMethod.GET)
 		public String event(Model model) throws Exception {
-			
-			// 메세지를 띄울 수도 있다.
-			// model.addAttribute("msg", "반갑습니다.");
-			
-			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+
 			return "sub/event";
-			
-			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
 		}
 
 
-	// 뉴스 찾아가기
+		// 뉴스 찾아가기
 		@RequestMapping(value = "/news", method = RequestMethod.GET)
 		public String news(Model model) throws Exception {
 			
-			// 메세지를 띄울 수도 있다.
-			// model.addAttribute("msg", "반갑습니다.");
-			
-			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
 			return "sub/news";
-			
-			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
 		}
 
-	// product 찾아가기
+		// product 찾아가기
 		@RequestMapping(value = "/product", method = RequestMethod.GET)
 		public String product(Model model) throws Exception {
 			
-			// 메세지를 띄울 수도 있다.
-			// model.addAttribute("msg", "반갑습니다.");
-			
-			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
 			return "sub/product";
-			
-			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
 		}
 
 
-	// productMenu 찾아가기
+		// productMenu 찾아가기
 		@RequestMapping(value = "/productMenu", method = RequestMethod.GET)
 		public String productMenu(Model model) throws Exception {
-			
-			// 메세지를 띄울 수도 있다.
-			// model.addAttribute("msg", "반갑습니다.");
-			
-			// 컨트롤러가 이 return 경로를 찾아간다.(확장자 제외)
+
 			return "sub/productMenu";
-			
-			// 만약 폴더 안에 있으면 폴더명/파일 return하면 된다. —> main/main
 		}
 
 
 
-	// review 찾아가기
+		// review 찾아가기
 		@RequestMapping(value = "/review", method = RequestMethod.GET)
 		public String review(Model model) throws Exception {
 			
@@ -122,7 +92,7 @@ public class MainController {
 		}
 
 
-	// search_store 찾아가기
+		// search_store 찾아가기
 		@RequestMapping(value = "/search_store", method = RequestMethod.GET)
 		public String search_store(Model model) throws Exception {
 			
@@ -131,7 +101,7 @@ public class MainController {
 		}
 
 
-	// tip 찾아가기
+		// tip 찾아가기
 		@RequestMapping(value = "/tip", method = RequestMethod.GET)
 		public String tip(Model model) throws Exception {
 			
@@ -143,10 +113,7 @@ public class MainController {
 		// basket 찾아가기
 		@RequestMapping(value = "/basket", method = RequestMethod.GET)
 		public String basket(Model model, Basket basket) throws Exception {
-			
-			List<Basket> basket_list = usersService.getBasketList(basket);
-			model.addAttribute("basket_list", basket_list);
-			
+
 			return "sub/basket";
 			
 		}

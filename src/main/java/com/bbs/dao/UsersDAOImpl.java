@@ -65,9 +65,4 @@ public class UsersDAOImpl implements UsersDAO {
 		//					2. Hashmap	--> 	{"이름" : "실제 데이터", "이름" : "실제 데이터"}	--> 방법이 복잡함.
 	}
 
-	@Override
-	public List<Basket> getBasketList(Basket basket) throws Exception {
-		return sqlSession.selectList(SESSION + ".getBasketList", basket);
-	}
-
 }
