@@ -1,5 +1,6 @@
 package com.bbs.controller;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -19,12 +20,16 @@ import com.bbs.bo.UserBasket;
 import com.bbs.service.BbsService;
 import com.bbs.service.UsersService;
 import com.bbs.vo.Authmail;
+import com.bbs.vo.Basket;
 import com.bbs.vo.Users;
 
 @Controller
 public class MainController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+	
+	// 숫자 콤마 찍기.	
+	DecimalFormat formatter = new DecimalFormat("###,###");
 	
 	@Inject
 	UsersService usersService;
@@ -119,9 +124,28 @@ public class MainController {
 			int sum = usersService.totalOrderPrice(totalOrderPrice);
 			
 			model.addAttribute("ub_list", ub_list);
-			model.addAttribute("totalOrderPrice", sum);
+			model.addAttribute("totalOrderPrice", formatter.format(sum));
 			return "sub/basket";
 			
+		}
+		
+		// basket 에 상품 추가
+		@RequestMapping(value = "/addBasketAction", method = RequestMethod.POST)
+		public String addBasketAction(Basket basket, HttpSession session, RedirectAttributes ra) throws Exception {
+			
+			String user_id = (String) session.getAttribute("user_id");
+			
+			if(user_id == null) {
+				
+				ra.addFlashAttribute("msg", "로그인 후 장바구니에 담아주세요.");
+				return "redirect:/login";
+				
+			}
+				
+				basket.setUser_id(user_id);
+				ra.addFlashAttribute("msg", "선택 상품을 장바구니에 담았습니다.");
+				usersService.addBasketAction(basket);
+				return "redirect:/product";
 		}
 		
 		
@@ -133,7 +157,7 @@ public class MainController {
 			
 		}
 		
-		// order 찾아가기
+		// completion 찾아가기
 		@RequestMapping(value = "/completion", method = RequestMethod.GET)
 		public String completion(Model model) throws Exception {
 					

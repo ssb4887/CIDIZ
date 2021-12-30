@@ -5,6 +5,7 @@ import java.util.List;
 import com.bbs.bo.TotalOrderPrice;
 import com.bbs.bo.UserBasket;
 import com.bbs.vo.Authmail;
+import com.bbs.vo.Basket;
 import com.bbs.vo.Users;
 
 public interface UsersDAO {
@@ -25,5 +26,10 @@ public interface UsersDAO {
 		
 		// 장바구니에 담은 리스트 전체 불러오기
 		public List<UserBasket> getUserBasketList(UserBasket userBasket) throws Exception;
+		
+		// 장바구니에 담은 수량과 금액 불러오기
 		public List<TotalOrderPrice>  totalOrderPrice(TotalOrderPrice totalOrderPrice) throws Exception;
+		
+		// 장바구니에 상품 정보 + 수량 담기
+		public void addBasket(Basket basket) throws Exception;
 }
