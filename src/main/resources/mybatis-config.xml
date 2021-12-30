@@ -16,6 +16,7 @@
 		<typeAlias alias="Orders" type="com.bbs.vo.Orders" />
 		
 		<!-- BO -->
-		<typeAlias alias="userBasket" type="com.bbs.bo.UserBasket" />
+		<typeAlias alias="UserBasket" type="com.bbs.bo.UserBasket" />
+		<typeAlias alias="TotalOrderPrice" type="com.bbs.bo.TotalOrderPrice" />
 	</typeAliases>
 </configuration>

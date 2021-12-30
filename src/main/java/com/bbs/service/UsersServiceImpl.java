@@ -1,5 +1,6 @@
 package com.bbs.service;
 
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
@@ -14,6 +15,8 @@ import javax.mail.internet.MimeMessage;
 
 import org.springframework.stereotype.Service;
 
+import com.bbs.bo.TotalOrderPrice;
+import com.bbs.bo.UserBasket;
 import com.bbs.dao.UsersDAO;
 import com.bbs.util.Mail;
 import com.bbs.vo.Authmail;
@@ -144,7 +147,31 @@ public class UsersServiceImpl implements UsersService {
 		if(dao.login(users) == null) return 1;
 		return 0;
 	}
-	
+
+	@Override
+	public List<UserBasket> getUserBasketList(UserBasket userBasket) throws Exception {
+		
+		return dao.getUserBasketList(userBasket);
+	}
+
+	@Override
+	public int totalOrderPrice(TotalOrderPrice totalOrderPrice) throws Exception {
+
+		List<TotalOrderPrice> t_list = dao.totalOrderPrice(totalOrderPrice);
+		int sum = 0;
+		
+		if(t_list != null) {
+			for(int i = 0; i < t_list.size(); i++) {
+				
+				sum += t_list.get(i).getProduct_price() * t_list.get(i).getProduct_count();
+				
+			}
+		}
+		
+		return sum;
+	}
+
+
 	
 
 }

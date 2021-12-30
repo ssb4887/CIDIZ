@@ -252,7 +252,7 @@
               
               
               <!-- 장바구니에 담긴 목록 -->
-              <c:if test = "${empty basket_list}">
+              <c:if test = "${empty ub_list}">
               <tr>
                 <td colspan="8" style="height: 127px; text-align: center">
                   장바구니에 담긴 품목이 없습니다.
@@ -260,8 +260,8 @@
               </tr>
               </c:if>
               
-              <c:if test="${not empty basket_list}"> 
-              <c:forEach var= "basket" items ="${basket_list}">
+              <c:if test="${not empty ub_list}"> 
+              <c:forEach var= "basket" items ="${ub_list}">
 					<tr>
 		                <td style="width: 7%; height: 50px; text-align: center">
 		                  <input type="checkbox"/>
@@ -269,7 +269,7 @@
 		               
 		               <!-- 장바구니 항목 -->
 		               <td style="width: 13.8%; height: 50px; text-align: center">
-		                <img src="${path}/resources/images/${basket.product_img}">
+		                <img src="${path}/resources/images/${basket.basket_img}">
 		                </td>
 		               
 		                <td style="width: 33.8%; height: 50px; text-align: center">
@@ -287,7 +287,7 @@
 		                  ${basket.product_count}
 		                </td>
 		                <td style="width: 11.8%; height: 50px; text-align: center">
-		                  ${basket.order_price}
+		                  ${basket.product_price * basket.product_count} 
 		                </td>
 		                <td style="width: 12%; height: 50px; text-align: center">
 		                	<a href="" class =""><img src="${path}/resources/images/orderBtn.png"></a>
@@ -299,18 +299,10 @@
               
               <!-- 총 결제 금액 	-->
               <tr style="background-color: #e7e7e7">
-                <td colspan="6" style="height: 67px; text-align: center"></td>
-                <td style="height: 67px; text-align: center">총 결제금액</td>
-           		<c:set var = "total" value = "0" />
-
-					<c:forEach var="basket" items="${basket_list}" varStatus="status">     
+                <td colspan="4" style="height: 67px; text-align: center"></td>
+                <td colspan="2"  style="height: 67px; text-align: center">총 결제금액</td>
 				
-									
-					<c:set var= "total" value="${total + basket.order_price}"/>
-					
-					</c:forEach>
-				
-				<td style="text-align: center;"><c:out value="${total}"/> 원</td>
+				<td colspan="2"   style="text-align: center;">${totalOrderPrice} 원</td>
               </tr>
             </table>
           </div>

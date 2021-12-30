@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.bbs.bo.TotalOrderPrice;
+import com.bbs.bo.UserBasket;
 import com.bbs.service.BbsService;
 import com.bbs.service.UsersService;
 import com.bbs.vo.Authmail;
-import com.bbs.vo.Basket;
 import com.bbs.vo.Users;
 
 @Controller
@@ -112,8 +113,13 @@ public class MainController {
 		
 		// basket 찾아가기
 		@RequestMapping(value = "/basket", method = RequestMethod.GET)
-		public String basket(Model model, Basket basket) throws Exception {
+		public String basket(Model model, UserBasket userBasket, TotalOrderPrice totalOrderPrice) throws Exception {
 
+			List<UserBasket> ub_list = usersService.getUserBasketList(userBasket);
+			int sum = usersService.totalOrderPrice(totalOrderPrice);
+			
+			model.addAttribute("ub_list", ub_list);
+			model.addAttribute("totalOrderPrice", sum);
 			return "sub/basket";
 			
 		}

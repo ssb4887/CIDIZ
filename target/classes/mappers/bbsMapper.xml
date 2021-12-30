@@ -223,11 +223,21 @@
 
 		
 		<!-- 유저의 장바구니 목록 불러오기 SQL -->
-		<select id="getUserBasketList" resultType = "userBakset">
-				SELECT B.*, P.product_price, P.color, P.img
+		<select id="getUserBasketList" resultType = "UserBasket">
+				SELECT B.*, P.product_price, P.color, P.basket_img, P.product_id
 				FROM BASKET B
 				INNER JOIN PRODUCT P
 				ON B.product_name = P.product_name;
 		</select>
+	
+		
+		<!-- 총 주문 금액 구하기 SQL -->
+		<select id="totalOrderPrice" resultType = "TotalOrderPrice">
+				SELECT 	B.product_count, P.product_price
+				FROM 		BASKET B
+				INNER 		JOIN PRODUCT P
+				ON 			B.product_name = P.product_name;
+		</select>
+		 
 		
 </mapper>

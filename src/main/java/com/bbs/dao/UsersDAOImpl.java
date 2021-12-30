@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.bbs.bo.TotalOrderPrice;
+import com.bbs.bo.UserBasket;
 import com.bbs.vo.Authmail;
 import com.bbs.vo.Basket;
 import com.bbs.vo.Users;
@@ -65,4 +67,14 @@ public class UsersDAOImpl implements UsersDAO {
 		//					2. Hashmap	--> 	{"이름" : "실제 데이터", "이름" : "실제 데이터"}	--> 방법이 복잡함.
 	}
 
+	@Override
+	public List<UserBasket> getUserBasketList(UserBasket userBasket) throws Exception {
+		return sqlSession.selectList(SESSION + ".getUserBasketList", userBasket);
+	}
+
+	@Override
+	public List<TotalOrderPrice> totalOrderPrice(TotalOrderPrice totalOrderPrice) throws Exception {
+		return sqlSession.selectList(SESSION + ".totalOrderPrice", totalOrderPrice);
+	}
+	
 }
