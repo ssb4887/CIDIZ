@@ -222,12 +222,12 @@
 		<!-- 제품, 장바구니, 주문 시작 -->
 
 		
-		<!-- 유저의 장바구니 목록 불러오기 SQL
+		<!-- 유저의 장바구니 목록 불러오기 SQL -->
 		<select id="getUserBasketList" resultType = "userBakset">
 				SELECT B.*, P.product_price, P.color, P.img
 				FROM BASKET B
 				INNER JOIN PRODUCT P
 				ON B.product_name = P.product_name;
-		</select> -->
+		</select>
 		
 </mapper>
