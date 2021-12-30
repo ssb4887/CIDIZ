@@ -23,7 +23,9 @@
       crossorigin="anonymous"
     />
 </head>
+<script>
 
+</script>
   <body>
   <div class="wrapper">
     <!-- [상단(header)] -->
@@ -217,10 +219,13 @@
                 <img src="${path}/resources/images/sidiz_img/p_main4.png">
                 <img src="${path}/resources/images/sidiz_img/p_main5.png">
             </div>
+            <form method = "POST" action = "./addBasketAction">
             <!-- box_txt -->
             <div class="phmb_txt">
                 <div class="txt_box">
                 <h4>T800HLDAS 좌판가죽</h4>
+                <!-- 상품 이름 넘기기 -->
+                <input type = "hidden" name = "product_name" value = "T800HLDAS 좌판가죽" />
                 <p>CODE &#35; T800HLDAS</p>
                 <h5>&#92;882,000</h5>
                 <!-- 색상 선택 박스 -->
@@ -236,13 +241,12 @@
                 <!-- 색상 표시 박스 -->
                 <a href="#">L096X</a>
                 <p id="color_box">L096X&#95;블랙</p>
-
                 <!-- 수량 버튼 -->
                 <p id="txt_box">QUANTITY &#47; 수량</p>
                 <div id="btn_count">
                     <ul>
                     <li><a href="#" id="bc_up"><i class="fas fa-caret-up"></i></a></li>
-                    <li><input type="text" value="1" id="bc_num"></li>
+                    <li><input type="text" value="1" id="bc_num" name = "product_count"></li>
                     <li><a href="#" id="bc_down"><i class="fas fa-caret-down"></i></a></li>
                     </ul>
                 </div>
@@ -255,16 +259,20 @@
                         </a>
                     </li>
                     <li>
-                    	<a href="basket">
-                        	<img src="${path}/resources/images/sidiz_img/p_btn2.png" alt=""/>
+                    	<a href="/addBasketAction">
+                        	<img src="${path}/resources/images/sidiz_img/p_btn2.png" alt="제출용 버튼"/>
+                        	<input type = "submit">
                         </a>
                     </li>
                     </ul>
+				                    
                 </div>
                 </div>
             </div>
+            </form>
             </div>
         </article>
+        
         <article class="ph_foot">
             <ul id="img_btn">
             <li><a href="${path}/resources/images/sidiz_img/p_main1.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn1.jpg" alt=""/></a></li>

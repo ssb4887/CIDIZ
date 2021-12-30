@@ -239,5 +239,11 @@
 				ON 			B.product_name = P.product_name;
 		</select>
 		 
+		 
+		 <!-- 장바구니에 담기 -->
+		 <insert id="addBasket">
+		 		INSERT INTO BASKET
+		 		VALUES(#{product_name}, #{user_id}, #{product_count});
+		 </insert>
 		
 </mapper>

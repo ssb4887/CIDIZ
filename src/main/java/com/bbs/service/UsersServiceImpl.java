@@ -20,11 +20,12 @@ import com.bbs.bo.UserBasket;
 import com.bbs.dao.UsersDAO;
 import com.bbs.util.Mail;
 import com.bbs.vo.Authmail;
+import com.bbs.vo.Basket;
 import com.bbs.vo.Users;
 
 @Service
 public class UsersServiceImpl implements UsersService {
-
+	
 	@Inject
 	UsersDAO dao;
 
@@ -156,7 +157,7 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 	public int totalOrderPrice(TotalOrderPrice totalOrderPrice) throws Exception {
-
+		
 		List<TotalOrderPrice> t_list = dao.totalOrderPrice(totalOrderPrice);
 		int sum = 0;
 		
@@ -169,6 +170,11 @@ public class UsersServiceImpl implements UsersService {
 		}
 		
 		return sum;
+	}
+
+	@Override
+	public void addBasketAction(Basket basket) throws Exception {
+		dao.addBasket(basket);
 	}
 
 
