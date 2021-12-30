@@ -1,5 +1,5 @@
 package com.bbs.bo;
-
+// 유저가 담아놓은 장바구니 목록 불러오기
 public class UserBasket {
 	
 	private String product_name;

@@ -2,8 +2,9 @@ package com.bbs.dao;
 
 import java.util.List;
 
+import com.bbs.bo.TotalOrderPrice;
+import com.bbs.bo.UserBasket;
 import com.bbs.vo.Authmail;
-import com.bbs.vo.Basket;
 import com.bbs.vo.Users;
 
 public interface UsersDAO {
@@ -23,4 +24,6 @@ public interface UsersDAO {
 		// 제품, 주문
 		
 		// 장바구니에 담은 리스트 전체 불러오기
+		public List<UserBasket> getUserBasketList(UserBasket userBasket) throws Exception;
+		public List<TotalOrderPrice>  totalOrderPrice(TotalOrderPrice totalOrderPrice) throws Exception;
 }
