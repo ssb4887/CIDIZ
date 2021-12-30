@@ -260,8 +260,7 @@
                     </li>
                     <li>
                     	<a href="/addBasketAction">
-                        	<img src="${path}/resources/images/sidiz_img/p_btn2.png" alt="제출용 버튼"/>
-                        	<input type = "submit">
+                        	<input type = "image" src = "${path}/resources/images/sidiz_img/p_btn2.png" alt="제출용 버튼" />
                         </a>
                     </li>
                     </ul>

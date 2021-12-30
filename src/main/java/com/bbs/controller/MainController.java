@@ -141,11 +141,19 @@ public class MainController {
 				return "redirect:/login";
 				
 			}
+			try {
 				
 				basket.setUser_id(user_id);
 				ra.addFlashAttribute("msg", "선택 상품을 장바구니에 담았습니다.");
 				usersService.addBasketAction(basket);
 				return "redirect:/product";
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+				
+				ra.addFlashAttribute("msg", "동일한 상품은 담을 수 없습니다.");
+				return "redirect:/product";
+			}
 		}
 		
 		
