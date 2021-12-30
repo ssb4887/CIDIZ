@@ -13,6 +13,7 @@
    <script src="${path}/resources/js/vendor.js"></script><!-- vendor js -->
   <!-- <script src="/js/common.js"></script> --><!-- 공통 js_body밑에 -->
   <script src="${path}/resources/js/script.js"></script><!-- 제이쿼리 --> 
+  <script src="${path}/resources/js/basket.js"></script><!-- 제이쿼리 --> 
   <script src="${path}/resources/js/nav_jquery.js"></script><!-- 네비 js --> 
   <!-- font --------------------------------------------->
     <link
@@ -225,7 +226,7 @@
             <table id="tb">
               <tr style="background-color: #e7e7e7">
                 <td style="width: 7%; height: 45px; text-align: center">
-                  <input type="checkbox"/>
+                  <input type="checkbox" id="checked_all"/>
                 </td>
                
                <!-- 장바구니 항목 -->
@@ -264,7 +265,7 @@
               <c:forEach var= "basket" items ="${ub_list}">
 					<tr>
 		                <td style="width: 7%; height: 50px; text-align: center">
-		                  <input type="checkbox"/>
+		                  <input type="checkbox" class="checked"/>
 		                </td>
 		               
 		               <!-- 장바구니 항목 -->
