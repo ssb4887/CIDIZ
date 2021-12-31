@@ -227,7 +227,8 @@
 				SELECT B.*, P.product_price, P.color, P.basket_img, P.product_id
 				FROM BASKET B
 				INNER JOIN PRODUCT P
-				ON B.product_name = P.product_name;
+				ON B.product_name = P.product_name
+				WHERE user_id = #{user_id}
 		</select>
 	
 		
@@ -236,7 +237,8 @@
 				SELECT 	B.product_count, P.product_price
 				FROM 		BASKET B
 				INNER 		JOIN PRODUCT P
-				ON 			B.product_name = P.product_name;
+				ON 			B.product_name = P.product_name
+				WHERE	user_id = #{user_id}
 		</select>
 		 
 		 
@@ -245,5 +247,13 @@
 		 		INSERT INTO BASKET
 		 		VALUES(#{product_name}, #{user_id}, #{product_count});
 		 </insert>
+		 
+		 
+		 <!-- 장바구니 선택 삭제 -->
+		 <delete id="deleteBasket">
+		 		DELETE FROM BASKET
+		 		WHERE product_name = #{product_name}
+		 		AND user_id = #{user_id}
+		 </delete>
 		
 </mapper>

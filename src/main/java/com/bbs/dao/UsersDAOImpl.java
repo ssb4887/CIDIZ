@@ -68,18 +68,23 @@ public class UsersDAOImpl implements UsersDAO {
 	}
 
 	@Override
-	public List<UserBasket> getUserBasketList(UserBasket userBasket) throws Exception {
-		return sqlSession.selectList(SESSION + ".getUserBasketList", userBasket);
+	public List<UserBasket> getUserBasketList(String user_id) throws Exception {
+		return sqlSession.selectList(SESSION + ".getUserBasketList", user_id);
 	}
 
 	@Override
-	public List<TotalOrderPrice> totalOrderPrice(TotalOrderPrice totalOrderPrice) throws Exception {
-		return sqlSession.selectList(SESSION + ".totalOrderPrice", totalOrderPrice);
+	public List<TotalOrderPrice> totalOrderPrice(String user_id) throws Exception {
+		return sqlSession.selectList(SESSION + ".totalOrderPrice", user_id);
 	}
 
 	@Override
 	public void addBasket(Basket basket) throws Exception {
 		sqlSession.insert(SESSION + ".addBasket", basket);
+	}
+
+	@Override
+	public void deleteBasket(Basket basket) throws Exception {
+		sqlSession.delete(SESSION + ".deleteBasket", basket);
 	}
 	
 	

@@ -36,5 +36,11 @@ public class Basket {
 	public void setProduct_count(int product_count) {
 		this.product_count = product_count;
 	}
+
+	@Override
+	public String toString() {
+		return "Basket [product_name=" + product_name + ", user_id=" + user_id + ", product_count=" + product_count
+				+ "]";
+	}
 	
 }

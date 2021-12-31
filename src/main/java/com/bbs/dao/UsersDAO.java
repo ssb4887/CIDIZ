@@ -25,11 +25,14 @@ public interface UsersDAO {
 		// 제품, 주문
 		
 		// 장바구니에 담은 리스트 전체 불러오기
-		public List<UserBasket> getUserBasketList(UserBasket userBasket) throws Exception;
+		public List<UserBasket> getUserBasketList(String user_id) throws Exception;
 		
 		// 장바구니에 담은 수량과 금액 불러오기
-		public List<TotalOrderPrice>  totalOrderPrice(TotalOrderPrice totalOrderPrice) throws Exception;
+		public List<TotalOrderPrice>  totalOrderPrice(String user_id) throws Exception;
 		
 		// 장바구니에 상품 정보 + 수량 담기
 		public void addBasket(Basket basket) throws Exception;
+		
+		// 장바구니에 담은 상품 삭제(p_name AND user_id)
+		public void deleteBasket(Basket basket) throws Exception;
 }
