@@ -118,10 +118,12 @@ public class MainController {
 		
 		// basket 찾아가기
 		@RequestMapping(value = "/basket", method = RequestMethod.GET)
-		public String basket(Model model, UserBasket userBasket, TotalOrderPrice totalOrderPrice) throws Exception {
+		public String basket(Model model, HttpSession session) throws Exception {
 
-			List<UserBasket> ub_list = usersService.getUserBasketList(userBasket);
-			int sum = usersService.totalOrderPrice(totalOrderPrice);
+			String user_id = (String) session.getAttribute("user_id");
+			
+			List<UserBasket> ub_list = usersService.getUserBasketList(user_id);
+			int sum = usersService.totalOrderPrice(user_id);
 			
 			model.addAttribute("ub_list", ub_list);
 			model.addAttribute("totalOrderPrice", formatter.format(sum));
@@ -149,11 +151,29 @@ public class MainController {
 				return "redirect:/product";
 			
 			} catch(Exception e) {
+				// 데이터베이스 오류 -- 복수 PK로 한 고객은 한 상품을 한번만 담을 수 있다.	
 				e.printStackTrace();
 				
 				ra.addFlashAttribute("msg", "동일한 상품은 담을 수 없습니다.");
-				return "redirect:/product";
+				return "redirect:/basket";
 			}
+		}
+		
+		// basket 상품 지우기
+		@RequestMapping(value = "/deleteBasketAction", method = RequestMethod.POST)
+		@ResponseBody
+		public List<UserBasket> deleteBasketAction(Basket basket, HttpSession session) throws Exception {
+			
+			String user_id = (String) session.getAttribute("user_id");
+			
+			System.out.println(basket.toString());
+			usersService.deleteBasketAction(basket);
+			
+			
+			List<UserBasket> ub_list = usersService.getUserBasketList(user_id);
+			int sum = usersService.totalOrderPrice(user_id);
+			
+			return ub_list;
 		}
 		
 		

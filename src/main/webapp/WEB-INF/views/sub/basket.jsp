@@ -21,6 +21,70 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+<script>
+$(document).ready(function(){
+		
+		$('#deleteBasketBtn').click(function(){
+
+		var product_name = $('input[name="product_name"]:checked').val();
+		var user_id = $('#user_id').val();
+		
+		// 장바구니 목록 삭제 ajax
+		$.ajax({
+			type	: 'POST',
+			url		: './deleteBasketAction',
+			data 	: {
+				product_name : product_name,
+				user_id : user_id
+			},
+			dataType 	: 'JSON',
+			success 		: function(data) {
+				alert('삭제성공');
+				$('#basketListTable').empty();
+ 				var str = '';
+					
+ 					if(data.length == 0) {
+		             	str += '<tr>';
+		            	 	str += '<td colspan="8" style="height: 127px; text-align: center">';
+		            			str += ' 장바구니에 담긴 품목이 없습니다.';
+		            		str += '</td>';
+		            	str += '</tr>';
+ 					}
+ 					else {
+					for(var i = 0; i < data.length; i++) {
+						str += '<tr>';
+							str += '<td style="width: 7%; height: 50px; text-align: center">';
+							str += '<input type="checkbox" id = "user_id" value = "'+data[i].user_id+'"></td>';
+							str += '<td style="width: 13.8%; height: 50px; text-align: center; border-right: 0">';
+							str += '<img src="${path}/resources/images/'+data[i].basket_img+'"></td>';
+							str += '<td style="width: 33.8%; height: 50px; text-align: center" id = "product_name">';
+							str += data[i].product_name +'</td>';
+							str += '<td style="width: 12.8%; height: 50px; text-align: center">';
+							str += data[i].color+'</td>';
+							str += '<td style="width: 11.8%; height: 50px; text-align: center">';
+							str += data[i].product_price+'</td>';
+							str += '<td style="width: 10.8%; height: 50px; text-align: center">';
+							str += data[i].product_count+'</td>';
+							str += '<td style="width: 11.8%; height: 50px; text-align: center">';
+							str += data[i].product_price * basket.product_count+'</td>';
+							str += '<td style="width: 12%; height: 50px; text-align: center">';
+							str += '<a href="" class =""><img src="${path}/resources/images/orderBtn.png"></a>';
+							str += '<a href="" class =""><img src="${path}/resources/images/deleteBtn.png"></a>';
+							str += '</td>';
+						str += '</tr>';
+						}
+ 					}
+					$('#basketListTable').append(str); 
+			},
+			error: function() {
+				alert('삭제하기 실패!');
+			}
+			
+		});
+	}); // delete ajax
+		
+});
+</script>
 
 </head>
 
@@ -224,6 +288,7 @@
           </div>
           <div id="basket_box">
             <table id="tb">
+            	<thead>
               <tr style="background-color: #e7e7e7">
                 <td style="width: 7%; height: 45px; text-align: center">
                   <input type="checkbox"/>
@@ -250,9 +315,8 @@
                 </td>
                 <td style="width: 12%; height: 45px; text-align: center"></td>
               </tr>
+              </thead>
               
-              
-              <!-- 장바구니에 담긴 목록 -->
               <c:if test = "${empty ub_list}">
               <tr>
                 <td colspan="8" style="height: 127px; text-align: center">
@@ -261,20 +325,20 @@
               </tr>
               </c:if>
               
-              <c:if test="${not empty ub_list}"> 
+              <tbody id = "basketListTable">
               <c:forEach var= "basket" items ="${ub_list}">
 					<tr>
 		                <td style="width: 7%; height: 50px; text-align: center">
-		                  <input type="checkbox"/>
+		                 <input type="checkbox" id = "product_name" name = "product_name" value = "${basket.product_name}">
+		                 <input type="hidden" id = "user_id" value = "${basket.user_id}">
 		                </td>
 		               
 		               <!-- 장바구니 항목 -->
-		               <td style="width: 13.8%; height: 50px; text-align: center">
+		               <td style="width: 13.8%; height: 50px; text-align: center; border-right: 0">
 		                <img src="${path}/resources/images/${basket.basket_img}">
 		                </td>
 		               
-		                <td style="width: 33.8%; height: 50px; text-align: center">
-		                <input type="hidden" id = "user_id" value = "${basket.user_id}">
+		                <td style="width: 33.8%; height: 50px; text-align: center" id = "product_name">
 		                  ${basket.product_name}
 		                </td>
 		                
@@ -296,15 +360,17 @@
 		                </td>
 		            </tr>
               </c:forEach>
-              </c:if>
+              </tbody>
               
               <!-- 총 결제 금액 	-->
+              <tfoot>
               <tr style="background-color: #e7e7e7">
                 <td colspan="4" style="height: 67px; text-align: center"></td>
                 <td colspan="2"  style="height: 67px; text-align: center">총 결제금액</td>
 				
 				<td colspan="2"   style="text-align: center;">${totalOrderPrice} 원</td>
               </tr>
+              </tfoot>
             </table>
           </div>
         </div>
@@ -319,9 +385,10 @@
             </a>
           </li>
           <li>
-            <a href="#">
+          <!-- delete -->
+            <button type = "button" id = "deleteBasketBtn">
               <img src="${path}/resources/images/basket_btn2.png" alt="">
-            </a>
+            </button>
           </li>
           <li>
             <a href="#">

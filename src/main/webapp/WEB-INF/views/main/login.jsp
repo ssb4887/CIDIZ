@@ -16,7 +16,7 @@
 
 	<!-- sidiz -->
   <link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
-  <link rel="stylesheet" type="text/css" href="${path}/resources/css/main.css"><!-- 컨텐츠 css -->
+  <link rel="stylesheet" type="text/css" href="${path}/resources/css/main_view.css"><!-- 컨텐츠 css -->
   <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
   <script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
    <script src="${path}/resources/js/vendor.js"></script><!-- vendor js -->

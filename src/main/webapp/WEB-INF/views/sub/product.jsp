@@ -227,7 +227,7 @@
                 <!-- 상품 이름 넘기기 -->
                 <input type = "hidden" name = "product_name" value = "T800HLDAS 좌판가죽" />
                 <p>CODE &#35; T800HLDAS</p>
-                <h5>&#92;882,000</h5>
+                <h5>&#8361;882,000</h5>
                 <!-- 색상 선택 박스 -->
                 <p>COLOR &#47; 색상</p>
                 <ul>

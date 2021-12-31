@@ -150,15 +150,15 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public List<UserBasket> getUserBasketList(UserBasket userBasket) throws Exception {
+	public List<UserBasket> getUserBasketList(String user_id) throws Exception {
 		
-		return dao.getUserBasketList(userBasket);
+		return dao.getUserBasketList(user_id);
 	}
 
 	@Override
-	public int totalOrderPrice(TotalOrderPrice totalOrderPrice) throws Exception {
+	public int totalOrderPrice(String user_id) throws Exception {
 		
-		List<TotalOrderPrice> t_list = dao.totalOrderPrice(totalOrderPrice);
+		List<TotalOrderPrice> t_list = dao.totalOrderPrice(user_id);
 		int sum = 0;
 		
 		if(t_list != null) {
@@ -175,6 +175,11 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public void addBasketAction(Basket basket) throws Exception {
 		dao.addBasket(basket);
+	}
+
+	@Override
+	public void deleteBasketAction(Basket basket) throws Exception {
+		dao.deleteBasket(basket);
 	}
 
 
