@@ -25,24 +25,35 @@
 <script>
 $(document).ready(function(){
 		
-		$('#deleteBasketBtn').click(function(){
+		$('#deleteBasketBtn').click(function() {
 
-		var product_name = $('input[name="product_name"]:checked').val();
-		var user_id = $('#user_id').val();
+		var check = confirm('정말 삭제 하시겠습니까?');
 		
+		if(check != true) {
+			
+			return;
+		}
+		else {
+		
+		var product_name = [];
+		
+		$('input:checkbox[name=product_name]').each(function() {
+			product_name.push($(this).val());
+		});
 		// 장바구니 목록 삭제 ajax
 		$.ajax({
 			type	: 'POST',
 			url		: './deleteBasketAction',
 			data 	: {
-				product_name : product_name,
-				user_id : user_id
+				product_name : product_name
 			},
 			dataType 	: 'JSON',
 			success 		: function(data) {
 				alert('삭제성공');
 				$('#basketListTable').empty();
+				$('#totalOrderPrice').empty();
  				var str = '';
+ 				var str1 = '';
 					
  					if(data.length == 0) {
 		             	str += '<tr>';
@@ -67,21 +78,27 @@ $(document).ready(function(){
 							str += '<td style="width: 10.8%; height: 50px; text-align: center">';
 							str += data[i].product_count+'</td>';
 							str += '<td style="width: 11.8%; height: 50px; text-align: center">';
-							str += data[i].product_price * basket.product_count+'</td>';
+							str += data[i].product_price * data[i].product_count+'</td>';
 							str += '<td style="width: 12%; height: 50px; text-align: center">';
 							str += '<a href="" class =""><img src="${path}/resources/images/orderBtn.png"></a>';
 							str += '<a href="" class =""><img src="${path}/resources/images/deleteBtn.png"></a>';
 							str += '</td>';
 						str += '</tr>';
-						}
+						}// for문 끝
+						str1 +=  '<tr style="background-color: #e7e7e7">';
+							str1 +=  '<td colspan="4" style="height: 67px; text-align: center"></td>';
+							str1 +=  '<td colspan="2" style="height: 67px; text-align: center">총 결제금액</td>';
+							str1 +=  '<td colspan="2" style="text-align: center;">${totalOrderPrice} 원</td>';
+						str1 +=  '</tr>';
  					}
 					$('#basketListTable').append(str); 
-			},
-			error: function() {
-				alert('삭제하기 실패!');
-			}
-			
-		});
+					$('#totalOrderPrice').append(str1);
+				},
+				error: function() {
+					alert('삭제하기 실패!');
+				}
+			});
+		}	
 	}); // delete ajax
 		
 });
@@ -330,7 +347,7 @@ $(document).ready(function(){
               <c:forEach var= "basket" items ="${ub_list}">
 					<tr>
 		                <td style="width: 7%; height: 50px; text-align: center">
-		                 <input type="checkbox" id = "product_name" name = "product_name" value = "${basket.product_name}" class="checked">
+		                 <input type="checkbox" name = "product_name" value = "${basket.product_name}" class="checked">
 		                 <input type="hidden" id = "user_id" value = "${basket.user_id}">
 		                </td>
 		               
@@ -364,7 +381,7 @@ $(document).ready(function(){
               </tbody>
               
               <!-- 총 결제 금액 	-->
-              <tfoot>
+              <tfoot id="totalOrderPrice">
               <tr style="background-color: #e7e7e7">
                 <td colspan="4" style="height: 67px; text-align: center"></td>
                 <td colspan="2"  style="height: 67px; text-align: center">총 결제금액</td>
@@ -392,7 +409,7 @@ $(document).ready(function(){
             </button>
           </li>
           <li>
-            <a href="#">
+            <a href="./deleteAllBasketAction">
               <img src="${path}/resources/images/basket_btn3.png" alt="">
             </a>
           </li>

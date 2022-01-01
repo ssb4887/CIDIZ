@@ -162,11 +162,11 @@ public class UsersServiceImpl implements UsersService {
 		int sum = 0;
 		
 		if(t_list != null) {
-			for(int i = 0; i < t_list.size(); i++) {
+			// 배열 타입 일떄 향상된 포문 사용
+			// 하나씩 전부다 사용시
+			for(TotalOrderPrice item: t_list)
+				sum += item.getProduct_price() * item.getProduct_count();
 				
-				sum += t_list.get(i).getProduct_price() * t_list.get(i).getProduct_count();
-				
-			}
 		}
 		
 		return sum;
@@ -177,12 +177,13 @@ public class UsersServiceImpl implements UsersService {
 		dao.addBasket(basket);
 	}
 
-	@Override
-	public void deleteBasketAction(Basket basket) throws Exception {
-		dao.deleteBasket(basket);
+	@Override									//컨트롤러에서 넘어옴
+	public void deleteBasketAction(String user_id, List<String> product_name) throws Exception {
+		
+		// dao 에 있는 product_name이 단수니까 List에 요소를 하나씩 꺼내서 넘겨준다.	
+		for(String item: product_name)
+			dao.deleteBasket(user_id, item);
 	}
 
-
-	
 
 }

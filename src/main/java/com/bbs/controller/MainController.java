@@ -12,10 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bbs.bo.TotalOrderPrice;
 import com.bbs.bo.UserBasket;
 import com.bbs.service.BbsService;
 import com.bbs.service.UsersService;
@@ -162,16 +162,13 @@ public class MainController {
 		// basket 상품 지우기
 		@RequestMapping(value = "/deleteBasketAction", method = RequestMethod.POST)
 		@ResponseBody
-		public List<UserBasket> deleteBasketAction(Basket basket, HttpSession session) throws Exception {
+		public List<UserBasket> deleteBasketAction(HttpSession session, @RequestParam(value="product_name[]") List<String> product_name) throws Exception {
 			
 			String user_id = (String) session.getAttribute("user_id");
-			
-			System.out.println(basket.toString());
-			usersService.deleteBasketAction(basket);
+			usersService.deleteBasketAction(user_id, product_name);
 			
 			
 			List<UserBasket> ub_list = usersService.getUserBasketList(user_id);
-			int sum = usersService.totalOrderPrice(user_id);
 			
 			return ub_list;
 		}
