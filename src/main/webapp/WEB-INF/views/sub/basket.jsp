@@ -37,9 +37,10 @@ $(document).ready(function(){
 		
 		var product_name = [];
 		
-		$('input:checkbox[name=product_name]').each(function() {
+		$('input:checkbox[name=product_name]:checked').each(function() {
 			product_name.push($(this).val());
 		});
+		
 		// 장바구니 목록 삭제 ajax
 		$.ajax({
 			type	: 'POST',
