@@ -732,7 +732,7 @@
 }
 
 #provision_right p {
-  margin-left: 5px;
+  /* margin-left: 5px; */
   font-size: 12px;
 }
 #first {
@@ -747,6 +747,7 @@
   display: flex;
 }
 #info_left {
+  margin-top:15px;
   width: 50%;
   height: 490px;
 }
@@ -775,19 +776,20 @@ table {
 #UserTable_name {
   padding: 8px 7px 8px 7px;
   width: 100px;
-  height: 14px;
+  /* height: 14px; */
 }
 #UserTable_email {
   padding: 8px 7px 8px 7px;
   width: 200px;
-  height: 14px;
+  /* height: 14px; */
 }
 #UserTable_phone {
   padding: 8px 7px 8px 7px;
   width: 100px;
-  height: 14px;
+  /* height: 14px; */
 }
 #info_right {
+  margin-top:15px;
   width: 50%;
   height: 585px;
 }
@@ -813,11 +815,11 @@ table {
 #delTable_name {
   padding: 8px 7px 8px 7px;
   width: 100px;
-  height: 14px;
+  /* height: 14px; */
 }
-#postcode {
-  width: 50px;
-  height: 14px;
+#addr1 {
+  width: 100px;
+  height: 29.5px;
   padding: 5px;
   background-color: #eee;
   border: 1px solid #808080;
@@ -833,34 +835,34 @@ table {
 #search:hover {
   background-color: rgb(200, 200, 200);
 }
-#addr1 {
+#addr2 {
   width: 300px;
-  height: 14px;
+  /* height: 14px; */
   padding: 8px 7px 8px 7px;
   background-color: #eee;
   border: 1px solid #808080;
   margin: 2px 0;
 }
-#addr2 {
+#addr3 {
   width: 300px;
-  height: 14px;
+  /* height: 14px; */
   padding: 8px 7px 8px 7px;
   margin: 2px 0;
 }
 #delTable_phone {
   padding: 8px 7px 8px 7px;
   width: 120px;
-  height: 14px;
+  /* height: 14px; */
 }
 #delTable_tel {
   padding: 8px 7px 8px 7px;
   width: 120px;
-  height: 14px;
+  /* height: 14px; */
 }
 #delTable_require {
   padding: 8px 7px 8px 7px;
   width: 300px;
-  height: 14px;
+  /* height: 14px; */
 }
 #delPrice {
   background-color: #eee;

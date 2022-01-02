@@ -13,6 +13,7 @@ import com.bbs.bo.TotalOrderPrice;
 import com.bbs.bo.UserBasket;
 import com.bbs.vo.Authmail;
 import com.bbs.vo.Basket;
+import com.bbs.vo.Orders;
 import com.bbs.vo.Users;
 
 @Repository // 저장소를 접근하는 역할을 인식하게 함.
@@ -92,6 +93,11 @@ public class UsersDAOImpl implements UsersDAO {
 		map.put("product_name", product_name);
 		
 		sqlSession.delete(SESSION + ".deleteBasket", map);
+	}
+
+	@Override
+	public void addOrder(Orders orders) throws Exception {
+		sqlSession.insert(SESSION + ".addOrder", orders);
 	}
 	
 	

@@ -21,6 +21,7 @@ import com.bbs.service.BbsService;
 import com.bbs.service.UsersService;
 import com.bbs.vo.Authmail;
 import com.bbs.vo.Basket;
+import com.bbs.vo.Orders;
 import com.bbs.vo.Users;
 
 @Controller
@@ -175,11 +176,32 @@ public class MainController {
 		
 		// order 찾아가기
 		@RequestMapping(value = "/order", method = RequestMethod.GET)
-		public String order(Model model) throws Exception {
+		public String order(Model model, HttpSession session) throws Exception {
+			
+			String user_id = (String) session.getAttribute("user_id");
+			
+			List<UserBasket> ub_list = usersService.getUserBasketList(user_id);
+			int sum = usersService.totalOrderPrice(user_id);
+			
+			model.addAttribute("ub_list", ub_list);
+			model.addAttribute("totalOrderPrice", formatter.format(sum));
 			
 			return "sub/order";
 			
 		}
+		
+		@RequestMapping(value = "/addOrderAction", method = RequestMethod.POST)
+		public String addOrderAction(Orders orders, String addr1, String addr2, String addr3, HttpSession session,  @RequestParam(value="product_name[]") List<String> product_name) throws Exception {
+			
+			orders.setOrder_addr(addr1 + " " + addr2 + " " + addr3);
+			String user_id = (String) session.getAttribute("user_id");
+			System.out.println(product_name);
+			usersService.deleteBasketAction(user_id, product_name);
+			usersService.addOrderAction(orders);
+			
+			return "redirect:/basket"; 
+		}
+		
 		
 		// completion 찾아가기
 		@RequestMapping(value = "/completion", method = RequestMethod.GET)

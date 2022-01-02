@@ -6,6 +6,7 @@ import com.bbs.bo.TotalOrderPrice;
 import com.bbs.bo.UserBasket;
 import com.bbs.vo.Authmail;
 import com.bbs.vo.Basket;
+import com.bbs.vo.Orders;
 import com.bbs.vo.Users;
 
 public interface UsersDAO {
@@ -35,4 +36,7 @@ public interface UsersDAO {
 		
 		// 장바구니에 담은 상품 삭제(p_name AND user_id)
 		public void deleteBasket(String user_id, String product_name) throws Exception;
+		
+		// 장바구니 항목 주문하기
+		public void addOrder(Orders orders) throws Exception;
 }

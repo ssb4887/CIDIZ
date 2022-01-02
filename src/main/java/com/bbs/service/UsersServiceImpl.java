@@ -21,6 +21,7 @@ import com.bbs.dao.UsersDAO;
 import com.bbs.util.Mail;
 import com.bbs.vo.Authmail;
 import com.bbs.vo.Basket;
+import com.bbs.vo.Orders;
 import com.bbs.vo.Users;
 
 @Service
@@ -185,5 +186,9 @@ public class UsersServiceImpl implements UsersService {
 			dao.deleteBasket(user_id, item);
 	}
 
+	@Override
+	public void addOrderAction(Orders orders) throws Exception {
+		dao.addOrder(orders);
+	}
 
 }
