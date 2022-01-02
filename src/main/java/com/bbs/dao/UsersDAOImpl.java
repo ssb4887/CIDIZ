@@ -1,6 +1,8 @@
 package com.bbs.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -83,10 +85,14 @@ public class UsersDAOImpl implements UsersDAO {
 	}
 
 	@Override
-	public void deleteBasket(Basket basket) throws Exception {
-		sqlSession.delete(SESSION + ".deleteBasket", basket);
+	public void deleteBasket(String user_id, String product_name) throws Exception {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("product_name", product_name);
+		
+		sqlSession.delete(SESSION + ".deleteBasket", map);
 	}
-	
 	
 	
 }

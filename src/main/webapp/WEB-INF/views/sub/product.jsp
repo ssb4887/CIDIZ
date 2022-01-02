@@ -23,9 +23,7 @@
       crossorigin="anonymous"
     />
 </head>
-<script>
 
-</script>
   <body>
   <div class="wrapper">
     <!-- [상단(header)] -->
