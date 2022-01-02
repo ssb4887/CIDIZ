@@ -95,10 +95,11 @@ CREATE TABLE ORDERS(
     user_id 		VARCHAR(100) 	NOT NULL,
     user_name		VARCHAR(20)	NOT NULL,
     order_addr		TEXT		NOT NULL,
+    user_phone		VARCHAR(30)	NOT NULL,
+    user_tel		VARCHAR(30)	NOT NULL,
     product_name 	VARCHAR(100) 	NOT NULL,
     color 		VARCHAR(50) 	NOT NULL,
     product_count 	INT 		NOT NULL,
     order_price 	INT 		NOT NULL,
     order_memo		TEXT		NOT NULL
 );
-
