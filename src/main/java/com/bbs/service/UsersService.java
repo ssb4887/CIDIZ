@@ -2,10 +2,10 @@ package com.bbs.service;
 
 import java.util.List;
 
-import com.bbs.bo.TotalOrderPrice;
 import com.bbs.bo.UserBasket;
 import com.bbs.vo.Authmail;
 import com.bbs.vo.Basket;
+import com.bbs.vo.Orders;
 import com.bbs.vo.Users;
 
 // service를 구성할 interface 표준 설계 작성
@@ -23,4 +23,5 @@ public interface UsersService {
 	public int totalOrderPrice(String user_id) throws Exception;
 	public void addBasketAction(Basket basket) throws Exception;
 	public void deleteBasketAction(String user_id, List<String> product_name) throws Exception;
+	public void addOrderAction(Orders orders) throws Exception;
 }

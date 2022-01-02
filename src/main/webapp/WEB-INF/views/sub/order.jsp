@@ -6,9 +6,18 @@
 <html>
 <head>
 <title>SIDIZ</title>
-  <link rel="stylesheet" type="text/css" href="${path}/resources/css/default.css"><!-- 공통 css -->
+<link rel="stylesheet" href="${path}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="${path}/resources/css/custom.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="${path}/resources/js/bootstrap.js"></script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery.min.js" charset="UTF-8"></script>
+
+<script src="${path}/resources/js/address.js" charset="UTF-8"></script>
+  <link rel="stylesheet" type="text/css" href="${path}/resources/css/default_basket.css"><!-- 공통 css -->
   <link rel="stylesheet" type="text/css" href="${path}/resources/css/order.css"><!-- 컨텐츠 css -->
-  <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js -->
+  <%-- <script src="${path}/resources/js/jquery-2.0.0.js"></script><!-- jquery js --> --%>
   <script src="${path}/resources/js/jquery.easing.1.3.js"></script><!-- easing js-->
    <script src="${path}/resources/js/vendor.js"></script><!-- vendor js -->
   <!-- <script src="/js/common.js"></script> --><!-- 공통 js_body밑에 -->
@@ -21,6 +30,44 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+<script>
+	// 이용약관에 모두 동의
+	/*
+	if($('#collect_third').is(':checked') != true || $('#collect').is(':checked') != true) {
+		alert('이용약관에 모두 동의 해주세요!');
+		return;
+	}*/
+	$(document).ready(function(){
+			/*
+			// 주문자 정보와 동일 	
+		   $("#checkOrderName").change(function(){
+			   
+			        if($("#checkOrderName").is(":checked")){
+						alert('주문자 정보와 동일!');
+			        	// $('#delTable_name').val($('#UserTable_name').val());
+			        	// $('#delTable_phone').val($('#UserTable_phone').val());
+			        }
+			        else{
+						alert('체크해제!');
+			        	// $('#delTable_name').val(' ');
+			        	// $('#delTable_phone').val($(' ');
+			        }
+		    });
+			*/
+			        	
+			$('#getAddrBtn').click(function(){
+				var postCode	= $('#entry_postcode5').val();
+				var doroAddr 	= $('#entry_address').val(); 
+				var jibunAddr 	= $('#entry_extra_info').val(); 
+			
+				$('#addr1').val(postCode);
+				$('#addr2').val(doroAddr + ' ' + jibunAddr);
+			
+			});
+			        	
+		
+	});
+</script>
 </head>
 
   <body>
@@ -220,42 +267,81 @@
             <img src="${path}/resources/images/order.png" alt="" />
           </div>
           <div id="order_box">
-            <table id="tb">
-              <tr style="background-color: #e7e7e7">
-                <td style="width: 7%; height: 45px; text-align: center">
-                  <input type="checkbox" id="check_all" onclick="toggle()" />
-                  <label for="check_all"></label>
-                </td>
-                <td
-                  colspan="2"
-                  style="width: 33.8%; height: 45px; text-align: center"
-                >
-                  제품정보
-                </td>
-                <td style="width: 12.8%; height: 45px; text-align: center">
-                  색상/소재
-                </td>
-                <td style="width: 11.8%; height: 45px; text-align: center">
-                  판매가격
-                </td>
-                <td style="width: 10.8%; height: 45px; text-align: center">
-                  수량
-                </td>
-                <td style="width: 11.8%; height: 45px; text-align: center">
-                  주문금액
-                </td>
-                <td style="width: 12%; height: 45px; text-align: center"></td>
-              </tr>
+           <table id="tb">
+           	<thead>
+	              <tr style="background-color: #e7e7e7">
+	               
+	               <!-- 장바구니 항목 -->
+	                <td
+	                  colspan="2"
+	                  style="width: 40.8%; height: 45px; text-align: center"
+	                >
+	                  제품정보
+	                </td>
+	                <td style="width: 12.8%; height: 45px; text-align: center">
+	                  색상/소재
+	                </td>
+	                <td style="width: 11.8%; height: 45px; text-align: center">
+	                  판매가격
+	                </td>
+	                <td style="width: 10.8%; height: 45px; text-align: center">
+	                  수량
+	                </td>
+	                <td style="width: 23.8%; height: 45px; text-align: center">
+	                  주문금액
+	                </td>
+	              </tr>
+              </thead>
+              
+              <c:if test = "${empty ub_list}">
               <tr>
                 <td colspan="8" style="height: 127px; text-align: center">
                   장바구니에 담긴 품목이 없습니다.
                 </td>
               </tr>
+              </c:if>
+              
+              <tbody id = "basketListTable">
+              <c:forEach var= "basket" items ="${ub_list}">
+					<tr>
+
+		               
+		               <!-- 장바구니 항목 -->
+		               <td style="width: 13.8%; height: 50px; text-align: right; border-right: 0">
+       		             <input type="hidden" id = "product_name" value = "${basket.product_name}" class="checked">
+		                 <input type="hidden" id = "user_id" value = "${basket.user_id}">
+		                <img src="${path}/resources/images/${basket.basket_img}">
+		                </td>
+		               
+		                <td style="width: 40.8%; height: 50px; text-align: center" id = "product_name">
+		                  ${basket.product_name}
+		                </td>
+		                
+		                <td style="width: 12.8%; height: 50px; text-align: center">
+		                  ${basket.color}
+		                </td>
+		                <td style="width: 11.8%; height: 50px; text-align: center">
+		                  ${basket.product_price}
+		                </td>
+		                <td style="width: 10.8%; height: 50px; text-align: center">
+		                  ${basket.product_count}
+		                </td>
+		                <td style="width: 23.8%; height: 50px; text-align: center">
+		                  ${basket.product_price * basket.product_count} 
+		                </td>
+		            </tr>
+              </c:forEach>
+              </tbody>
+              
+              <!-- 총 결제 금액 	-->
+              <tfoot id="totalOrderPrice">
               <tr style="background-color: #e7e7e7">
-                <td colspan="6" style="height: 67px; text-align: center"></td>
-                <td style="height: 67px; text-align: center">총 결제금액</td>
-                <td style="height: 67px; text-align: center">0 원</td>
+                <td colspan="2" style="height: 67px; text-align: center"></td>
+                <td colspan="2"  style="height: 67px; text-align: center">총 결제금액</td>
+				
+				<td colspan="2"   style="text-align: center; color: red">${totalOrderPrice} 원</td>
               </tr>
+              </tfoot>
             </table>
           </div>
           <div id="order_detail">
@@ -265,7 +351,8 @@
                 	<!-- 이용약관 페이지 불러오기 -->
 					<jsp:include page="../termsofUse_txt.jsp"/>
                 </div>
-	                <input type="checkbox" name="nonUser" />
+                	<!-- 비회원일시 출력 작업하기 -->
+	                <input type="checkbox" id="nonUser" />
 	                <label for="nonUser">
 	                  비회원 쇼핑을 이용약관에 동의합니다.
 	                </label>
@@ -276,13 +363,13 @@
  					<jsp:include page="../termsofUse_txt.jsp"/>
                 </div>
                 <p id="first">
-                  <input type="checkbox" name="collect" />
+                  <input type="checkbox" id="collect" />
                   <label for="collect">
                     개인정보 수집 및 이용에 동의합니다.
                   </label>
                 </p>
                 <p id="second">
-                  <input type="checkbox" name="collect_third" />
+                  <input type="checkbox" 	id="collect_third"/>
                   <label for="collect_third">
                     개인정보 제 3자 제공 동의 (필수)
                   </label>
@@ -326,68 +413,99 @@
               </div>
               <div id="info_right">
                 <div id="delivery_table">
+                
+                <!-- 주문 정보 입력 -->
+                <form method = "POST" action = "./addOrderAction">
+                  
                   <table width="490" height="535">
+                  
                     <tr>
                       <td colspan="2" id="delTable_header">
                         <h2>배송지 정보</h2>
                       </td>
                     </tr>
+                    
                     <tr id="userCheck">
-                      <td colspan="2">
-                        <input type="checkbox" name="check_UserInfo" />
-                        <label for="check_UserInfo">
-                          주문 고객 정보와 동일
-                        </label>
+                      <td colspan="2"  style="padding: 10px">
+                      <!-- 주문고객정보 넣기 -->
+                        <input type="checkbox" id = "checkOrderName" style="padding-top: 3px;"/>
+                        <label for="check_UserInfo">주문 고객 정보와 동일</label>
+                        <c:forEach var= "ub_list" items ="${ub_list}">
+	                        <input type="hidden" name ="product_name" value="${ub_list.product_name}"/>
+	                        <input type="hidden" name ="color" value = "${ub_list.color}"/>
+	                        <input type="hidden" name ="product_count" value = "${ub_list.product_count}"/>
+	                        <input type="hidden" name ="order_price" value = "${totalOrderPrice}"/>
+                        </c:forEach>
                       </td>
                     </tr>
+                    
                     <tr>
                       <td style="width: 30%">받는 사람</td>
                       <td style="width: 70%">
-                        <input type="text" id="delTable_name" />
+                        <input type="text" name = "user_name" id="delTable_name" />
                       </td>
                     </tr>
+                    
                     <tr>
                       <td style="width: 30%">주소</td>
-                      <td style="width: 70%">
+                      <td style="width: 70%; padding-left: 0px;">
                         <p>
-                          <input type="text" id="postcode" readonly />
-                          <input
+                          <input type="text" id="addr1" readonly />
+                          <button
                             type="button"
-                            value="우편번호 찾기"
                             id="search"
-                          />
+                            data-toggle = "modal"
+                            data-target = "#addrModal"
+                          >주소 검색</button>
                         </p>
-                        <p><input type="text" id="addr1" readonly /></p>
-                        <p><input type="text" id="addr2" /></p>
+                        <p><input type="text" id="addr2" name = "addr2" readonly /></p>
+                        <p><input type="text" id="addr3" name = "addr3"/></p>
                       </td>
                     </tr>
+                    
                     <tr>
                       <td style="width: 30%">휴대전화</td>
                       <td style="width: 70%">
-                        <input type="text" id="delTable_phone" /> 예&#41;
+                        <input type="text" name = "user_phone" id="delTable_phone" /> 예&#41;
                         010-1234-5678
                       </td>
                     </tr>
+                    
                     <tr>
                       <td style="width: 30%">전화번호</td>
                       <td style="width: 70%">
-                        <input type="text" id="delTable_tel" /> 예&#41;
+                        <input type="text" name = "user_tel" id="delTable_tel" /> 예&#41;
                         02-1234-5678
                       </td>
                     </tr>
+                    
                     <tr>
                       <td style="width: 30%">배송 요청사항</td>
                       <td style="width: 70%">
-                        <input type="text" id="delTable_require" />
+                        <input type="text" name = "order_memo" id="delTable_require" />
                       </td>
                     </tr>
+                    
                     <tr id="delPrice">
-                      <td colspan="2">총 결제금액 원</td>
+                      <td colspan="2" style="color: red;">총 결제금액 ${totalOrderPrice} 원</td>
                     </tr>
-                  </table>
+                    
+                	</table>
+	               	<div id="btns">
+		              	<div>
+			              	<input type="image" src="${path}/resources/images/orderBtn.png" alt="제출하기 이미지" />
+			                <%-- <img src="${path}/resources/images/orderBtn.png" alt="" /> --%>
+		              	</div>
+		              	<div>
+		                	<img src="${path}/resources/images/backBtn.png" alt="" />
+		              	</div>
+	            	</div>
+                  </form>
+                  
                 </div>
               </div>
             </div>
+            
             <div id="buy_way">
               <div id="select">
                 <h2>결제수단 선택</h2>
@@ -405,14 +523,9 @@
                 <div id="error">결제오류센터 &#62;</div>
               </div>
             </div>
-            <div id="btns">
-              <div>
-                <img src="${path}/resources/images/orderBtn.png" alt="" />
-              </div>
-              <div>
-                <img src="${path}/resources/images/backBtn.png" alt="" />
-              </div>
-            </div>
+            
+
+            
           </div>
         </div>
       </div>
@@ -539,11 +652,66 @@
       </footer>
     </div>
   
+  <%-- 주소 검색 모달 --%>
+<div id = "addrModal" class = "modal fade" role = "dialog">
+		<div class = "modal-dialog">
+				<div class = modal-content>
+						<div class = "modal-header">
+								<button type = "button" class = "close" data-dismiss = "modal">&times;</button>
+								<h4 class = "modal-title">주소 검색</h4>
+						</div>
+						<div class = "modal-body">
+								<div class = "row" id = "postcodify">
+								<script>
+										$('#postcodify').postcodify({
+												insertPostcode5 	: '#entry_postcode5',
+												insertAddress		: '#entry_address',
+												insertExtraInfo		: '#entry_extra_info',
+												userFullJibeon		: true,
+												mapLinkProvider	: 'google',
+												
+												ready : function() {
+													$('#postcodify div.postcode_search_status.empty').hide();
+												},
+												
+												beforeSearch 	: function() {
+													$('#entry_box').hide();
+												},
+												
+												afterSearch 		: function(selectedEntry) {
+													$('#postcodify div.postcode_search_result').remove();
+													$('#postcodify div.postcode_search_status.summary').hide();
+													$('#entry_box').show();
+													$('#entry_details').focus();
+												}
+												
+										});
+								</script>
+							</div>
+								<div>
+										<p>
+												<label for = "entry_postcode5">우편번호</label>
+												<input type = "text" class = "form-control" id = "entry_postcode5" readonly>
+										</p>
+										<p>
+												<label for = "entry_address">도로명주소</label>
+												<input type = "text" class = "form-control" id = "entry_address" readonly>
+										</p>
+										<p>
+												<label for = "entry_extra_info">지명주소</label>
+												<input type = "text" class = "form-control" id = "entry_extra_info" readonly>
+										</p>
+								</div>
+						</div>
+						<div class = "modal-footer">
+								<button type = "button" id = "getAddrBtn" class = "btn btn-primary" data-dismiss = "modal">확인</button>
+						</div>
+				</div>
+		</div>
+</div>
+<%-- 주소 검색 모달 종료--%>
   
     <script src="${path}/resources/js/common.js"></script><!-- 메인-공통 js -->
-
-
-
 
 <script>
 

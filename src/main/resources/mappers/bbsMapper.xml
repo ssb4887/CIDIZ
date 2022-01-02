@@ -255,5 +255,22 @@
 				WHERE user_id = #{user_id}
 				AND product_name = #{product_name}
 		 </delete>
+		 
+		 <!-- 장바구니 -> 주문 하기 -->
+		 <insert id = "addOrder">
+		 		INSERT INTO ORDERS VALUES(
+		 			0,
+		 			#{user_id},
+		 			#{user_name},
+		 			#{order_addr},
+		 			#{user_phone},
+		 			#{user_tel},
+		 			#{product_name},
+		 			#{color},
+		 			#{product_count},
+		 			#{order_price},
+		 			#{order_memo}
+		 		)
+		 </insert>
 		
 </mapper>

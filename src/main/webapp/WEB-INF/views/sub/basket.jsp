@@ -399,7 +399,7 @@ $(document).ready(function(){
       <div id = "btn_group">
         <ul>
           <li>
-            <a href="#">
+            <a href="product">
               <img src="${path}/resources/images/basket_btn1.png" alt="">
             </a>
           </li>
@@ -410,12 +410,12 @@ $(document).ready(function(){
             </button>
           </li>
           <li>
-            <a href="./deleteAllBasketAction">
+            <a href="order">
               <img src="${path}/resources/images/basket_btn3.png" alt="">
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="order">
               <img src="${path}/resources/images/basket_btn4.png" alt="">
             </a>
           </li>
