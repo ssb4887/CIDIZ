@@ -167,7 +167,6 @@ public class MainController {
 			String user_id = (String) session.getAttribute("user_id");
 			usersService.deleteBasketAction(user_id, product_name);
 			
-			
 			List<UserBasket> ub_list = usersService.getUserBasketList(user_id);
 			
 			return ub_list;
