@@ -37,6 +37,12 @@ public interface UsersDAO {
 		// 장바구니에 담은 상품 삭제(p_name AND user_id)
 		public void deleteBasket(String user_id, String product_name) throws Exception;
 		
+		// 장바구니에 수량 추가 담기
+		public void addCountBasket(Basket basket) throws Exception;
+		
+		// 장바구니에 있는 제품 검색
+		public String searchProduct(String product_name) throws Exception;
+		
 		// 장바구니 항목 주문하기
 		public void addOrder(Orders orders, String product_name) throws Exception;
 }

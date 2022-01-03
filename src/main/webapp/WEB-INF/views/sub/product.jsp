@@ -257,7 +257,7 @@
                         </a>
                     </li>
                     <li>
-                    	<a href="/addBasketAction">
+                    	<a href="/addBasketAction" id="addBasketBtn">
                         	<input type = "image" src = "${path}/resources/images/sidiz_img/p_btn2.png" alt="제출용 버튼" />
                         </a>
                     </li>
