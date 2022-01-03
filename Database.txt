@@ -68,12 +68,13 @@ CREATE TABLE PRODUCT (
     product_price INT           NOT NULL,
     color         VARCHAR(50),
     feature       VARCHAR(30),
+    feature_top   VARCHAR(30),
     basket_img	  VARCHAR(30)
 );
 
 -- 제품 등록
-INSERT INTO PRODUCT VALUES('T80-black', 'T800HLDAS 좌판가죽', 882000, '블랙', 'feature_T80.jpg', 'basket_T80.jpg');
-INSERT INTO PRODUCT VALUES('T55-black', 'T550HLDAS 천연가죽', 694000, '블랙', 'feature_T55.jpg', 'basket_T55.jpg');
+INSERT INTO PRODUCT VALUES('T80-black', 'T800HLDAS 좌판가죽', 882000, '블랙', 'feature_T80.jpg', 'feature_T80_top.jpg', 'basket_T80.jpg');
+INSERT INTO PRODUCT VALUES('T55-black', 'T550HLDAS 천연가죽', 694000, '블랙', 'feature_T55.jpg', 'feature_T55_top.jpg', 'basket_T55.jpg');
 
 
 
