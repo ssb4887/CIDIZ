@@ -678,16 +678,20 @@
 
 #table_box {
   width: 1000px;
-  height: 1510px;
+  height: 1530px;
   margin: 0 auto;
   margin-bottom: 250px;
+  overflow-x: scroll;
 }
 
 #table_box ul li {
+  float: left;
   width: 20%;
   height: 1510px;
-  float: left;
 }
+#table_box > ul > li {
+	margin-right: 15px;
+} 
 #tb {
   width: 95%;
   height: 100%;

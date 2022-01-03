@@ -2,6 +2,7 @@ package com.bbs.service;
 
 import java.util.List;
 
+import com.bbs.bo.Comparison_product;
 import com.bbs.bo.UserBasket;
 import com.bbs.vo.Authmail;
 import com.bbs.vo.Basket;
@@ -26,4 +27,5 @@ public interface UsersService {
 	public String searchProductAction(String product_name) throws Exception;
 	public void deleteBasketAction(String user_id, List<String> product_name) throws Exception;
 	public void addOrderAction(Orders orders, List<String> product_name) throws Exception;
+	public List<Comparison_product> getComparison_product(String user_id) throws Exception;
 }

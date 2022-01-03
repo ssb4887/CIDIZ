@@ -264,56 +264,26 @@
                   </tr>
                 </table>
               </li>
+              <c:forEach var="compar" items = "${cp_list}">
               <li>
-                <table id="tb" border="1">
+                <table id="tb" border="1" style ="width: 200px; height: 1526px; margin-right: 20px">
                   <tr>
-                    <td style="height: 335px; text-align: center">1</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">12</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">2</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">12</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">1</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">23</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 425px; text-align: center">12</td>
+                    <td style="text-align: center; height: 335px;">
+                    	<img src = "${path}/resources/images/${compar.feature_top}">
+                    	<h4 style="font-size: 16px; margin-bottom: 7px; color: #000">${compar.product_name}</h4>
+                    	<p style="color: red; margin-bottom: 10px">&#8361;${compar.product_price}</p>
+                    	<a href="product"><img src = "${path}/resources/images/detailViewBtn.png" alt="상세보기 버튼"></a>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                    	<img src = "${path}/resources/images/${compar.feature}" alt = "비교하기 이미지" style ="margin-top:-7px;">
+                    </td>
                   </tr>
                 </table>
               </li>
-              <li>
-                <table id="tb" border="1">
-                  <tr>
-                    <td style="height: 335px; text-align: center">1</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">12</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">2</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">12</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">31</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">23</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 425px; text-align: center">12</td>
-                  </tr>
-                </table>
-              </li>
+              </c:forEach>
+              <!-- 
               <li>
                 <table id="tb" border="1">
                   <tr>
@@ -338,9 +308,9 @@
                     <td style="height: 425px; text-align: center">12</td>
                   </tr>
                 </table>
-              </li>
-              <li>
-              <!-- 추가할 항목 -->
+              </li> -->
+                <!-- 추가할 항목 
+                <li>
                 <table id="tb" border="1" style ="height: 1526px;">
                   <tr>
                     <td style="text-align: center; height: 335px;">
@@ -357,6 +327,7 @@
                   </tr>
                 </table>
               </li>
+              -->
             </ul>
           </div>
         </div>
