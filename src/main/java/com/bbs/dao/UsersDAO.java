@@ -14,13 +14,14 @@ public interface UsersDAO {
 		// select 문은 반환타입이 존재하고 = 반환하는 데이터타입
 		// 그 외 insert, delete, update는 반환타입이 없다. = void
 		// mapper에서 받아온 #{값} 과 아래 메서드에서 받아오는 (데이터 타입, "값")이 같아야 한다.
-		public String		idCheck(String user_id) 					throws Exception;
-		public Integer 	getAuthnum(String user_mail) 		throws Exception;
-		public void 			setAuthnum(Authmail authmail) 	throws Exception;
-		public void			resetAuthnum(Authmail authmail)	throws Exception;
-		public void 			deleteAuthmail(String user_mail) 	throws Exception;
-		public void			join(Users users) 								throws Exception;
-		public Users		login(Users users)								throws Exception;	
+		public String		idCheck(String user_id) 			throws Exception;
+		public Integer 		getAuthnum(String user_mail) 		throws Exception;
+		public void 		setAuthnum(Authmail authmail) 		throws Exception;
+		public void			resetAuthnum(Authmail authmail)		throws Exception;
+		public void 		deleteAuthmail(String user_mail) 	throws Exception;
+		public void			join(Users users) 					throws Exception;
+		public Users		login(Users users)					throws Exception;
+		
 		
 		// 제품, 주문
 		
@@ -35,4 +36,8 @@ public interface UsersDAO {
 		
 		// 장바구니에 담은 상품 삭제(p_name AND user_id)
 		public void deleteBasket(Basket basket) throws Exception;
+		
+		public void addCountBasket(Basket basket) throws Exception;
+		
+		public String searchProduct(String product_name) throws Exception;
 }

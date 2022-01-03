@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bbs.bo.TotalOrderPrice;
 import com.bbs.bo.UserBasket;
 import com.bbs.service.BbsService;
 import com.bbs.service.UsersService;
@@ -136,6 +135,7 @@ public class MainController {
 		public String addBasketAction(Basket basket, HttpSession session, RedirectAttributes ra) throws Exception {
 			
 			String user_id = (String) session.getAttribute("user_id");
+			String product= usersService.searchProductAction(basket.getProduct_name());
 			
 			if(user_id == null) {
 				
@@ -143,20 +143,21 @@ public class MainController {
 				return "redirect:/login";
 				
 			}
-			try {
+			
+			if(user_id != null &&  product != null) {
 				
 				basket.setUser_id(user_id);
-				ra.addFlashAttribute("msg", "선택 상품을 장바구니에 담았습니다.");
-				usersService.addBasketAction(basket);
+				usersService.addCountAction(basket);
+				ra.addFlashAttribute("msg", "장바구니에 추가되었습니다.");
 				return "redirect:/product";
-			
-			} catch(Exception e) {
-				// 데이터베이스 오류 -- 복수 PK로 한 고객은 한 상품을 한번만 담을 수 있다.	
-				e.printStackTrace();
 				
-				ra.addFlashAttribute("msg", "동일한 상품은 담을 수 없습니다.");
-				return "redirect:/basket";
 			}
+			
+			basket.setUser_id(user_id);
+			usersService.addBasketAction(basket);
+			ra.addFlashAttribute("msg", "선택 상품을 장바구니에 담았습니다. 장바구니로 이동하시겠습니까?");
+			return "redirect:/basket";
+		
 		}
 		
 		// basket 상품 지우기
@@ -165,8 +166,6 @@ public class MainController {
 		public List<UserBasket> deleteBasketAction(Basket basket, HttpSession session) throws Exception {
 			
 			String user_id = (String) session.getAttribute("user_id");
-			
-			System.out.println(basket.toString());
 			usersService.deleteBasketAction(basket);
 			
 			

@@ -18,4 +18,8 @@ $(document).ready(function () {
 		}
 	
 	});
+	
+	$("#deleteBasketBtn").click( function() {
+		$("#checked_all").prop("checked", false);
+	});
 });

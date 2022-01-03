@@ -381,7 +381,7 @@ $(document).ready(function(){
       <div id = "btn_group">
         <ul>
           <li>
-            <a href="#">
+            <a href="productMenu">
               <img src="${path}/resources/images/basket_btn1.png" alt="">
             </a>
           </li>

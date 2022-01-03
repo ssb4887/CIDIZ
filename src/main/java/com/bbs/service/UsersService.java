@@ -13,7 +13,7 @@ public interface UsersService {
 
 	public int 		idCheck(String user_id)						throws Exception;
 	public int 		setAuthnum(String user_mail) 			throws Exception;
-	public int			checkAuthnum(Authmail authmail)		throws Exception;
+	public int		checkAuthnum(Authmail authmail)		throws Exception;
 	public void		joinAction(Users users)						throws Exception;
 	public int 		loginAction(Users users)						throws Exception;
 	// int의 반환 타입을 주는 경우는 0, 1 으로 성공, 실패를 구분해야 하기 때문에.
@@ -22,5 +22,7 @@ public interface UsersService {
 	public List<UserBasket> getUserBasketList(String user_id) throws Exception;
 	public int totalOrderPrice(String user_id) throws Exception;
 	public void addBasketAction(Basket basket) throws Exception;
+	public void addCountAction(Basket basket) throws Exception;
 	public void deleteBasketAction(Basket basket) throws Exception;
+	public String searchProductAction(String product_name) throws Exception;
 }

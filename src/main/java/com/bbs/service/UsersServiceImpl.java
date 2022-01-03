@@ -176,10 +176,19 @@ public class UsersServiceImpl implements UsersService {
 	public void addBasketAction(Basket basket) throws Exception {
 		dao.addBasket(basket);
 	}
+	
+	public void addCountAction(Basket basket) throws Exception {
+		dao.addCountBasket(basket);
+	}
 
 	@Override
 	public void deleteBasketAction(Basket basket) throws Exception {
 		dao.deleteBasket(basket);
+	}
+
+	@Override
+	public String searchProductAction(String product_name) throws Exception {
+		return dao.searchProduct(product_name);
 	}
 
 

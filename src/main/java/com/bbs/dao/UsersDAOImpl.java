@@ -86,6 +86,17 @@ public class UsersDAOImpl implements UsersDAO {
 	public void deleteBasket(Basket basket) throws Exception {
 		sqlSession.delete(SESSION + ".deleteBasket", basket);
 	}
+
+	@Override
+	public void addCountBasket(Basket basket) throws Exception {
+		sqlSession.update(SESSION + ".addCountBasket", basket);
+		
+	}
+
+	@Override
+	public String searchProduct(String product_name) throws Exception {
+		return sqlSession.selectOne(SESSION + ".searchProduct",product_name);
+	}
 	
 	
 	

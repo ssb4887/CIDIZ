@@ -248,6 +248,19 @@
 		 		VALUES(#{product_name}, #{user_id}, #{product_count});
 		 </insert>
 		 
+		 <!-- 장바구니 제품 검색 -->
+		 <select id="searchProduct" resultType = "String">
+		 	SELECT product_name
+		 	FROM BASKET
+		 	WHERE product_name = #{product_name}		 	
+		 </select>
+		 
+		 <!-- 장바구니 수량 증가 -->
+		 <update id="addCountBasket">
+		 		UPDATE BASKET
+		 		SET product_count = product_count + #{product_count}
+		 		WHERE product_name = #{product_name}
+		 </update>
 		 
 		 <!-- 장바구니 선택 삭제 -->
 		 <delete id="deleteBasket">
