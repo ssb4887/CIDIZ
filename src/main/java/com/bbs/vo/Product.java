@@ -6,16 +6,18 @@ public class Product {
 	private int			product_price;
     private String 	color;
     private String	feature; 
+    private String 	feature_top;
     private String 	basket_img;
     
     public Product() {}
 
-	public Product(String product_id, String product_name, int product_price, String color, String feature, String basket_img) {
+	public Product(String product_id, String product_name, int product_price, String color, String feature, String feature_top, String basket_img) {
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.product_price = product_price;
 		this.color = color;
 		this.feature = feature;
+		this.feature_top = feature_top;
 		this.basket_img = basket_img;
 	}
 
@@ -57,6 +59,14 @@ public class Product {
 
 	public void setFeature(String feature) {
 		this.feature = feature;
+	}
+	
+	public String getFeature_top() {
+		return feature_top;
+	}
+
+	public void setFeature_top(String feature_top) {
+		this.feature_top = feature_top;
 	}
 
 	public String getBasket_img() {

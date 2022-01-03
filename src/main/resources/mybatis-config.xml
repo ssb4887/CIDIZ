@@ -18,5 +18,6 @@
 		<!-- BO -->
 		<typeAlias alias="UserBasket" type="com.bbs.bo.UserBasket" />
 		<typeAlias alias="TotalOrderPrice" type="com.bbs.bo.TotalOrderPrice" />
+		<typeAlias alias="Comparison_product" type="com.bbs.bo.Comparison_product" />
 	</typeAliases>
 </configuration>

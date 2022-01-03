@@ -87,7 +87,7 @@
 		<select id="getBoarder" parameterType = "int" resultType = "Boarder">
 				SELECT	*
 				FROM 		BOARDER
-				WHERE		boarder_id 	= #{boarder_id}
+				WHERE	boarder_id 	= #{boarder_id}
 				AND 		available 		= 0
 		</select>
 		
@@ -111,43 +111,43 @@
 		<!-- 게시물 수정하기 SQL -->
 		<update id="updateBoarder">
 				UPDATE	 BOARDER
-				SET		 title = #{title}, contents = #{contents}
+				SET			 title = #{title}, contents = #{contents}
 				WHERE	 boarder_id = #{boarder_id}
 		</update>
 		
 		
 		<!-- 업로드 파일 수정 SQL -->
 		<update id="updateFile">
-				UPDATE	 UPLOADFILE
-				SET		 file_name 	= #{file_name}, file_realName = #{file_realName}
-				WHERE	 boarder_id 	= #{boarder_id}
+				UPDATE	UPLOADFILE
+				SET		 	file_name	= #{file_name}, file_realName = #{file_realName}
+				WHERE	boarder_id	= #{boarder_id}
 		</update>
 		
 		
 		<!-- 게시글에 최대값 검색 SQL -->
 		<select id="getMaxBoarder_id" resultType="_int">
-				SELECT	 IFNULL(MAX(boarder_id), 0)
-				FROM 	 BOARDER
+				SELECT	IFNULL(MAX(boarder_id), 0)
+				FROM 	 	BOARDER
 		</select>
 		
 		
 		<!-- 게시글 리스트 10개 검색 SQL -->
 		<select id="getBbsList" resultType="Boarder">
-				SELECT	 * 
-				FROM 	 BOARDER
+				SELECT	 	* 
+				FROM 	 		BOARDER
 				<!-- <![CDATA[이 안에 부등호를 넣어야 부등호가 인식이 된다. 쿼리문 전체가 와도 상관없음]]> -->
-				WHERE	 boarder_id <![CDATA[<=]]> #{boarder_id}
-				AND 		 available = 0 
-				ORDER BY boarder_id DESC
-				LIMIT	 10	<!-- LIMIT 제한을 건다. 10개 이하만 뽑아라. -->
+				WHERE	 	boarder_id <![CDATA[<=]]> #{boarder_id}
+				AND 		 	available = 0 
+				ORDER BY 	boarder_id DESC
+				LIMIT	 		10	<!-- LIMIT 제한을 건다. 10개 이하만 뽑아라. -->
 		</select>
 		
 		
 		<!--  게시물 삭제 SQL -->
 		<update id="deleteBoarder">
-				UPDATE BOARDER
-				SET		 available = 1
-				WHERE	 boarder_id = #{boarder_id}
+				UPDATE 	BOARDER
+				SET		 	available = 1
+				WHERE	boarder_id = #{boarder_id}
 		</update>
 
 
@@ -162,28 +162,28 @@
 		<update id ="addBoarderCnt">
 				UPDATE	BOARDER
 				SET			count = count + 1
-				WHERE		boarder_id	=	#{boarder_id}
+				WHERE	boarder_id	=	#{boarder_id}
 		</update>
 		
 		<!-- 공감 증가 처리 SQL -->
 		<update id = "likeyUp">
 				UPDATE 	BOARDER
 				SET			likey = likey + 1
-				WHERE		boarder_id = #{boarder_id}
+				WHERE	boarder_id = #{boarder_id}
 		</update>
 		
 		<!-- 공감 감소 처리 SQL -->
 		<update id = "likeyDown">
 				UPDATE 	BOARDER
 				SET			likey = likey - 1
-				WHERE		boarder_id = #{boarder_id}
+				WHERE	boarder_id = #{boarder_id}
 		</update>
 		
 		<!-- 공감 선택 여부 SQL -->
 		<select id = "checkLikey"  resultType = "Likey_R">
 				SELECT	*
 				FROM		LIKEY_R
-				WHERE		boarder_id	= #{boarder_id}
+				WHERE	boarder_id	= #{boarder_id}
 				AND			user_id		= #{user_id}
 		</select>
 		
@@ -196,7 +196,7 @@
 		<!-- 공감 해제 처리 SQL -->
 		<delete id = "deleteLikey">
 				DELETE 	FROM LIKEY_R
-				WHERE		boarder_id	= #{boarder_id}
+				WHERE	boarder_id	= #{boarder_id}
 				AND			user_id		= #{user_id}
 		</delete>
 		
@@ -272,5 +272,15 @@
 		 			#{order_memo}
 		 		)
 		 </insert>
+		 
+		<!-- 장바구니에 있는 정보로 비교하기 표시 SQL	 -->
+		<!-- session에 있는 user_id로 Bakset을 기준으로 Product에 있는 product_name이 같은 정보만 불러오기-->
+		 <select id = "comparison_product"  resultType = "comparison_product">
+		 		SELECT 	P.product_name, P.product_price, P.feature, P.feature_top
+				FROM 		BASKET B
+				INNER 		JOIN PRODUCT P
+				ON 			B.product_name = P.product_name
+				WHERE	user_id = #{user_id}
+		 </select>
 		
 </mapper>

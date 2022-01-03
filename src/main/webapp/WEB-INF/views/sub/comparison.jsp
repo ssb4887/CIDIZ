@@ -191,8 +191,6 @@
     </nav>
 <!-- [내용(contents)] 부분  -->
 
-
-
       <div id="comparison">
         <div id="select_menu">
           <ul>
@@ -342,27 +340,20 @@
                 </table>
               </li>
               <li>
-                <table id="tb" border="1">
+              <!-- 추가할 항목 -->
+                <table id="tb" border="1" style ="height: 1526px;">
                   <tr>
-                    <td style="height: 335px; text-align: center">1</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">12</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">2</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">12</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">31</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">23</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 425px; text-align: center">12</td>
+                    <td style="text-align: center; height: 335px;">
+                    	<img src = "${path}/resources/images/feature_T55_top.jpeg">
+                    	<h4 style="font-size: 16px; margin-bottom: 7px; color: #000">T550HLDAS 천연가죽</h4>
+                    	<p style="color: red; margin-bottom: 10px">&#8361;694,000</p>
+                    	<a href="product"><img src = "${path}/resources/images/detailViewBtn.png" alt="상세보기 버튼"></a>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                    	<img src = "${path}/resources/images/feature_T55.jpg" alt = "비교하기 이미지" style ="margin-top:-7px;">
+                    </td>
                   </tr>
                 </table>
               </li>

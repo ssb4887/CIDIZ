@@ -38,5 +38,5 @@ public interface UsersDAO {
 		public void deleteBasket(String user_id, String product_name) throws Exception;
 		
 		// 장바구니 항목 주문하기
-		public void addOrder(Orders orders) throws Exception;
+		public void addOrder(Orders orders, String product_name) throws Exception;
 }
