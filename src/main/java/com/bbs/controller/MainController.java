@@ -195,9 +195,9 @@ public class MainController {
 			
 			orders.setOrder_addr(addr1 + " " + addr2 + " " + addr3);
 			String user_id = (String) session.getAttribute("user_id");
-			System.out.println(product_name);
+			
 			usersService.deleteBasketAction(user_id, product_name);
-			usersService.addOrderAction(orders);
+			usersService.addOrderAction(orders, product_name);
 			
 			return "redirect:/basket"; 
 		}
@@ -214,7 +214,9 @@ public class MainController {
 		
 		// comparison 찾아가기
 		@RequestMapping(value = "/comparison", method = RequestMethod.GET)
-		public String comparison(Model model) throws Exception {
+		public String comparison(Model model, HttpSession session) throws Exception {
+			
+			String user_id = (String) session.getAttribute("user_id");
 			
 			return "sub/comparison";
 			
@@ -331,10 +333,6 @@ public class MainController {
 	// 그래서 ResponseBody로 페이지로 넘겨줘야 한다. // ResponseBody : return값 자체의 페이지를 구성하겠다.
 	@ResponseBody
 	public String mailAuth(Authmail authmail) throws Exception {
-		
-//		int result = usersService.checkAuthnum(authmail);
-//		return result + "";
-//		└─ 를 쭐여서 아래처럼 사용 가능
 
 		return usersService.checkAuthnum(authmail) + "";
 	}

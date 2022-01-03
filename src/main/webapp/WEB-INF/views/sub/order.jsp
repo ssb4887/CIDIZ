@@ -38,6 +38,58 @@
 		return;
 	}*/
 	$(document).ready(function(){
+    	
+		$('#getAddrBtn').click(function(){
+			var postCode	= $('#entry_postcode5').val();
+			var doroAddr 	= $('#entry_address').val(); 
+			var jibunAddr	= $('#entry_extra_info').val(); 
+		
+			$('#addr1').val(postCode);
+			$('#addr2').val(doroAddr + ' ' + jibunAddr);
+		
+		});
+		        	
+		
+		var product_name = [];
+		var color = [];
+		var product_count = [];
+		var order_price = [];
+		
+		$('input:checkbox[name=product_name]:checked').each(function() {
+			product_name.push($(this).val());
+		});
+		$('input:checkbox[name=color]:checked').each(function() {
+			color.push($(this).val());
+		});
+		$('input:checkbox[name=product_count]:checked').each(function() {
+			product_count.push($(this).val());
+		});
+		$('input:checkbox[name=order_price]:checked').each(function() {
+			order_price.push($(this).val());
+		});
+		
+		console.log(product_name);
+		console.log(color);
+		console.log(product_count);
+		console.log(order_price);
+		$.ajax({
+			type : 'GET',
+			url : './order',
+			data : {
+				
+			},
+			dataType : 'text',
+			success : function(data){
+				alert(data.product_name);
+				alert(product_name);
+				alert('통신성공');
+			},
+			error : function() {
+				alert('통신 에러');
+			}
+			
+		});
+		
 			/*
 			// 주문자 정보와 동일 	
 		   $("#checkOrderName").change(function(){
@@ -54,17 +106,7 @@
 			        }
 		    });
 			*/
-			        	
-			$('#getAddrBtn').click(function(){
-				var postCode	= $('#entry_postcode5').val();
-				var doroAddr 	= $('#entry_address').val(); 
-				var jibunAddr 	= $('#entry_extra_info').val(); 
-			
-				$('#addr1').val(postCode);
-				$('#addr2').val(doroAddr + ' ' + jibunAddr);
-			
-			});
-			        	
+
 		
 	});
 </script>
@@ -431,10 +473,10 @@
                         <input type="checkbox" id = "checkOrderName" style="padding-top: 3px;"/>
                         <label for="check_UserInfo">주문 고객 정보와 동일</label>
                         <c:forEach var= "ub_list" items ="${ub_list}">
-	                        <input type="hidden" name ="product_name" value="${ub_list.product_name}"/>
-	                        <input type="hidden" name ="color" value = "${ub_list.color}"/>
-	                        <input type="hidden" name ="product_count" value = "${ub_list.product_count}"/>
-	                        <input type="hidden" name ="order_price" value = "${totalOrderPrice}"/>
+	                        <input type="checkbox" style="display: none;" name ="product_name" value="${ub_list.product_name}" checked/>
+	                        <input type="checkbox" style="display: none;" name ="color" value = "${ub_list.color}" checked/>
+	                        <input type="checkbox" style="display: none;" name ="product_count" value = "${ub_list.product_count}" checked/>
+	                        <input type="checkbox" style="display: none;" name ="order_price" value = "${ub_list.product_count * ub_list.product_price}" checked/>
                         </c:forEach>
                       </td>
                     </tr>
