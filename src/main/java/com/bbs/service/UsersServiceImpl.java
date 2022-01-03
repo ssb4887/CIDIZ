@@ -15,6 +15,7 @@ import javax.mail.internet.MimeMessage;
 
 import org.springframework.stereotype.Service;
 
+import com.bbs.bo.Comparison_product;
 import com.bbs.bo.TotalOrderPrice;
 import com.bbs.bo.UserBasket;
 import com.bbs.dao.UsersDAO;
@@ -200,6 +201,12 @@ public class UsersServiceImpl implements UsersService {
 	public void addOrderAction(Orders orders, List<String> product_name) throws Exception {
 		for(String item: product_name)
 			dao.addOrder(orders, item);
+	}
+
+	@Override
+	public List<Comparison_product> getComparison_product(String user_id) throws Exception {
+		
+		return dao.getComparison_product(user_id);
 	}
 
 }

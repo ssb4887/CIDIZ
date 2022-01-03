@@ -289,7 +289,7 @@
 		 
 		<!-- 장바구니에 있는 정보로 비교하기 표시 SQL	 -->
 		<!-- session에 있는 user_id로 Bakset을 기준으로 Product에 있는 product_name이 같은 정보만 불러오기-->
-		 <select id = "comparison_product"  resultType = "comparison_product">
+		 <select id = "comparison_product"  resultType = "Comparison_product">
 		 		SELECT 	P.product_name, P.product_price, P.feature, P.feature_top
 				FROM 		BASKET B
 				INNER 		JOIN PRODUCT P

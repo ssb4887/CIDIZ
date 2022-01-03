@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.bbs.bo.Comparison_product;
 import com.bbs.bo.UserBasket;
 import com.bbs.service.BbsService;
 import com.bbs.service.UsersService;
@@ -218,6 +219,9 @@ public class MainController {
 		public String comparison(Model model, HttpSession session) throws Exception {
 			
 			String user_id = (String) session.getAttribute("user_id");
+			List<Comparison_product> cp_list = usersService.getComparison_product(user_id);
+			//formatter.format();
+			model.addAttribute("cp_list", cp_list);
 			
 			return "sub/comparison";
 			
