@@ -177,6 +177,16 @@ public class UsersServiceImpl implements UsersService {
 	public void addBasketAction(Basket basket) throws Exception {
 		dao.addBasket(basket);
 	}
+	
+	@Override
+	public void addCountAction(Basket basket) throws Exception {
+		dao.addCountBasket(basket);
+	}
+	
+	@Override
+	public String searchProductAction(String product_name) throws Exception {
+		return dao.searchProduct(product_name);
+	}
 
 	@Override									//컨트롤러에서 넘어옴
 	public void deleteBasketAction(String user_id, List<String> product_name) throws Exception {
