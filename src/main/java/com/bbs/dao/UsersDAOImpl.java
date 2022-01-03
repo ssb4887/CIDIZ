@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.bbs.bo.Comparison_product;
 import com.bbs.bo.TotalOrderPrice;
 import com.bbs.bo.UserBasket;
 import com.bbs.vo.Authmail;
@@ -104,6 +105,11 @@ public class UsersDAOImpl implements UsersDAO {
 		
 		sqlSession.insert(SESSION + ".addOrder", map);
 	}
-	
+
+	@Override
+	public List<Comparison_product> getComparison_product(String user_id) throws Exception {
+		
+		return sqlSession.selectList(SESSION + ".getComparison_product", user_id);
+	}
 	
 }

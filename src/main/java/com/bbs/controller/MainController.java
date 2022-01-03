@@ -218,6 +218,8 @@ public class MainController {
 			
 			String user_id = (String) session.getAttribute("user_id");
 			
+			
+			
 			return "sub/comparison";
 			
 		}
