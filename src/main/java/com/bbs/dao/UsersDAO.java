@@ -2,6 +2,7 @@ package com.bbs.dao;
 
 import java.util.List;
 
+import com.bbs.bo.Comparison_product;
 import com.bbs.bo.TotalOrderPrice;
 import com.bbs.bo.UserBasket;
 import com.bbs.vo.Authmail;
@@ -39,4 +40,9 @@ public interface UsersDAO {
 		
 		// 장바구니 항목 주문하기
 		public void addOrder(Orders orders, String product_name) throws Exception;
+		
+		// 비교하기 
+		public List<Comparison_product> getComparison_product(String user_id) throws Exception;
+		
+		
 }
