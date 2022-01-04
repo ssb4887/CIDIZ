@@ -198,9 +198,9 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public void addOrderAction(Orders orders, List<String> product_name) throws Exception {
-		for(String item: product_name)
-			dao.addOrder(orders, item);
+	public void addOrderAction(Orders orders) throws Exception {
+			dao.addOrder(orders);
+			dao.deleteBasket(orders.getUser_id(), orders.getProduct_name());
 	}
 
 	@Override
