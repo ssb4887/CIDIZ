@@ -1,6 +1,7 @@
 package com.bbs.controller;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -193,15 +194,36 @@ public class MainController {
 		}
 		
 		@RequestMapping(value = "/addOrderAction", method = RequestMethod.POST)
-		public String addOrderAction(Orders orders, String addr1, String addr2, String addr3, HttpSession session,  @RequestParam(value="product_name[]") List<String> product_name) throws Exception {
+		public String addOrderAction(Orders orders, String addr1, String addr2, String addr3, HttpSession session,
+				@RequestParam List<String> 	product_names, 
+				@RequestParam List<String> 	colors, 
+				@RequestParam List<Integer> product_counts, 
+				@RequestParam List<Integer> order_prices) throws Exception {
 			
-			orders.setOrder_addr(addr1 + " " + addr2 + " " + addr3);
-			String user_id = (String) session.getAttribute("user_id");
-			
-			usersService.deleteBasketAction(user_id, product_name);
-			usersService.addOrderAction(orders, product_name);
-			
-			return "redirect:/basket"; 
+				orders.setOrder_addr(addr1 + " " + addr2 + " " + addr3);
+				String user_id = (String) session.getAttribute("user_id");
+				
+				for(int i = 0; i < product_names.size(); i++) {
+					String 		pn 	= product_names.get(i);
+					String		cl 		= colors.get(i);
+					int 			pc 	= product_counts.get(i);
+					int 			op	= order_prices.get(i);
+					
+					usersService.addOrderAction(new Orders(
+							user_id,
+							orders.getUser_name(),
+							orders.getOrder_addr(),
+							orders.getUser_phone(),
+							orders.getUser_tel(),
+							pn, 
+							cl, 
+							pc, 
+							op,
+							orders.getOrder_memo()
+							)); 
+				}
+				
+				return "redirect:/basket"; 
 		}
 		
 		
@@ -220,7 +242,6 @@ public class MainController {
 			
 			String user_id = (String) session.getAttribute("user_id");
 			List<Comparison_product> cp_list = usersService.getComparison_product(user_id);
-			//formatter.format();
 			model.addAttribute("cp_list", cp_list);
 			
 			return "sub/comparison";

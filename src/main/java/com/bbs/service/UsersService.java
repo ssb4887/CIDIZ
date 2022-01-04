@@ -26,6 +26,6 @@ public interface UsersService {
 	public void addCountAction(Basket basket) throws Exception;
 	public String searchProductAction(String product_name) throws Exception;
 	public void deleteBasketAction(String user_id, List<String> product_name) throws Exception;
-	public void addOrderAction(Orders orders, List<String> product_name) throws Exception;
+	public void addOrderAction(Orders orders) throws Exception;
 	public List<Comparison_product> getComparison_product(String user_id) throws Exception;
 }

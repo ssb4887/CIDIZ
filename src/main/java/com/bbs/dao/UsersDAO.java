@@ -45,7 +45,7 @@ public interface UsersDAO {
 		public String searchProduct(String product_name) throws Exception;
 		
 		// 장바구니 항목 주문하기
-		public void addOrder(Orders orders, String product_name) throws Exception;
+		public void addOrder(Orders orders) throws Exception;
 		
 		// 장바구니 항목으로 비교하기 테이블 만들기
 		public List<Comparison_product> getComparison_product(String user_id) throws Exception;

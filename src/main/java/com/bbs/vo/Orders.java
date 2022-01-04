@@ -11,12 +11,12 @@ public class Orders {
 	private String	color;
 	private int			product_count;
 	private int			order_price;
+	private String	order_memo;
 	
 	public Orders() {}
 
-	public Orders(int order_num, String user_id, String user_name, String order_addr, String user_phone, String user_tel, String product_name, String color, int product_count,
-			int order_price) {
-		this.order_num = order_num;
+	public Orders(String user_id, String user_name, String order_addr, String user_phone, String user_tel, String product_name, String color, int product_count,
+			int order_price, String order_memo) {
 		this.user_id = user_id;
 		this.user_name = user_name;
 		this.order_addr = order_addr;
@@ -26,6 +26,7 @@ public class Orders {
 		this.color = color;
 		this.product_count = product_count;
 		this.order_price = order_price;
+		this.order_memo = order_memo;
 	}
 
 	public int getOrder_num() {
@@ -107,5 +108,23 @@ public class Orders {
 	public void setOrder_price(int order_price) {
 		this.order_price = order_price;
 	}
+
+	public String getOrder_memo() {
+		return order_memo;
+	}
+
+	public void setOrder_memo(String order_memo) {
+		this.order_memo = order_memo;
+	}
+
+	@Override
+	public String toString() {
+		return "Orders [order_num=" + order_num + ", user_id=" + user_id + ", user_name=" + user_name + ", order_addr="
+				+ order_addr + ", user_phone=" + user_phone + ", user_tel=" + user_tel + ", product_name="
+				+ product_name + ", color=" + color + ", product_count=" + product_count + ", order_price="
+				+ order_price + ", order_memo=" + order_memo + "]";
+	}
+	
+	
 	
 }

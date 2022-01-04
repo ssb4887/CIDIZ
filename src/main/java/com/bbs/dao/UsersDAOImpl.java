@@ -108,13 +108,11 @@ public class UsersDAOImpl implements UsersDAO {
 	}
 
 	@Override
-	public void addOrder(Orders orders, String product_name) throws Exception {
+	public void addOrder(Orders orders) throws Exception {
 		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("orders", orders);
-		map.put("product_name", product_name);
+
 		
-		sqlSession.insert(SESSION + ".addOrder", map);
+		sqlSession.insert(SESSION + ".addOrder", orders);
 	}
 
 	@Override
