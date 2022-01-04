@@ -875,11 +875,12 @@ table {
 }
 
 #select {
-  width: 971px;
+  width: 1000px;
   height: 25px;
   padding: 14px;
   display: flex;
   align-items: center;
+  line-height: 25px;
   border: 1px solid rgb(200, 200, 200);
 }
 #select > h2 {
@@ -900,7 +901,7 @@ table {
 }
 #error {
   width: 130px;
-  height: 20px;
+  height: 30px;
   position: absolute;
   top: 465px;
   left: 23px;

@@ -74,9 +74,6 @@ $(document).ready(function(){
 									$('#replyBody').append(str);
 							}
 				}
-				// 지금 Java -> Java Script로 넘기는 것이다. 다른 언어라 중간에 통역사가 필요하다. 그것이 JSON
-				// 객체 형태로 받고 싶으면 JSON을 사용해야 한다. 객체를 문자열로 다루기 위해서 사용
-				// JSON -> 문자포멧 : {'key' : 'value'} -> ex) {'boarder_id' : 1, 'user_id' : 'lacls159'} -> 1:1형태로 넘어온다.
 				
 		});
 	});
@@ -159,7 +156,6 @@ $(document).ready(function(){
       </a>
     </div>
 
-    <%-- 네비게이션 시작 --%>
     <!-- [네비] -->
     <nav id="main_mn">
       <div class="nav-inner">
@@ -170,14 +166,14 @@ $(document).ready(function(){
 		         	<!-- 로그인 안했을 때 표시  -->
 		         	<c:if test = "${empty user_id}" >
 		         		<a href = "${path}/login">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Login
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Login
 		         		</a>
 		         	</c:if>
 		         	
 		         	<!-- 로그인 했을 때 표시  -->
 		         	<c:if test = "${not empty user_id}" >
 		         		<a href = "${path}/logout">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Logout
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Logout
 		         		</a>
 		         	</c:if>
 		         
@@ -192,7 +188,7 @@ $(document).ready(function(){
             </li>
             <li class="has-sp sp-2">
               <p>
-                <a href="#">
+                <a href="basket">
                   <img src="${path}/resources/images/nav_images/nav_ShoppingBasket.png" alt="" />Shopping Basket
                 </a>
               </p>
@@ -206,7 +202,7 @@ $(document).ready(function(){
             </li>
             <li class="has-sp sp-4">
               <p>
-                <a href="#">
+                <a href="comparison">
                   <img src="${path}/resources/images/nav_images/nav_Compare.png" alt="" />Compare
                 </a>
               </p>
@@ -218,7 +214,6 @@ $(document).ready(function(){
                 </a>
               </p>
             </li>
-		
           </ul>
         </article>
 
@@ -315,7 +310,7 @@ $(document).ready(function(){
         </article>
       </div>
     </nav>
-    <%-- 네비게이션 종료 --%>
+	<!-- [네비 끝 ] -->
 	    
 	<%-- 글쓰기 양식 --%>
 	<div class = "container" style="margin-top: 15%">

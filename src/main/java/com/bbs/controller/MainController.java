@@ -223,7 +223,7 @@ public class MainController {
 							)); 
 				}
 				
-				return "redirect:/basket"; 
+				return "redirect:/completion"; 
 		}
 		
 		

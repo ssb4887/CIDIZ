@@ -34,12 +34,7 @@
 	
 	$(document).ready(function(){
 		
-		$('form').submit(function(){
-			if($('#collect_third').is(':checked') != true || $('#collect').is(':checked') != true) {
-				alert('이용약관에 모두 동의 해주세요!');
-				return;
-			}
-		});
+		//--- 주소 모달 	
 		$('#getAddrBtn').click(function(){
 			var postCode	= $('#entry_postcode5').val();
 			var doroAddr 	= $('#entry_address').val(); 
@@ -51,6 +46,7 @@
 		});
 		        	
 		
+		//--- 장바구니에 있는 리스트 불러오기
 		var product_names = [];
 		var colors = [];
 		var product_counts = [];
@@ -69,34 +65,58 @@
 			order_prices.push($(this).val());
 		});
 		
-		console.log(product_name);
-		console.log(color);
-		console.log(product_count);
-		console.log(order_price);
 		
-			/*
-			// 주문자 정보와 동일 	
-		   $("#checkOrderName").change(function(){
-			   
-			        if($("#checkOrderName").is(":checked")){
-						alert('주문자 정보와 동일!');
-			        	// $('#delTable_name').val($('#UserTable_name').val());
-			        	// $('#delTable_phone').val($('#UserTable_phone').val());
-			        }
-			        else{
-						alert('체크해제!');
-			        	// $('#delTable_name').val(' ');
-			        	// $('#delTable_phone').val($(' ');
-			        }
-		    });
-			*/
+		//--- 주문자 정보 가져 오기
+	   $("#checkOrderName").change(function(){
+				// 주문 고객 정보와 동일 체크 시			   
+		        if($("#checkOrderName").is(":checked")){
+		        	alert($('#user_id').val());
+					alert('주문자 정보와 동일!');
+					$('#delTable_name').val($('#UserTable_name').val());
+					$('#delTable_phone').val($('#UserTable_phone').val());
+		        }
+		        else{
+					alert('체크해제!');
+		        	$('#delTable_name').val(' ');
+		        	$('#delTable_phone').val(' '); 
+		        }
+	    });
 
+		
+		//--- 데이터 전송(submit)시 검증	
+		$('form').submit(function(e){
+			var user_name 		= $('#user_name').val();
+			var addr3				= $('#addr3').val();
+			var user_phone 	= $('#user_phone').val();
+			var user_tel 			= $('#user_tel').val();
+			var order_memo 	= $('#order_memo').val();
+			
+			
+			// 주문할 상품이 없을시
+			if($('#product_name').val() == null) {
+				alert('주문 목록이 없습니다!');
+				return;
+			}	
+			
+			// 이용약관 모두 체크 X 시
+			else if($('#collect_third').is(':checked') != true || $('#collect').is(':checked') != true) {
+				alert('이용약관에 모두 동의 해주세요!');
+				return;
+			}
+			
+			// 배송지 정보 전부 미 입력시	
+			else if(user_name == "" || addr3 == "" || user_phone == "" || user_tel == "" || order_memo) {
+				alert("배송지 정보의 모든 값을 입력 해주세요!");
+				return;
+			}
+			
+		})	;     
 		
 	});
 </script>
 </head>
 
-  <body>
+<body>
   <div class="wrapper">
     <!-- [상단(header)] -->
     <header id="header">
@@ -105,9 +125,11 @@
     </header>
     <!-- 상단-네비 : 우측 아이콘 -->
     <div id="header_icon">
+    			
       <ul class="nav-group">
+
         <li>
-            <img src="${path}/resources/images/main_images/nav_my.png" alt="" />
+            <a href="#"><img src="${path}/resources/images/main_images/nav_my.png" alt="" /></a>
         </li>
         <li>
             <img src="${path}/resources/images/main_images/nav_write.png" alt="" class="write"/>
@@ -124,6 +146,7 @@
         <i></i>
         <i></i>
         <i></i>
+        
       </a>
     </div>
 
@@ -132,6 +155,24 @@
       <div class="nav-inner">
         <article id="side_mn">  
           <ul>
+          <li>
+	         <p>
+		         	<!-- 로그인 안했을 때 표시  -->
+		         	<c:if test = "${empty user_id}" >
+		         		<a href = "${path}/login">
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Login
+		         		</a>
+		         	</c:if>
+		         	
+		         	<!-- 로그인 했을 때 표시  -->
+		         	<c:if test = "${not empty user_id}" >
+		         		<a href = "${path}/logout">
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Logout
+		         		</a>
+		         	</c:if>
+		         
+	         </p>
+          </li>
             <li class="has-sp sp-1">
               <p>
                 <a href="#">
@@ -141,28 +182,28 @@
             </li>
             <li class="has-sp sp-2">
               <p>
-                <a href="#">
+                <a href="basket">
                   <img src="${path}/resources/images/nav_images/nav_ShoppingBasket.png" alt="" />Shopping Basket
                 </a>
               </p>
             </li>
             <li class="has-sp sp-3">
               <p>
-                <a href="review ">
+                <a href="review">
                   <img src="${path}/resources/images/nav_images/nav_Review.png" alt="" />Review
                 </a>
               </p>
             </li>
             <li class="has-sp sp-4">
               <p>
-                <a href="#">
+                <a href="comparison">
                   <img src="${path}/resources/images/nav_images/nav_Compare.png" alt="" />Compare
                 </a>
               </p>
             </li>
             <li class="has-sp sp-5">
               <p>
-                <a href="event ">
+                <a href="event">
                   <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />Event
                 </a>
               </p>
@@ -178,13 +219,13 @@
               </h4>
               <div class="contents">
                 <ul id="first">
-                  <li>
+                  <li class="nav_title">
                     <a href="brand_story">
                       BRAND STORY
                       <img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_1.png" alt="" id="brand_img"/>
                     </a>
                   </li>
-                  <li>
+                  <li class="nav_title">
                     <a href="news ">
                       NEWS<img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_2.png" alt="" />
                     </a>
@@ -192,42 +233,43 @@
                 </ul>
               </div>
             </li>
-            <li id="products">
-              <h4 class="has-sp sp-7">
+            <li id="products"  class="nav_title">
+              <h4 class="has-sp sp-7" style="font-size:80px">
                 <p> <b>PRODUCTS</b> </p>
               </h4>
               <div class="contents">
                 <ul id="second">
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       사무용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_1.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       학생용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_2.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       유아용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_3.jpg" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       인테리어
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_4.png" alt="" id="interior_img"/>
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       모든제품
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_5.png" alt="" id="all_img"/>
                     </a>
                   </li>
+                  
                 </ul>
               </div>
             </li>
@@ -238,7 +280,7 @@
               <div class="contents">
                 <ul id="third">
                   <li>
-                    <a href="#">
+                    <a href="bbs">
                       Q&A
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_1.png" alt="" />
                     </a>
@@ -250,7 +292,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="search_store ">
+                    <a href="search_store">
                       매장찾기
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_3(1).png" alt="" id="map_img"/>
                     </a>
@@ -262,12 +304,14 @@
         </article>
       </div>
     </nav>
-<!-- [내용(contents)] 부분  -->
+	<!-- [네비 끝 ] -->
+	
+	<!-- [내용(contents)] 부분  -->
 
       <div id="order">
         <div id="select_menu">
           <ul>
-            <li><span>HOME</span></li>
+            <li><span><a href="/" style = "color: #777">HOME</a></span></li>
             <li>주문결제</li>
           </ul>
         </div>
@@ -468,7 +512,7 @@
                     <tr>
                       <td style="width: 30%">받는 사람</td>
                       <td style="width: 70%">
-                        <input type="text" name = "user_name" id="delTable_name" />
+                        <input type="text" name = "user_name" id="delTable_name"  value=""/>
                       </td>
                     </tr>
                     
@@ -492,7 +536,7 @@
                     <tr>
                       <td style="width: 30%">휴대전화</td>
                       <td style="width: 70%">
-                        <input type="text" name = "user_phone" id="delTable_phone" /> 예&#41;
+                        <input type="text" name = "user_phone" id="delTable_phone" value=""/> 예&#41;
                         010-1234-5678
                       </td>
                     </tr>
@@ -517,16 +561,7 @@
                     </tr>
                     
                 	</table>
-	               	<div id="btns">
-		              	<div>
-			              	<input type="image" src="${path}/resources/images/orderBtn.png" alt="제출하기 이미지" />
-			                <%-- <img src="${path}/resources/images/orderBtn.png" alt="" /> --%>
-		              	</div>
-		              	<div>
-		                	<img src="${path}/resources/images/backBtn.png" alt="" />
-		              	</div>
-	            	</div>
-                  </form>
+	
                   
                 </div>
               </div>
@@ -549,7 +584,15 @@
                 <div id="error">결제오류센터 &#62;</div>
               </div>
             </div>
-            
+            <div id="btns">
+	          	<div>
+	           		<input type="image" src="${path}/resources/images/orderBtn.png" alt="제출하기 이미지" style="width: 87px; height:35px; margin-top: 7px"/>
+	          	</div>
+	          	<div>
+	            	<a href="basket"><img src="${path}/resources/images/backBtn.png" alt="" /></a>
+	          	</div>
+       		</div>
+        </form>
 
             
           </div>
