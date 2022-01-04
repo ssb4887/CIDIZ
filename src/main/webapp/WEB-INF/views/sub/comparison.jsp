@@ -220,7 +220,7 @@
           <div id="table_box">
             <ul>
               <li>
-                <table id="tb" border="1">
+                <table id="tb" border="1" style="border-color: #f9f9f9;">
                   <tr>
                     <td style="height: 335px; text-align: center">
                       <h1>Product</h1>
@@ -266,7 +266,7 @@
               </li>
               <c:forEach var="compar" items = "${cp_list}">
               <li>
-                <table id="tb" border="1" style ="width: 200px; height: 1526px; margin-right: 20px">
+                <table id="tb" border="1"  style ="width: 200px; height: 1526px; margin-right: 20px; border-color: #f9f9f9;">
                   <tr>
                     <td style="text-align: center; height: 335px;">
                     	<img src = "${path}/resources/images/${compar.feature_top}">
@@ -283,32 +283,33 @@
                 </table>
               </li>
               </c:forEach>
-              <!-- 
+              
+              <!-- 빈 공백  -->
               <li>
-                <table id="tb" border="1">
-                  <tr>
-                    <td style="height: 335px; text-align: center">1</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">12</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">2</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">12</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">31</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 150px; text-align: center">23</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 425px; text-align: center">12</td>
-                  </tr>
+                <table id="tb" border="1"  style ="width: 200px; height: 1526px; margin-right: 20px; border-color: #f9f9f9;">
+                  	<tr>
+	                    <td style="text-align: center; height: 335px;">
+	                    </td>
+                   	</tr>
+                   	<tr>
+                   		<td></td>
+                   	</tr>
                 </table>
-              </li> -->
+              </li>
+              
+              
+              <li>
+                <table id="tb" border="1"  style ="width: 200px; height: 1526px; margin-right: 20px; border-color: #f9f9f9;">
+                  	<tr>
+	                    <td style="text-align: center; height: 335px;">
+	                    </td>
+                   	</tr>
+                   	<tr>
+                   		<td></td>
+                   	</tr>
+                </table>
+              </li>
+
                 <!-- 추가할 항목 
                 <li>
                 <table id="tb" border="1" style ="height: 1526px;">

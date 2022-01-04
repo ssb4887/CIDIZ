@@ -682,6 +682,7 @@
   margin: 0 auto;
   margin-bottom: 250px;
   overflow-x: scroll;
+  white-space:nowrap
 }
 
 #table_box ul li {
