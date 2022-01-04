@@ -23,7 +23,7 @@
     />
 </head>
 
-  <body>
+<body>
   <div class="wrapper">
     <!-- [상단(header)] -->
     <header id="header">
@@ -32,9 +32,11 @@
     </header>
     <!-- 상단-네비 : 우측 아이콘 -->
     <div id="header_icon">
+    			
       <ul class="nav-group">
+
         <li>
-            <img src="${path}/resources/images/main_images/nav_my.png" alt="" />
+            <a href="#"><img src="${path}/resources/images/main_images/nav_my.png" alt="" /></a>
         </li>
         <li>
             <img src="${path}/resources/images/main_images/nav_write.png" alt="" class="write"/>
@@ -51,6 +53,7 @@
         <i></i>
         <i></i>
         <i></i>
+        
       </a>
     </div>
 
@@ -59,6 +62,24 @@
       <div class="nav-inner">
         <article id="side_mn">  
           <ul>
+          <li>
+	         <p>
+		         	<!-- 로그인 안했을 때 표시  -->
+		         	<c:if test = "${empty user_id}" >
+		         		<a href = "${path}/login">
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Login
+		         		</a>
+		         	</c:if>
+		         	
+		         	<!-- 로그인 했을 때 표시  -->
+		         	<c:if test = "${not empty user_id}" >
+		         		<a href = "${path}/logout">
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Logout
+		         		</a>
+		         	</c:if>
+		         
+	         </p>
+          </li>
             <li class="has-sp sp-1">
               <p>
                 <a href="#">
@@ -68,28 +89,28 @@
             </li>
             <li class="has-sp sp-2">
               <p>
-                <a href="#">
+                <a href="basket">
                   <img src="${path}/resources/images/nav_images/nav_ShoppingBasket.png" alt="" />Shopping Basket
                 </a>
               </p>
             </li>
             <li class="has-sp sp-3">
               <p>
-                <a href="review ">
+                <a href="review">
                   <img src="${path}/resources/images/nav_images/nav_Review.png" alt="" />Review
                 </a>
               </p>
             </li>
             <li class="has-sp sp-4">
               <p>
-                <a href="#">
+                <a href="comparison">
                   <img src="${path}/resources/images/nav_images/nav_Compare.png" alt="" />Compare
                 </a>
               </p>
             </li>
             <li class="has-sp sp-5">
               <p>
-                <a href="event ">
+                <a href="event">
                   <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />Event
                 </a>
               </p>
@@ -105,13 +126,13 @@
               </h4>
               <div class="contents">
                 <ul id="first">
-                  <li>
+                  <li class="nav_title">
                     <a href="brand_story">
                       BRAND STORY
                       <img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_1.png" alt="" id="brand_img"/>
                     </a>
                   </li>
-                  <li>
+                  <li class="nav_title">
                     <a href="news ">
                       NEWS<img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_2.png" alt="" />
                     </a>
@@ -119,42 +140,43 @@
                 </ul>
               </div>
             </li>
-            <li id="products">
-              <h4 class="has-sp sp-7">
+            <li id="products"  class="nav_title">
+              <h4 class="has-sp sp-7" style="font-size:80px">
                 <p> <b>PRODUCTS</b> </p>
               </h4>
               <div class="contents">
                 <ul id="second">
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       사무용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_1.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       학생용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_2.png" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       유아용
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_3.jpg" alt="" />
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       인테리어
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_4.png" alt="" id="interior_img"/>
                     </a>
                   </li>
                   <li>
-                    <a href="productMenu ">
+                    <a href="productMenu">
                       모든제품
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_5.png" alt="" id="all_img"/>
                     </a>
                   </li>
+                  
                 </ul>
               </div>
             </li>
@@ -165,7 +187,7 @@
               <div class="contents">
                 <ul id="third">
                   <li>
-                    <a href="#">
+                    <a href="bbs">
                       Q&A
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_1.png" alt="" />
                     </a>
@@ -177,7 +199,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="search_store ">
+                    <a href="search_store">
                       매장찾기
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_3(1).png" alt="" id="map_img"/>
                     </a>
@@ -189,8 +211,10 @@
         </article>
       </div>
     </nav>
-<!-- [내용(contents)] 부분  -->
-
+	<!-- [네비 끝 ] -->
+	
+	<!-- [내용(contents)] 부분  -->
+	
     <!-- 뉴스 -->
     <div id="news">
       <div id="select_menu">

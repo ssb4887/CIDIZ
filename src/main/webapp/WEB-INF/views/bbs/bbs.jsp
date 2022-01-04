@@ -84,7 +84,6 @@ $(document).ready(function(){
       </a>
     </div>
 
-    <%-- 네비게이션 시작 --%>
     <!-- [네비] -->
     <nav id="main_mn">
       <div class="nav-inner">
@@ -95,14 +94,14 @@ $(document).ready(function(){
 		         	<!-- 로그인 안했을 때 표시  -->
 		         	<c:if test = "${empty user_id}" >
 		         		<a href = "${path}/login">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Login
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Login
 		         		</a>
 		         	</c:if>
 		         	
 		         	<!-- 로그인 했을 때 표시  -->
 		         	<c:if test = "${not empty user_id}" >
 		         		<a href = "${path}/logout">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Logout
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Logout
 		         		</a>
 		         	</c:if>
 		         
@@ -117,7 +116,7 @@ $(document).ready(function(){
             </li>
             <li class="has-sp sp-2">
               <p>
-                <a href="#">
+                <a href="basket">
                   <img src="${path}/resources/images/nav_images/nav_ShoppingBasket.png" alt="" />Shopping Basket
                 </a>
               </p>
@@ -131,7 +130,7 @@ $(document).ready(function(){
             </li>
             <li class="has-sp sp-4">
               <p>
-                <a href="#">
+                <a href="comparison">
                   <img src="${path}/resources/images/nav_images/nav_Compare.png" alt="" />Compare
                 </a>
               </p>
@@ -143,7 +142,6 @@ $(document).ready(function(){
                 </a>
               </p>
             </li>
-		
           </ul>
         </article>
 
@@ -240,7 +238,7 @@ $(document).ready(function(){
         </article>
       </div>
     </nav>
-    <%-- 네비게이션 종료 --%>
+	<!-- [네비 끝 ] -->
 
 	
 	<%-- 메인 게시판 --%>
@@ -266,7 +264,7 @@ $(document).ready(function(){
 										<c:forEach var = "boarder" items = "${map.list}">
 										<tr>
 												<td>${boarder.boarder_id}</td>
-												<td><a href = "${path}/bbs/view?boarder_id=${boarder.boarder_id}">${boarder.title}</a></td>
+												<td><a href = "${path}/bbs/view?boarder_id=${boarder.boarder_id}" style="color: #333;">${boarder.title}</a></td>
 												<td>${boarder.count}</td>
 												<td>${boarder.writer}</td>
 												<td>${boarder.reg_date}</td>
@@ -281,7 +279,7 @@ $(document).ready(function(){
 						<!-- 이전 section 버튼 -->
 						<c:if test = "${map.paging.pageNumber > 5}">
 					
-							<li><a href="./bbs?pageNumber=${map.paging.before}"><span class = "glyphicon glyphicon-triangle-left"></span></a></li>
+							<li><a href="./bbs?pageNumber=${map.paging.before}"><span class = "glyphicon glyphicon-triangle-left" ></span></a></li>
 					
 						</c:if>
 							
@@ -289,7 +287,7 @@ $(document).ready(function(){
 								
 								<c:if test = "${i == map.paging.pageNumber}">
 									<li class = "active">
-										<a>${i}</a>
+										<a style="background-color: #F15345; border: 1px solid #F15345">${i}</a>
 									</li>
 								</c:if>
 								

@@ -35,7 +35,9 @@
 		button:hover {font-size: 14px}
   </style>
 </head>
+
 <body>
+  <div class="wrapper">
     <!-- [상단(header)] -->
     <header id="header">
       <!-- 상단 : 로고 -->
@@ -43,9 +45,11 @@
     </header>
     <!-- 상단-네비 : 우측 아이콘 -->
     <div id="header_icon">
+    			
       <ul class="nav-group">
+
         <li>
-            <a href="login"><img src="${path}/resources/images/main_images/nav_my.png" alt="" /></a>
+            <a href="#"><img src="${path}/resources/images/main_images/nav_my.png" alt="" /></a>
         </li>
         <li>
             <img src="${path}/resources/images/main_images/nav_write.png" alt="" class="write"/>
@@ -62,6 +66,7 @@
         <i></i>
         <i></i>
         <i></i>
+        
       </a>
     </div>
 
@@ -70,6 +75,24 @@
       <div class="nav-inner">
         <article id="side_mn">  
           <ul>
+          <li>
+	         <p>
+		         	<!-- 로그인 안했을 때 표시  -->
+		         	<c:if test = "${empty user_id}" >
+		         		<a href = "${path}/login">
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Login
+		         		</a>
+		         	</c:if>
+		         	
+		         	<!-- 로그인 했을 때 표시  -->
+		         	<c:if test = "${not empty user_id}" >
+		         		<a href = "${path}/logout">
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Logout
+		         		</a>
+		         	</c:if>
+		         
+	         </p>
+          </li>
             <li class="has-sp sp-1">
               <p>
                 <a href="#">
@@ -79,7 +102,7 @@
             </li>
             <li class="has-sp sp-2">
               <p>
-                <a href="#">
+                <a href="basket">
                   <img src="${path}/resources/images/nav_images/nav_ShoppingBasket.png" alt="" />Shopping Basket
                 </a>
               </p>
@@ -93,7 +116,7 @@
             </li>
             <li class="has-sp sp-4">
               <p>
-                <a href="#">
+                <a href="comparison">
                   <img src="${path}/resources/images/nav_images/nav_Compare.png" alt="" />Compare
                 </a>
               </p>
@@ -116,13 +139,13 @@
               </h4>
               <div class="contents">
                 <ul id="first">
-                  <li>
+                  <li class="nav_title">
                     <a href="brand_story">
                       BRAND STORY
                       <img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_1.png" alt="" id="brand_img"/>
                     </a>
                   </li>
-                  <li>
+                  <li class="nav_title">
                     <a href="news ">
                       NEWS<img src="${path}/resources/images/nav_images/nav_ABOUT SIDIZ_2.png" alt="" />
                     </a>
@@ -130,8 +153,8 @@
                 </ul>
               </div>
             </li>
-            <li id="products">
-              <h4 class="has-sp sp-7">
+            <li id="products"  class="nav_title">
+              <h4 class="has-sp sp-7" style="font-size:80px">
                 <p> <b>PRODUCTS</b> </p>
               </h4>
               <div class="contents">
@@ -166,6 +189,7 @@
                       <img src="${path}/resources/images/nav_images/nav_PRODUCTS_5.png" alt="" id="all_img"/>
                     </a>
                   </li>
+                  
                 </ul>
               </div>
             </li>
@@ -176,7 +200,7 @@
               <div class="contents">
                 <ul id="third">
                   <li>
-                    <a href="#">
+                    <a href="bbs">
                       Q&A
                       <img src="${path}/resources/images/nav_images/nav_SUPPORT_1.png" alt="" />
                     </a>
@@ -200,7 +224,8 @@
         </article>
       </div>
     </nav>
-
+	<!-- [네비 끝 ] -->
+	
 <%-- 메인 컨텐츠 --%>
 <div class = "container" style = "margin-top: 7%; margin-bottom: 5%">
 		<div class = "col-lg-3"></div>
@@ -208,23 +233,14 @@
 		<div class = "col-lg-6">
 				<div class = "jumbotron" ><!-- jumbotron : 이 클래스 때문에 앞, 뒤 공간이 비어있는 것. -->
 						<form method = "POST" action = "./joinAction"> <!-- @WebServlet("/join")이랑 동일 해야한다. -->
-								<h3 style = "text-align : center; margin-top: 3%; margin-bottom: 5%">회원가입</h3>	
-								<!-- 
-									(아이디 중복 확인 칸) 1. table 이용, 2. div로 공간배정 
-									bs : <-- 는 부트스트랩 설명
-									class는 띄워쓰기로 여러개의 속성 적용가능. 중복이 되면 맨 마지막 class에 속성을 적용
-								-->
-								
-								<!--  아이디 입력에 대한 공간 할당 -->
-								<!-- bs : row - 공간을 12개로 분할 -->
+								<h3 style = "text-align : center; margin-top: 3%; margin-bottom: 5%">회원정보 입력</h3>	
 								<div class = "row">
-										<!-- 아이디 입력 --><!-- ↓ 사이즈가 어떻게 되던간에 12중 9개의 공간을 차지해라 라는 뜻이다. -->
 										<div class ="form-group col-sm-9 col-md-9 col-lg-9">
 												<input type = "text" id = "user_id" class = "form-control" name = "user_id" placeholder = "아이디">
-										</div><!-- placeholder : 기본으로 폼에 입력되어 있는값(클릭시 사라진다, 폼에 입력값 설명시 사용)  ↑ -->
+										</div>
 										
 										<div class = "form-group col-sm-3 col-md-3 col-lg-3">
-												<button type = "button" class = "btn btn-success btn-block" id = "id_check">중복체크</button>
+												<button type = "button" class = "btn btn-success btn-block" id = "id_check"  style="background-color: #807F83; border: 1px solid #807F83">중복체크</button>
 										</div>
 								</div>
 								
@@ -266,13 +282,11 @@
 									<div class ="form-group" style = " text-align : center;">
 										<div class = "btn-group" data-toggle = "buttons">
 												
-												<!-- label : UI 요소에 라벨을 정의하는 HTML 태그 -->
-												<label class = "btn btn-primary">
-														<!-- autocomplete 속성 : 과거 기록을 dropdown 형식으로 보여줄지를 선택 - true : 보여줌, false : 보여주지 않음-->
+												<label class = "btn btn-primary" style="background-color: #807F83; border: 1px solid #807F83">
 														<input type = "radio" name = "user_gender" autocomplete = "off" value = "m">남자
 												</label>
-												<label class = "btn btn-primary">
-														<input type = "radio" name = "user_gender" autocomplete = "off" value = "w">여자
+												<label class = "btn btn-primary" style="background-color: #807F83; border: 1px solid #807F83">
+														<input type = "radio" name = "user_gender" autocomplete = "off" value = "w" >여자
 												</label>
 										</div>
 									</div>		
@@ -286,18 +300,10 @@
 											</div>
 											<div class = "form-group col-sm-3 col-md-3 col-lg-3"><!-- ↓ btn-block : 할당 공간을 꽉 채우기 -->
 													<button type = "button" class = "btn btn-success btn-block" 
-																	data-toggle = "modal" data-target = "#emailAuthModal">인증</button>
-													  				<!-- Modal : 부트스트랩에서 지원하는 팝업창 -->
+																	data-toggle = "modal" data-target = "#emailAuthModal"  style="background-color: #807F83; border: 1px solid #807F83">인증</button>
 											</div>
 								</div>
 								
-								<!-- 주소 입력에 대한 공간 할당 -->
-								<!-- 
-										ㆍ주소 name
-										- 우편번호		: addr1
-										- 주	   소	: addr2
-										- 상세주소		: addr3
-								 -->
 								<div class = "row">
 										<!-- 우편번호 -->
 										<div class = "form-group col-sm-3 col-md-3 col-lg-3">
@@ -306,7 +312,7 @@
 									
 										<div class = "form-group col-sm-3 col-md-3 col-lg-3">
 												<button type = "button" class = "btn btn-success btn-block"
-												data-toggle = "modal" data-target = "#addrModal">주소검색</button>
+												data-toggle = "modal" data-target = "#addrModal"  style="background-color: #807F83; border: 1px solid #807F83">주소검색</button>
 										</div>
 										
 										<!-- 주소 -->
@@ -325,10 +331,11 @@
 										<div class = "form-group cols-sm12 col-md-12 col-lg-12">
 												<input type = "text" class = "form-control" id = "user_tel" name = "user_tel" placeholder = "전화번호">
 										</div>
-								</div>						
+								</div>				
+										
 								<!-- 제출 버튼 -->
 								<div class ="form-group">
-									<input type = "submit" class = "btn btn-primary form-control" value = "회원가입">
+									<input type = "submit" class = "btn btn-primary form-control" value = "회원가입"  style="background-color: #F15345; border: 1px solid #F15345">
 								</div>					
 						</form>
 				</div>

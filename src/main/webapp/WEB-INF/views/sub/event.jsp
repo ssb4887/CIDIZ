@@ -193,7 +193,7 @@
 <div id="event">
         <div id="select_menu">
           <ul>
-            <li><span>HOME</span></li>
+            <li><span><a href="/" style = "color: #777">HOME</a></span></li>
             <li>이벤트</li>
           </ul>
         </div>

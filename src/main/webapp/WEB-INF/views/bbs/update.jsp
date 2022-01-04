@@ -57,7 +57,6 @@
       </a>
     </div>
 
-    <%-- 네비게이션 시작 --%>
     <!-- [네비] -->
     <nav id="main_mn">
       <div class="nav-inner">
@@ -68,14 +67,14 @@
 		         	<!-- 로그인 안했을 때 표시  -->
 		         	<c:if test = "${empty user_id}" >
 		         		<a href = "${path}/login">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Login
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Login
 		         		</a>
 		         	</c:if>
 		         	
 		         	<!-- 로그인 했을 때 표시  -->
 		         	<c:if test = "${not empty user_id}" >
 		         		<a href = "${path}/logout">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Logout
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Logout
 		         		</a>
 		         	</c:if>
 		         
@@ -90,7 +89,7 @@
             </li>
             <li class="has-sp sp-2">
               <p>
-                <a href="#">
+                <a href="basket">
                   <img src="${path}/resources/images/nav_images/nav_ShoppingBasket.png" alt="" />Shopping Basket
                 </a>
               </p>
@@ -104,7 +103,7 @@
             </li>
             <li class="has-sp sp-4">
               <p>
-                <a href="#">
+                <a href="comparison">
                   <img src="${path}/resources/images/nav_images/nav_Compare.png" alt="" />Compare
                 </a>
               </p>
@@ -116,7 +115,6 @@
                 </a>
               </p>
             </li>
-		
           </ul>
         </article>
 
@@ -213,7 +211,7 @@
         </article>
       </div>
     </nav>
-    <%-- 네비게이션 종료 --%>
+	<!-- [네비 끝 ] -->
 
 	<%-- 글 수정하기 양식 --%>
 	<div class = "container"  style="margin-top: 15%">

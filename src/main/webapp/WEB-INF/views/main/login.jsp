@@ -24,7 +24,6 @@
   <script src="${path}/resources/js/script.js"></script><!-- 제이쿼리 --> 
   <script src="${path}/resources/js/nav_jquery.js"></script><!-- 네비 js --> 
 </head>
-<body>
 
 <body>
   <div class="wrapper">
@@ -70,14 +69,14 @@
 		         	<!-- 로그인 안했을 때 표시  -->
 		         	<c:if test = "${empty user_id}" >
 		         		<a href = "${path}/login">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Login
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Login
 		         		</a>
 		         	</c:if>
 		         	
 		         	<!-- 로그인 했을 때 표시  -->
 		         	<c:if test = "${not empty user_id}" >
 		         		<a href = "${path}/logout">
-		         		<img src="${path}/resources/images/nav_images/nav_login_mypge.png" alt="" />Logout
+		         		<img src="${path}/resources/images/nav_images/logout.png" alt="" />Logout
 		         		</a>
 		         	</c:if>
 		         
@@ -106,7 +105,7 @@
             </li>
             <li class="has-sp sp-4">
               <p>
-                <a href="#">
+                <a href="comparison">
                   <img src="${path}/resources/images/nav_images/nav_Compare.png" alt="" />Compare
                 </a>
               </p>
@@ -115,13 +114,6 @@
               <p>
                 <a href="event">
                   <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />Event
-                </a>
-              </p>
-            </li>
-            <li class="has-sp sp-6">
-              <p>
-                <a href="comparison">
-                  <img src="${path}/resources/images/nav_images/nav_Event2.png " alt="" />comparison
                 </a>
               </p>
             </li>
@@ -222,7 +214,7 @@
       </div>
     </nav>
 	<!-- [네비 끝 ] -->
-
+	
 <%-- 메인 컨텐츠 --%>
 <div class = "container" style = "margin-top: 10%; margin-bottom: 5%">
 		<div class = "col-lg-4"></div>
@@ -231,11 +223,16 @@
 				<div class = "jumbotron" >
 						<form method = "POST" action = "./loginAction">  
 								<!-- 상단 : 로고 -->
-      							<h2 class="logo" style = "text-align: center;"><a href="/">SIDIZ</a></h2>
-								<h3 style = "text-align : center; margin-top: 7%; margin-bottom: 3%">로그인</h3>	
+								<h3 style = "text-align : left; margin-bottom: 7%; font-weight: bold; color: #777;">LOGIN</h3>
+								
+								<!-- 로그인 글자 밑 선 그림  -->
+								<div style="border-left: 1px solid #999; border-right: 1px solid #999; height: 3px;"></div>	
+								<div class ="form-group" style="border-bottom: 1px solid #999"></div>
+								<div style="border-left: 1px solid #999; border-right: 1px solid #999; height: 3px; margin-top: -15px; margin-bottom: 30px"></div>		
+								
 								<!-- 아이디 입력 -->
 								<div class ="form-group">
-									<input type = "text" class = "form-control" autocomplete = "off" name = "user_id" placeholder = "아이디">
+									<input type = "text" class = "form-control" autocomplete = "off" name = "user_id" placeholder = "아이디" >
 								</div>
 								
 								<!-- 비밀번호 입력 -->
@@ -245,12 +242,12 @@
 								
 								<!-- 제출 버튼 -->
 								<div class ="form-group">
-									<input type = "submit" class = "btn btn-primary form-control" value = "로그인">
+									<input type = "submit" class = "btn btn-primary form-control" value = "로그인" style="background-color: #F15345; border: 1px solid #F15345">
 								</div>			
 								
 								<!-- 회원가입 버튼 -->
 								<div class ="form-group">
-									<a href ="./join" class = "btn btn-success form-control">회원가입</a>
+									<a href ="./join" class = "btn btn-success form-control"  style="background-color: #807F83; border: 1px solid #807F83">회원가입</a>
 								</div>				
 						</form>
 				</div>

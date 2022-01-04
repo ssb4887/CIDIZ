@@ -678,11 +678,13 @@
 
 #table_box {
   width: 1000px;
-  height: 1530px;
+  height: 1527px;
   margin: 0 auto;
   margin-bottom: 250px;
   overflow-x: scroll;
-  white-space:nowrap
+  white-space:nowrap;
+  border: 1px solid #999;
+  
 }
 
 #table_box ul li {
