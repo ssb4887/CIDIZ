@@ -95,18 +95,21 @@
 			// 주문할 상품이 없을시
 			if($('#product_name').val() == null) {
 				alert('주문 목록이 없습니다!');
+				e.preventDefault();
 				return;
 			}	
 			
 			// 이용약관 모두 체크 X 시
 			else if($('#collect_third').is(':checked') != true || $('#collect').is(':checked') != true) {
 				alert('이용약관에 모두 동의 해주세요!');
+				e.preventDefault();
 				return;
 			}
 			
 			// 배송지 정보 전부 미 입력시	
 			else if(user_name == "" || addr3 == "" || user_phone == "" || user_tel == "" || order_memo) {
 				alert("배송지 정보의 모든 값을 입력 해주세요!");
+				e.preventDefault();
 				return;
 			}
 			

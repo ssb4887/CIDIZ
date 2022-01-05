@@ -217,9 +217,9 @@
 	
 <%-- 메인 컨텐츠 --%>
 <div class = "container" style = "margin-top: 10%; margin-bottom: 5%">
-		<div class = "col-lg-4"></div>
+		<div class = "col-lg-3"></div>
 		
-		<div class = "col-lg-4">
+		<div class = "col-lg-6">
 				<div class = "jumbotron" >
 						<form method = "POST" action = "./loginAction">  
 								<!-- 상단 : 로고 -->
@@ -252,7 +252,7 @@
 						</form>
 				</div>
 		</div>
-		<div class = "col-lg-4"></div>
+		<div class = "col-lg-3"></div>
 </div>
 <%-- 메인 컨텐츠 종료 --%>
       <!-- [하단(footer)] 부분 -->
