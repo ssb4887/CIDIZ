@@ -2,11 +2,10 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace = "com.bbs.mappers.bbs">
+<mapper namespace = "com.sidiz.mappers.bbs">
 <!-- SQL문 작성 공간 -->
 
 		<!-- 유저 아이디 중복체크 SQL -->
-		<!-- id : 함수이름, resultType : 반환타입 -->
 		<select id = "idCheck" resultType = "string">
 				SELECT	user_id
 				FROM 	USERS
@@ -19,10 +18,6 @@
 				FROM	AUTHMAIL
 				WHERE	user_mail = #{user_mail}
 		</select>
-		<!--
-				_int 	: 우리가 알고 있는 데이터타입 int
-				 int 	: Integer (null 값이 올 수 있는 것은 Integer로 받아온다.)
-		-->
 		
 		<!-- 이메일 인증번호 수정하기 SQL -->
 		<update id = "resetAuthnum">
@@ -54,7 +49,6 @@
 
 		<!-- 로그인 처리 SQL -->
 		<select id = "login" resultType = "Users">
-		<!-- 반환 타입은 관리하고 있는 bean 객체의 bean class의 절대경로를 적어줘야 한다. -->
 				SELECT	*
 				FROM 	USERS
 				WHERE	user_id = #{user_id}
@@ -65,15 +59,10 @@
 		<insert id="write">
 				INSERT INTO BOARDER (writer, title, contents, reg_date, likey, Available)
 				VALUES(#{writer}, #{title}, #{contents}, now(), 0, 0)
-				<!-- ### AUTO_INCREMENT 사용시 PRIMARY KEY를 받아올때 사용 ###
-						<selectKey>	: select해오고 primary key를 가져 온다.
-						keyProperty 	: bean에 속성 중 어떠한 값으로 지정할건지 작성
-						resultType		: 가져오는 데이터 타입
-						order : 순서 [언제 실행 할 건지 작성] -->
 				<selectKey keyProperty="boarder_id" resultType="_int" order="AFTER">
 						SELECT LAST_INSERT_ID()
 				</selectKey>
-		</insert><!-- 현재 날짜와 시간 => oracle 	: SYSDATE / MySQL 	: now()-->
+		</insert>
 		
 		
 		<!-- 파일 업로드 SQL -->
@@ -135,11 +124,10 @@
 		<select id="getBbsList" resultType="Boarder">
 				SELECT	 	* 
 				FROM 	 		BOARDER
-				<!-- <![CDATA[이 안에 부등호를 넣어야 부등호가 인식이 된다. 쿼리문 전체가 와도 상관없음]]> -->
 				WHERE	 	boarder_id <![CDATA[<=]]> #{boarder_id}
 				AND 		 	available = 0 
 				ORDER BY 	boarder_id DESC
-				LIMIT	 		10	<!-- LIMIT 제한을 건다. 10개 이하만 뽑아라. -->
+				LIMIT	 		10	
 		</select>
 		
 		

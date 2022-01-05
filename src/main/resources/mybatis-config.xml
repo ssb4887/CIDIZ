@@ -5,19 +5,19 @@
 <configuration>
 	<typeAliases>
 		<!-- VO -->
-		<typeAlias alias="USERS" type="com.bbs.vo.Users" />
-		<typeAlias alias="Authmail" type="com.bbs.vo.Authmail" />
-		<typeAlias alias="Boarder" type="com.bbs.vo.Boarder" />
-		<typeAlias alias="Likey_R" type="com.bbs.vo.Likey_R" />
-		<typeAlias alias="Reply" type="com.bbs.vo.Reply" />
-		<typeAlias alias="UploadFile" type="com.bbs.vo.UploadFile" />
-		<typeAlias alias="Basket" type="com.bbs.vo.Basket" />
-		<typeAlias alias="Product" type="com.bbs.vo.Product" />
-		<typeAlias alias="Orders" type="com.bbs.vo.Orders" />
+		<typeAlias alias="USERS" type="com.sidiz.vo.Users" />
+		<typeAlias alias="Authmail" type="com.sidiz.vo.Authmail" />
+		<typeAlias alias="Boarder" type="com.sidiz.vo.Boarder" />
+		<typeAlias alias="Likey_R" type="com.sidiz.vo.Likey_R" />
+		<typeAlias alias="Reply" type="com.sidiz.vo.Reply" />
+		<typeAlias alias="UploadFile" type="com.sidiz.vo.UploadFile" />
+		<typeAlias alias="Basket" type="com.sidiz.vo.Basket" />
+		<typeAlias alias="Product" type="com.sidiz.vo.Product" />
+		<typeAlias alias="Orders" type="com.sidiz.vo.Orders" />
 		
 		<!-- BO -->
-		<typeAlias alias="UserBasket" type="com.bbs.bo.UserBasket" />
-		<typeAlias alias="TotalOrderPrice" type="com.bbs.bo.TotalOrderPrice" />
-		<typeAlias alias="Comparison_product" type="com.bbs.bo.Comparison_product" />
+		<typeAlias alias="UserBasket" type="com.sidiz.bo.UserBasket" />
+		<typeAlias alias="TotalOrderPrice" type="com.sidiz.bo.TotalOrderPrice" />
+		<typeAlias alias="Comparison_product" type="com.sidiz.bo.Comparison_product" />
 	</typeAliases>
 </configuration>

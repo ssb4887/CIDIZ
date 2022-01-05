@@ -225,9 +225,9 @@
                 <li><i class="fas fa-chevron-right"></i></li>
                 <li><a href="productMenu ">사무용의자</a></li>
                 <li><i class="fas fa-chevron-right"></i></li>
-                <li>T80</li>
+                <li>T55</li>
                 <li><i class="fas fa-chevron-right"></i></li>
-                <li>T800HLDAS 좌판가죽</li>
+                <li>T550HLDAS 천연가죽</li>
             </ul>
             </div>
         </article>
@@ -235,21 +235,21 @@
             <div class="phm_box">
             <!-- box_img -->
             <div class="phmb_img">
-                <img src="${path}/resources/images/sidiz_img/p_main1.png">
-                <img src="${path}/resources/images/sidiz_img/p_main2.png">
-                <img src="${path}/resources/images/sidiz_img/p_main3.png">
-                <img src="${path}/resources/images/sidiz_img/p_main4.png">
-                <img src="${path}/resources/images/sidiz_img/p_main5.png">
+                <img src="${path}/resources/images/sidiz_img/p2_main1.png">
+                <img src="${path}/resources/images/sidiz_img/p2_main2.png">
+                <img src="${path}/resources/images/sidiz_img/p2_main3.png">
+                <img src="${path}/resources/images/sidiz_img/p2_main4.png">
+                <img src="${path}/resources/images/sidiz_img/p2_main5.png">
             </div>
             <form method = "POST" action = "./addBasketAction">
             <!-- box_txt -->
             <div class="phmb_txt">
                 <div class="txt_box">
-                <h4>T800HLDAS 좌판가죽</h4>
+                <h4>T550HLDAS 천연가죽</h4>
                 <!-- 상품 이름 넘기기 -->
-                <input type = "hidden" name = "product_name" value = "T800HLDAS 좌판가죽" />
-                <p>CODE &#35; T800HLDAS</p>
-                <h5>&#8361;882&#44;000</h5>
+                <input type = "hidden" name = "product_name" value = "T550HLDAS 천연가죽" />
+                <p>CODE &#35; TNA550HLDAS</p>
+                <h5>&#8361;694&#44;000</h5>
                 <!-- 색상 선택 박스 -->
                 <p>COLOR &#47; 색상</p>
                 <ul>
@@ -261,8 +261,8 @@
                     <li></li>
                 </ul>
                 <!-- 색상 표시 박스 -->
-                <a href="#">L096X</a>
-                <p id="color_box">L096X&#95;블랙</p>
+                <a href="#">L096</a>
+                <p id="color_box">L096&#95;블랙</p>
                 <!-- 수량 버튼 -->
                 <p id="txt_box">QUANTITY &#47; 수량</p>
                 <div id="btn_count">
@@ -296,13 +296,11 @@
         
         <article class="ph_foot">
             <ul id="img_btn">
-            <li><a href="${path}/resources/images/sidiz_img/p_main1.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn1.jpg" alt=""/></a></li>
-            <li><a href="${path}/resources/images/sidiz_img/p_main2.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn2.jpg" alt=""/></a></li>
-            <li><a href="${path}/resources/images/sidiz_img/p_main3.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn3.jpg" alt=""/></a></li>
-            <li><a href="${path}/resources/images/sidiz_img/p_main4.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn4.jpg" alt=""/></a></li>
-            <li><a href="${path}/resources/images/sidiz_img/p_main5.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn5.jpg" alt=""/></a></li>
-            <!-- youtube link -->
-            <li><a href="https://youtu.be/PMFjQkTA0ak" target = "_blank"><img src="${path}/resources/images/sidiz_img/p_f_imgBtn6.jpg" alt=""/></a></li>
+	            <li><a href="${path}/resources/images/sidiz_img/p2_main1.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p2_f_imgBtn1.jpeg" alt=""/></a></li>
+	            <li><a href="${path}/resources/images/sidiz_img/p2_main2.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p2_f_imgBtn2.jpeg" alt=""/></a></li>
+	            <li><a href="${path}/resources/images/sidiz_img/p2_main3.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p2_f_imgBtn3.jpeg" alt=""/></a></li>
+	            <li><a href="${path}/resources/images/sidiz_img/p2_main4.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p2_f_imgBtn4.jpeg" alt=""/></a></li>
+	            <li><a href="${path}/resources/images/sidiz_img/p2_main5.png" class="ibc_btn"><img src="${path}/resources/images/sidiz_img/p2_f_imgBtn5.jpeg" alt=""/></a></li>
             </ul>
         </article>
         <!-- 제품 정보 테이블 -->
@@ -334,14 +332,14 @@
                 </li>
                 <li>
                 <ul class="pit_content">
-                    <li>T800HLDAS 좌판가죽 &#40;T800HLDAS&#95;L&#45;MESH&#41;</li>
+                    <li>T550HLDAS 천연가죽 &#40;TNA550HLDAS&#41;</li>
                     <li>해당사항없음</li>
                     <li>블랙</li>
                     <li>의자</li>
-                    <li>메쉬&#44; 천연가죽&#44; 발포스폰지&#44; PP&#44; 나일론&#44; 플라스틱&#44; STEEL</li>
+                    <li>천연가죽&#44;소가죽&#44; 발포스폰지&#44; PP&#44; 나일론&#44; 플라스틱&#44; STEEL</li>
                     <li>시디즈</li>
                     <li>대한민국</li>
-                    <li>670x575x1145&#126;1260</li>
+                    <li>645x675x1135&#126;1255</li>
                     <li>무료 &#40;방문설치 &#47; 단&#44; 엘리베이터 사용료&#44; 사다리차&#44; 배송차량 주차료 등 추가적으로 발생하는 비용은 고객님 부담&#41;</li>
                     <li>기본 1년 품질보증&#44; 일부 품목은 제품 등록 시 5년으로 연장 &#40;세부 리스트는 &#39;품질 보증 서비스&#39; 내 Warranty에서 확인 가능&#41;</li>
                     <li>고객만족센터 &#47; 1577&#45;5674</li>
@@ -406,8 +404,7 @@
             </div>
 
             <div class="ps_video">
-            <img src="${path}/resources/images/sidiz_img/p_storyImg.jpg" alt=""/>
-            <iframe width="1000" height="563" src="https://www.youtube.com/embed/FG4k2VUfwkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <img src="${path}/resources/images/sidiz_img/p2_storyImg.jpeg" alt=""/>
             </div>
 
             <div class="ps_contents">
