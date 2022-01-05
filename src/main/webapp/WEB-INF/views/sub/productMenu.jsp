@@ -236,7 +236,7 @@
                 <a href="product "><div class="img_box img1"></div></a>
               </li>
               <li class="PMcc_img last_img">
-                <div class="img_box img2"></div>
+                <a href="product_t55 "><div class="img_box img2"></div></a>
               </li>
               <li class="PMcc_img">
                 <div class="img_box img3"></div>
@@ -391,6 +391,7 @@
 $(document).ready(function(){
 	var msg = '${msg}';
 	if(msg != null && msg != '') alert(msg);
+
 });
 
 </script>

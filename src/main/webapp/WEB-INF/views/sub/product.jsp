@@ -282,7 +282,7 @@
                     </li>
                     <li>
                     	<a href="/addBasketAction" id="addBasketBtn">
-                        	<input type = "image" src = "${path}/resources/images/sidiz_img/p_btn2.png" alt="제출용 버튼" />
+                        	<input type = "image" src = "${path}/resources/images/sidiz_img/p_btn2.png" alt="제출용 버튼" onclick="basket()" />
                         </a>
                     </li>
                     </ul>
@@ -672,6 +672,10 @@
 $(document).ready(function(){
 	var msg = '${msg}';
 	if(msg != null && msg != '') alert(msg);
+	
+	var check = '${check}';
+	if(check != null && check != '') confirm(check);
+
 });
 
 </script>
