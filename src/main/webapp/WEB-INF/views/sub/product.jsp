@@ -672,6 +672,16 @@
 $(document).ready(function(){
 	var msg = '${msg}';
 	if(msg != null && msg != '') alert(msg);
+	
+	var check = '${check}';
+	if(check != null && check != '') {
+		if(confirm(check) == true){
+			location.href="basket";
+			
+		} else {
+			loaction.href="product";
+		}
+	}
 });
 
 </script>

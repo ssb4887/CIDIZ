@@ -2,17 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
+
 <html>
 <head>
-<style>
-p {
-	font-size: 12px;
-	margin-left: 20px;
-	color: #777;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/formText.css">
+
 </head>
 <body>
+<div id="textForUse">
  <p> [ 시디즈 쇼핑몰 이용약관 ]</p>
  <br>
 <p>제1조(목적)</p>
@@ -189,5 +186,6 @@ p {
 <p>본 약관은 2014년 2월 4일부터 시행됩니다.</p>
 <p>[참고]</p>
 <p>표준약관 제10023호 (2010.12.17 개정)</p>
+</div>
 </body>
 </html>

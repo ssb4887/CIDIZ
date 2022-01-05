@@ -152,15 +152,15 @@ public class MainController {
 				
 				basket.setUser_id(user_id);
 				usersService.addCountAction(basket);
-				ra.addFlashAttribute("msg", "장바구니에 추가되었습니다.");
+				ra.addFlashAttribute("check", "선택 상품을 장바구니에 담았습니다. 장바구니로 이동하시겠습니까?");
 				return "redirect:/product";
 				
 			}
 			
 			basket.setUser_id(user_id);
 			usersService.addBasketAction(basket);
-			ra.addFlashAttribute("msg", "선택 상품을 장바구니에 담았습니다. 장바구니로 이동하시겠습니까?");
-			return "redirect:/basket";
+			ra.addFlashAttribute("check", "선택 상품을 장바구니에 담았습니다. 장바구니로 이동하시겠습니까?");
+			return "redirect:/product";
 		}
 		
 		// basket 상품 지우기
