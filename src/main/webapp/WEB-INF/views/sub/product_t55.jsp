@@ -675,7 +675,7 @@ $(document).ready(function(){
 		if(confirm(check) == true) {
 			location.href="basket";	
 		} else {
-			loaction.href="product";
+			loaction.href="product_t55";
 		}
 	}
 });
