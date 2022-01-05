@@ -157,7 +157,7 @@ public class MainController {
 				
 				basket.setUser_id(user_id);
 				usersService.addCountAction(basket);
-				ra.addFlashAttribute("msg", "장바구니에 수량이 추가되었습니다.");
+				ra.addFlashAttribute("check", "선택 상품을 장바구니에 담았습니다. 장바구니로 이동하시겠습니까?");
 				
 				return "redirect:" + referer;
 				
@@ -166,7 +166,7 @@ public class MainController {
 			basket.setUser_id(user_id);
 			usersService.addBasketAction(basket);
 			ra.addFlashAttribute("check", "선택 상품을 장바구니에 담았습니다. 장바구니로 이동하시겠습니까?");
-			return "redirect:/basket";
+			return "redirect:" + referer;
 		}
 		
 		// basket 상품 지우기

@@ -674,8 +674,13 @@ $(document).ready(function(){
 	if(msg != null && msg != '') alert(msg);
 	
 	var check = '${check}';
-	if(check != null && check != '') confirm(check);
-
+	if(check != null && check != '') {
+		if(confirm(check) == true) {
+			location.href="basket";	
+		} else {
+			loaction.href="product";
+		}
+	}
 });
 
 </script>
